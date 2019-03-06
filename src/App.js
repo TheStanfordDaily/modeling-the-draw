@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+//import ReactDOM from 'react-dom';
 //import Flexbox from 'flexbox-react';
 //import Container from 'react-bootstrap/Container';
 //import Row from 'react-bootstrap/Row';
@@ -7,7 +7,6 @@ import ReactDOM from 'react-dom';
 //import Button from 'react-bootstrap/Button';
 import logo from './logo.svg';
 import './App.css';
-
 import Form from "react-jsonschema-form";
 
 const schema = {
@@ -24,6 +23,9 @@ const schema = {
 
 const log = (type) => console.log.bind(console, type);
 
+const onSubmit = ({formData}, e) => console.log("Data submitted: ", formData);
+const onError = (errors) => console.log("I have", errors.length, "errors to fix");
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -37,8 +39,8 @@ class App extends React.Component {
 
           <Form schema={schema}
                 onChange={log("changed")}
-                onSubmit={log("submitted")}
-                onError={log("errors")} />
+                onSubmit={onSubmit}
+                onError={onError} />
           
         </header>
       </div>
