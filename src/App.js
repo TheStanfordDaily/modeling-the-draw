@@ -5,14 +5,14 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 //import Button from 'react-bootstrap/Button';
-//import logo from './logo.svg';
 import './App.css';
 import Form from "react-jsonschema-form";
+import data from "csv-loader!housingData1718_cleaned.csv";
 
 const schema = {
   title: "Calculator",
   type: "object",
-  required: ["sex", "roomtype", "residence", "tiernumber"],
+  required: ["sex", "roomtype", "residence", "tiernumber", "applytype"],
   properties: {
     sex: {
       type: "string", 
@@ -30,47 +30,172 @@ const schema = {
       type: "integer", 
       title: "Tier #:",
       maxLength: 1
+    },
+    applytype: {
+      type: "string",
+      title: "Group Size: "
     }
   }
 };
 
-/*Variables representing form label names*/
-let sex;
-let roomtype;
-let residence;
-let tiernumber;
+function processTrends(h_data, gender, typeCol, resID, des_year, simple, linear, logistic) {
+  //TODO
+}
 
-/* percentage output */
-const schema2 = {
-  title: "Your Chances",
-  type: "object",
-  properties: {
-    percentage: {
-      type: "string",
-      title: ""//TODO
+
+/* sex, roomtype, residence, tiernumber, applytype */
+function processSingleQuery(sex, roomtype, residence, tiernumber, applytype) {
+  const gender_raw = sex;
+  const roomType_raw = roomtype;
+  const resName_raw = residence;
+  const tierNum_raw = tiernumber;
+  const applyType_raw = applytype;
+
+  /* gender */
+  let gender;
+  switch(gender_raw) {
+    case 'male' :
+      gender = 'm';
+      break;
+    case 'female':
+      gender = 'f';
+      break;
+    default:
+      gender = 'n';
+  }
+
+  /* room type + residence */
+  let roomType;
+
+  switch(roomType_raw) {
+    case 'a 1 room single':
+      roomType = '1 Room Single';
+      break;
+    case 'a 1 room double':
+      roomType = '1 Room Double';
+      break;
+    case 'a 1 room double (focus)' :
+      roomType = '1 Room Double (focus)';
+      break;
+    case 'a 2 room double' :
+      roomType = '2 Room Double';
+      break;
+    case 'a 2 room double (focus)' : 
+      roomType = '2 Room Double (focus)';
+      break;
+    case 'a triple ' : 
+      roomType = 'Triple';
+      break;
+    case 'a standard room ' : 
+      roomType = 'Standard';
+      break;
+    case 'a premium room ' :
+      roomType = 'Premium';
+      break;
+    case 'substance free housing ' :
+      roomType = 'Substance Free Housing';
+      break;
+    case 'ethnic housing ' :
+      roomType = 'ETHNIC';
+      break;
+    default:
+      roomType = 'Any';
+  }
+  if (roomType == "ETHNIC") {
+    switch (resName_raw) {
+      case 'Ujamaa':
+        roomType = 'Ethnic' + 'B';
+        break;
+      case 'Hammarskjold':
+        roomType = 'Ethnic' + 'I';
+        break;
+      case 'Muwekma':
+        roomType = 'Ethnic' + 'N';
+        break;
+      case 'Zapata':
+        roomType = 'Ethnic' + 'C';
+        break;
+      case 'Okada':
+        roomType = 'Ethnic' + 'A';
+        break;
     }
   }
+  const resID = roomType + "," + resName_raw;
+
+  /* applytype (number of ppl in group) */
+  let typeCol;
+  switch (applyType_raw) {
+    case 'an individual':
+      typeCol = 'individual';
+      break;
+    case 'a group of 2':
+      typeCol = 'group_2';
+      break;
+    case 'a group of 3':
+      typeCol = 'group_3';
+      break;
+    case 'a group of 4':
+      typeCol = 'group_4';
+      break;
+  }
+
+  /* tier number */
+  const tierNum = tierNum_raw;
+  
+  let output = '';
+  /* find percentage */
+  if (data['res_name_edited'].contains(resID)) { //const h_data = pd.read_csv(data);
+    const score_ceiling = tierNum * 1000;
+    const score_floor = score_ceiling - 999;
+
+    const cutoff = processTrends(data, gender, typeCol, resID, 2019, true, false, false);
+    
+    /*
+    if (simple) {
+      const data_ySlice = data[data.year == 2018];
+    } else {
+      if (gender != 'n') {
+        const data_sliced = data_ySlice[data_ySLice.sex == gender];
+        const cutoff_i = data_sliced.index[data_sliced.res_name_edited == resID].tolist()[0];
+        cutoff = data_sliced.loc[cutoff_i, typeCol];
+      } else {
+        const data_sliced = data_ySlice;
+        const cutoff_i = data_sliced.index[data_sliced.res_name_edited == resID].tolist();
+        cutoff = (data_sliced.loc[cutoff_is[0], typeCol] + data_sliced.loc[cutoff_is[1], typeCol]) / 2;
+      }
+    }
+    */
+    if (cutoff > score_ceiling) {
+      output = '>99';
+    } else if (cutoff < score_floor) {
+      output = '<0.1';
+    } else {
+      output = (cutoff - score_floor) / 1000;
+    }
+  }
+  return output;
 }
 
 const log = (type) => console.log.bind(console, type);
-
-//const onSubmit = ({formData}, e) => console.log("Data submitted: ", formData);
 
 const onError = (errors) => console.log("I have", errors.length, "errors to fix");
 
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      results: null
+    }
   }
 
   onSubmit = ({formData}) => {
-    sex = JSON.stringify(formData.sex, null, 2);
-    roomtype = JSON.stringify(formData.roomtype, null, 2);
-    residence = JSON.stringify(formData.residence, null, 2);
-    tiernumber = JSON.stringify(formData.tiernumber, null, 2);
-    
-    //<Form schema={schema2} />
-    //alert(sex); //TODO: add this to schema2
+    const sex = JSON.stringify(formData.sex, null, 2);
+    const roomtype = JSON.stringify(formData.roomtype, null, 2);
+    const residence = JSON.stringify(formData.residence, null, 2);
+    const tiernumber = JSON.stringify(formData.tiernumber, null, 2);
+    const applytype = JSON.stringify(formData.applytype, null, 2);
+
+    this.setState({results: processSingleQuery(sex, roomtype, residence, tiernumber, applytype)});
   }
 
   render() {
@@ -87,7 +212,7 @@ class App extends React.Component {
                 onError={onError} />
               </Col>
               <Col>
-                <Form schema={schema2} />
+                <div>{this.state.results && `Your Chances: ${this.state.results}%` }</div> 
               </Col>
             </Row>
           </Container>
