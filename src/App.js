@@ -7,7 +7,9 @@ import Col from 'react-bootstrap/Col';
 //import Button from 'react-bootstrap/Button';
 import './App.css';
 import Form from "react-jsonschema-form";
-import data from "csv-loader!housingData1718_cleaned.csv";
+//import CsvParse from '@vtex/react-csv-parse';
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import data from "csv-loader!./housingData1718_cleaned.csv";
 
 const schema = {
   title: "Calculator",
@@ -39,9 +41,44 @@ const schema = {
 };
 
 function processTrends(h_data, gender, typeCol, resID, des_year, simple, linear, logistic) {
-  //TODO
-}
+  let cutoffs = [];
+  let yearList = Array.from(h_data["year"]).sort();
 
+  let i;
+  for (i = 0; i < yearList.length; i++) {
+    let h_data_ySlice;
+    if (h_data.year == yearList[i]) {
+      h_data_ySlice = h_data[yearList[i]];
+    }
+    let h_data_sliced;
+    if (gender != "n") {
+      if (h_data_ySlice.sex == gender && h_data_ySlice != null) {
+        h_data_sliced = h_data_ySlice[gender];
+      }
+      if (h_data_sliced.res_name_edited == resID && h_data_sliced != null) {
+        const cutoff_i = Array.from(h_data_sliced[resID])[0];
+        cutoffs.push(h_data_sliced[cutoff_i][typeCol]);
+      }
+    } else {
+      h_data_sliced = h_data_ySlice;
+      if (h_data_sliced.res_name_edited == resID && h_data_sliced != null) {
+        const cutoff_is = Array.from(h_data_sliced[resID]);
+        cutoffs.push((h_data_sliced[cutoff_is[0]][typeCol] + h_data_sliced[cutoff_is[1]][typeCol]) / 2);
+      }
+    }
+  }
+  if (cutoffs.length() == 1) {
+    return cutoffs[0];
+  } else if (cutoffs.length() > 1 && yearList.length() == cutoffs.length()) {
+    if (linear) {
+      /*
+      const coef = np.polyfit(yearList, cutoffs, 1);
+      return Math.round(coef[0] * des_year + coef[1]);
+      */
+    }
+  }
+  return;
+}
 
 /* sex, roomtype, residence, tiernumber, applytype */
 function processSingleQuery(sex, roomtype, residence, tiernumber, applytype) {
@@ -148,23 +185,8 @@ function processSingleQuery(sex, roomtype, residence, tiernumber, applytype) {
     const score_ceiling = tierNum * 1000;
     const score_floor = score_ceiling - 999;
 
-    const cutoff = processTrends(data, gender, typeCol, resID, 2019, true, false, false);
-    
-    /*
-    if (simple) {
-      const data_ySlice = data[data.year == 2018];
-    } else {
-      if (gender != 'n') {
-        const data_sliced = data_ySlice[data_ySLice.sex == gender];
-        const cutoff_i = data_sliced.index[data_sliced.res_name_edited == resID].tolist()[0];
-        cutoff = data_sliced.loc[cutoff_i, typeCol];
-      } else {
-        const data_sliced = data_ySlice;
-        const cutoff_i = data_sliced.index[data_sliced.res_name_edited == resID].tolist();
-        cutoff = (data_sliced.loc[cutoff_is[0], typeCol] + data_sliced.loc[cutoff_is[1], typeCol]) / 2;
-      }
-    }
-    */
+    const cutoff = processTrends(data, gender, typeCol, resID, 2019, false, true, false);
+
     if (cutoff > score_ceiling) {
       output = '>99';
     } else if (cutoff < score_floor) {
@@ -176,9 +198,10 @@ function processSingleQuery(sex, roomtype, residence, tiernumber, applytype) {
   return output;
 }
 
+
 const log = (type) => console.log.bind(console, type);
 
-const onError = (errors) => console.log("I have", errors.length, "errors to fix");
+const onError = (errors) => console.log('I have', errors.length, 'errors to fix');
 
 class App extends React.Component {
   constructor(props) {
@@ -198,10 +221,17 @@ class App extends React.Component {
     this.setState({results: processSingleQuery(sex, roomtype, residence, tiernumber, applytype)});
   }
 
+  /*
+  handleData = data => {
+    this.setState({data})
+  }
+  */
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
+
           <Container>
             <Row>
               <Col>
