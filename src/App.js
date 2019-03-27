@@ -18,7 +18,7 @@ const schema = {
   properties: {
     sex: {
       type: "string", 
-      title: "Sex (F or M):"
+      title: "Sex:"
     },
     roomtype: {
       type: "string", 
@@ -40,44 +40,60 @@ const schema = {
   }
 };
 
+function findLeastSquares(x_values, y_values) {
+  let x_sum = 0;
+  let y_sum = 0;
+  let xsq_sum = 0;
+  let xy_sum = 0;
+  let count = 0;
+
+  for (let i = 0; i < x_values.length; i++) {
+    let x = x_values[i];
+    let y = y_values[i];
+
+    x_sum += x;
+    y_sum += y;
+    xsq_sum += (x * x);
+    xy_sum += (x * y);
+    count++;
+  }
+
+  let aValue = ( (count * xy_sum) - (x_sum * y_sum) ) / ( (count * xsq_sum) - (x_sum * x_sum) );
+  let bValue = ( (y_sum * xsq_sum) - (x_sum * xy_sum) ) / ( (count * xsq_sum) - (x_sum * x_sum) );
+
+  return [aValue, bValue];  
+}
+
+
 function processTrends(h_data, gender, typeCol, resID, des_year, simple, linear, logistic) {
   let cutoffs = [];
-  let yearList = Array.from(h_data["year"]).sort();
+  let yearList = [2018]; //should actually be "let yearList = [2015, 2016, 2018]"
 
   let i;
   for (i = 0; i < yearList.length; i++) {
-    let h_data_ySlice;
-    if (h_data.year == yearList[i]) {
-      h_data_ySlice = h_data[yearList[i]];
-    }
-    let h_data_sliced;
+    let h_data_yearSlice = h_data["year" == yearList[i]];
+    
+    /*
+    let h_data_genderSlice;
     if (gender != "n") {
-      if (h_data_ySlice.sex == gender && h_data_ySlice != null) {
-        h_data_sliced = h_data_ySlice[gender];
-      }
-      if (h_data_sliced.res_name_edited == resID && h_data_sliced != null) {
-        const cutoff_i = Array.from(h_data_sliced[resID])[0];
-        cutoffs.push(h_data_sliced[cutoff_i][typeCol]);
-      }
+      h_data_genderSlice = h_data_yearSlice["sex" == gender];
+      const cutoff_i = h_data_genderSlice["res_name_edited" == resID]; //assuming that there is only one item matching this
+      cutoffs.push(h_data_genderSlice[cutoff_i][typeCol]);
     } else {
-      h_data_sliced = h_data_ySlice;
-      if (h_data_sliced.res_name_edited == resID && h_data_sliced != null) {
-        const cutoff_is = Array.from(h_data_sliced[resID]);
-        cutoffs.push((h_data_sliced[cutoff_is[0]][typeCol] + h_data_sliced[cutoff_is[1]][typeCol]) / 2);
-      }
+      h_data_genderSlice = h_data_yearSlice;
+      const cutoff_is = h_data_genderSlice["res_name_edited" == resID];
+      cutoffs.push((h_data_genderSlice[cutoff_is[0]][typeCol] + h_data_genderSlice[cutoff_is[1]][typeCol]) / 2);
     }
+    */
   }
-  if (cutoffs.length() == 1) {
+
+  if (cutoffs.length == 1) {
     return cutoffs[0];
-  } else if (cutoffs.length() > 1 && yearList.length() == cutoffs.length()) {
-    if (linear) {
-      /*
-      const coef = np.polyfit(yearList, cutoffs, 1);
-      return Math.round(coef[0] * des_year + coef[1]);
-      */
-    }
+  } else if (cutoffs.length > 1 && yearList.length == cutoffs.length) {
+    const ls_model = findLeastSquares(yearList, cutoffs);
+    return Math.round(ls_model[0] * des_year + ls_model[1]);
   }
-  return;
+  return 0;
 }
 
 /* sex, roomtype, residence, tiernumber, applytype */
@@ -180,24 +196,23 @@ function processSingleQuery(sex, roomtype, residence, tiernumber, applytype) {
   const tierNum = tierNum_raw;
   
   let output = '';
+
   /* find percentage */
-  if (data['res_name_edited'].contains(resID)) { //const h_data = pd.read_csv(data);
-    const score_ceiling = tierNum * 1000;
-    const score_floor = score_ceiling - 999;
+  const score_ceiling = tierNum * 1000;
+  const score_floor = score_ceiling - 999;
 
-    const cutoff = processTrends(data, gender, typeCol, resID, 2019, false, true, false);
+  const cutoff = processTrends(data, gender, typeCol, resID, 2019, false, true, false);
 
-    if (cutoff > score_ceiling) {
-      output = '>99';
-    } else if (cutoff < score_floor) {
-      output = '<0.1';
-    } else {
-      output = (cutoff - score_floor) / 1000;
-    }
+  if (cutoff > score_ceiling) {
+    output = '>99';
+  } else if (cutoff < score_floor) {
+    output = '<0.1';
+  } else {
+    output = (cutoff - score_floor) / 1000;
   }
+
   return output;
 }
-
 
 const log = (type) => console.log.bind(console, type);
 
@@ -242,7 +257,7 @@ class App extends React.Component {
                 onError={onError} />
               </Col>
               <Col>
-                <div>{this.state.results && `Your Chances: ${this.state.results}%` }</div> 
+                <div>{this.state.results && `Your Chances: ${this.state.results}` }</div> 
               </Col>
             </Row>
           </Container>
