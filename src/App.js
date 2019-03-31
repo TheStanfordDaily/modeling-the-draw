@@ -60,14 +60,15 @@ function findLeastSquares(x_values, y_values) {
   return [aValue, bValue];  
 }
 
-
-function processTrends(gender, typeCol, resID, des_year, simple, linear, logistic) {
+function processTrends(gender, typeCol, resID, des_year) {
   const data_1718 = require('./housingData1718.json');
   const data_16 = require('./housingData16.json');
   const data_15 = require('./housingData15.json');
 
   let cutoffs = [];
   let yearList = [2015, 2016, 2017, 2018];
+
+  let foundCutoff = false;
 
   let currData;
   for (let i = 0; i < yearList.length; i++) {
@@ -78,12 +79,17 @@ function processTrends(gender, typeCol, resID, des_year, simple, linear, logisti
       case 2016:
         currData = data_16;
         break;
-      case 2017 || 2018:
+      case 2017:
+        currData = data_1718;
+        break;
+      case 2018:
         currData = data_1718;
     }
     for (let j = 0; j < currData.length; j++) {
       let item = currData[j];
+      foundCutoff = false;
       if (item.year == yearList[i] && (gender == "n" || item.sex == gender) && item.res_name_edited == resID) {
+        foundCutoff = true;
         switch (typeCol) {
           case "individual":
             cutoffs.push(item.individual);
@@ -97,7 +103,14 @@ function processTrends(gender, typeCol, resID, des_year, simple, linear, logisti
           case "group_4":
             cutoffs.push(item.group_4);
         }
+        if (cutoffs[cutoffs.length - 1] == "") {
+          cutoffs.pop();
+          foundCutoff = false;
+        }
         break;
+      }
+      if (!foundCutoff) {
+        yearList.splice(i);
       }
     }
   }
@@ -129,35 +142,53 @@ function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, 
   /* room type + residence */
   let roomType;
   switch(roomType_raw) {
-    case "a 1 room single":
+    case "1 room single":
       roomType = "1 Room Single";
       break;
-    case "a 1 room double":
+    case "1 room double":
       roomType = "1 Room Double";
       break;
-    case "a 1 room double (focus)" :
+    case "1 room double (focus)":
       roomType = "1 Room Double (focus)";
       break;
-    case "a 2 room double" :
+    case "2 room double":
       roomType = "2 Room Double";
       break;
-    case "a 2 room double (focus)" : 
+    case "2 room double (focus)": 
       roomType = "2 Room Double (focus)";
       break;
-    case "a triple" : 
-      roomType = "Triple";
+    case "1 room triple": 
+      roomType = "1 Room Triple";
       break;
-    case "a standard room" : 
+    case "1 room quad":
+      roomType = "1 Room Quad";
+      break;
+    case "4-person":
+      roomType = "4-room";
+      break;
+    case "6-person":
+      roomType = "6-room";
+      break;
+    case "standard room": 
       roomType = "Standard";
       break;
-    case "a premium room" :
-      roomType = "Premium";
+    case "premier room":
+      roomType = "Premier";
       break;
-    case "substance free housing" :
+    case "substance free housing":
       roomType = "Substance Free Housing";
       break;
-    case "ethnic housing" :
+    case "ethnic housing":
       roomType = "ETHNIC";
+      break;
+    case "2 bedroom apartment":
+      roomType = "Double";
+      break;
+    case "3 bedroom apartment":
+      roomType = "Triple";
+      break;
+    case "4 bedroom apartment":
+      roomTYpe = "Quad";
       break;
     default:
       roomType = "Any";
@@ -165,19 +196,19 @@ function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, 
   if (roomType == "ETHNIC") {
     switch (resName_raw) {
       case "Ujamaa":
-        roomType = "Ethnic" + "B";
+        roomType = "Ethnic (B)";
         break;
       case "Hammarskjold":
-        roomType = "Ethnic" + "I";
+        roomType = "Ethnic (I)";
         break;
       case "Muwekma":
-        roomType = "Ethnic" + "N";
+        roomType = "Ethnic (N)";
         break;
       case "Zapata":
-        roomType = "Ethnic" + "C";
+        roomType = "Ethnic (C)";
         break;
       case "Okada":
-        roomType = "Ethnic" + "A";
+        roomType = "Ethnic (A)";
         break;
     }
   }
@@ -186,29 +217,33 @@ function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, 
   /* applytype (number of ppl in group) */
   let typeCol;
   switch (applyType_raw) {
-    case "an individual" :
+    case "individual":
       typeCol = "individual";
       break;
-    case "a group of 2" :
+    case "group of 2":
       typeCol = "group_2";
       break;
-    case "a group of 3" :
+    case "group of 3":
       typeCol = "group_3";
       break;
-    case "a group of 4" :
+    case "group of 4":
       typeCol = "group_4";
       break;
+    default :
+      return "Invalid input";
   }
 
   /* tier number */
   const tierNum = tierNum_raw;
+  if (tierNum != 1 && tierNum != 2 && tierNum != 3) {
+    return "Invalid input";
+  }
 
   let output = '';
   /* find percentage */
   const score_ceiling = tierNum * 1000;
   const score_floor = score_ceiling - 999;
-
-  const cutoff = processTrends(gender, typeCol, resID, 2019, false, true, false);
+  const cutoff = processTrends(gender, typeCol, resID, 2019);
 
   if (cutoff > score_ceiling) {
     output = '>99';
