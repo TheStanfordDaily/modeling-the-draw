@@ -64,15 +64,19 @@ function processTrends(gender, typeCol, resID, des_year) {
   const data_1718 = require('./housingData1718.json');
   const data_16 = require('./housingData16.json');
   const data_15 = require('./housingData15.json');
+  const data_14 = require('./housingData14.json');
 
   let cutoffs = [];
-  let yearList = [2015, 2016, 2017, 2018];
+  let yearList = [2014, 2015, 2016, 2017, 2018];
 
   let foundCutoff = false;
 
   let currData;
   for (let i = 0; i < yearList.length; i++) {
     switch (yearList[i]) {
+      case 2014:
+        currData = data_14;
+        break;
       case 2015:
         currData = data_15;
         break;
@@ -85,9 +89,9 @@ function processTrends(gender, typeCol, resID, des_year) {
       case 2018:
         currData = data_1718;
     }
+    foundCutoff = false;
     for (let j = 0; j < currData.length; j++) {
       let item = currData[j];
-      foundCutoff = false;
       if (item.year == yearList[i] && (gender == "n" || item.sex == gender) && item.res_name_edited == resID) {
         foundCutoff = true;
         switch (typeCol) {
@@ -109,9 +113,10 @@ function processTrends(gender, typeCol, resID, des_year) {
         }
         break;
       }
-      if (!foundCutoff) {
-        yearList.splice(i);
-      }
+    }
+    if (!foundCutoff) {
+      yearList.splice(i, 1);
+      i--;
     }
   }
 
@@ -188,7 +193,7 @@ function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, 
       roomType = "Triple";
       break;
     case "4 bedroom apartment":
-      roomTYpe = "Quad";
+      roomType = "Quad";
       break;
     default:
       roomType = "Any";
