@@ -26,7 +26,7 @@ const schema = {
     },
     tiernumber: {
       type: "integer", 
-      title: "Tier #:",
+      title: "Tier Level:",
       maxLength: 1
     },
     applytype: {
