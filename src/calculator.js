@@ -8,13 +8,16 @@ import data from "csv-loader!./housingData1718_cleaned.csv";
 import Form from "react-jsonschema-form";
 
 const divStyle = {
-  backgroundColor: '#F7ADBB',
+  //backgroundColor: '#F7ADBB',
   marginLeft: '20%',
   marginRight: '20%',
+  border: "solid #8c1515",
+  borderWidth: '4px',
 }
 
 const headerStyle = {
   textAlign: 'center',
+  color: '#8c1515',
   fontFamily: 'Open Sans Condensed, sans-serif',
 };
 
