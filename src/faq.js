@@ -4,6 +4,7 @@ import './faq.css';
 
 const headerStyle = {
     fontFamily: 'Open Sans Condensed, sans-serif',
+    color: '#8c1515',
 };
 
 const questionStyle = {
@@ -21,7 +22,9 @@ const answerStyle = {
 };
 
 const divStyle = {
-    backgroundColor: '#95CCEB',
+    //backgroundColor: '#95CCEB',
+    border: "solid #8c1515",
+    borderWidth: '4px',
 };
 
 function Question1() {

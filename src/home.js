@@ -6,12 +6,16 @@ import Grid from '@material-ui/core/Grid';
 import { isAbsolute } from 'path';
 
 const divStyle = {
-    backgroundColor: '#94E1B0',
+    //backgroundColor: '#94E1B0',
+    border: "solid #8c1515",
+    borderWidth: '4px',
 };
 
 const headerStyle = {
     top: '10%',
+    color: '#8c1515',
     fontFamily: 'Open Sans Condensed, sans-serif',
+    //fontFamily: 'Futura Std Condensed Light, sans-serif',
 };
 
 const buttonStyle = {
@@ -32,7 +36,7 @@ const footer2Style = {
 
 function ViewPastData() {
     return (
-        <Button variant="outline-primary" href="pastdata">
+        <Button variant="outline-danger" href="pastdata">
             View Past Data
         </Button>
     )
@@ -40,7 +44,7 @@ function ViewPastData() {
 
 function Calculator() {
     return (
-        <Button variant="outline-primary" href="calculator">
+        <Button variant="outline-danger" href="calculator">
             Calculate Your Chances
         </Button>
     )
@@ -48,7 +52,7 @@ function Calculator() {
 
 function Faq() {
     return (
-        <Button variant="outline-primary" href="faq">
+        <Button variant="outline-danger" href="faq">
             FAQ
         </Button>
     );
