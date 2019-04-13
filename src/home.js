@@ -1,8 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Button from 'react-bootstrap/Button';
-import Flexbox from 'flexbox-react';
-import Grid from '@material-ui/core/Grid';
 import { isAbsolute } from 'path';
 
 const divStyle = {
@@ -71,15 +68,9 @@ class Home extends React.Component {
                 </h1>
                 <br />
                 <div style={buttonStyle}>
-                    <Grid
-                    container
-                    direction="row"
-                    justify="space-around"
-                    alignItems="center">
-                        <ViewPastData />
-                        <Calculator />
-                        <Faq />
-                    </Grid>
+                    <ViewPastData />
+                    <Calculator />
+                    <Faq />
                 </div>
                 <br />
                 <br />
@@ -100,3 +91,11 @@ class Home extends React.Component {
 }
 
 export default Home;
+
+/*
+<Grid
+container
+direction="row"
+justify="space-around"
+alignItems="center">
+*/

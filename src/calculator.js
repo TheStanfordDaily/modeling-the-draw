@@ -1,10 +1,4 @@
 import React, { Component } from 'react';
-/*
-import ReactDOM from 'react-dom';
-// eslint-disable-next-line import/no-webpack-loader-syntax
-import data from "csv-loader!./housingData1718_cleaned.csv";
-*/
-//import './App.css';
 import Form from "react-jsonschema-form";
 
 const divStyle = {

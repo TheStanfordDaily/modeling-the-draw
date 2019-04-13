@@ -1,10 +1,6 @@
 import React from 'react';
 import MUIDataTable from 'mui-datatables';
 
-const divStyle = {
-    //backgroundColor: '#FAF7B3',
-};
-
 const headerStyle = {
     textAlign: 'center',
     color: '#8c1515',
@@ -59,7 +55,7 @@ class PastData extends React.Component {
         };
 
         return (
-            <div style={divStyle}>
+            <div>
                 <br />
                 <h1 style={headerStyle}>View Past Data</h1>
                 <MUIDataTable
@@ -68,7 +64,6 @@ class PastData extends React.Component {
                     options={options}
                 />
             </div>
-
         );
     }
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import Flexbox from 'flexbox-react';
 import './faq.css';
 
 const headerStyle = {
