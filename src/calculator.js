@@ -48,13 +48,13 @@ const schema = {
       title: "Tier Level:",
       maxLength: 1,
       enum: [ 1, 2, 3],
-      enumNames: [ "Tier 1", "Tier 2", "Tier3" ]
+      enumNames: [ "Tier 1", "Tier 2", "Tier 3" ]
     },
     applytype: {
       type: "string",
       title: "Group Size: ",
       enum: [ "individual", "group of 1", "group of 2", "group of 3", "group of 4" ],
-      enumNames: [ "Individual", "Group of 2", "Group of 3", "Group of 4" ]
+      enumNames: [ "Individual", "Group of 1", "Group of 2", "Group of 3", "Group of 4" ]
     }
   }
 };
