@@ -31,7 +31,9 @@ const schema = {
   properties: {
     sex: {
       type: "string", 
-      title: "Sex:"
+      title: "Sex:",
+      enum: [ "male", "female", "n" ],
+      enumNames: [ "Male", "Female", "N/A" ]
     },
     roomtype: {
       type: "string", 
@@ -44,11 +46,15 @@ const schema = {
     tiernumber: {
       type: "integer", 
       title: "Tier Level:",
-      maxLength: 1
+      maxLength: 1,
+      enum: [ 1, 2, 3],
+      enumNames: [ "Tier 1", "Tier 2", "Tier3" ]
     },
     applytype: {
       type: "string",
-      title: "Group Size: "
+      title: "Group Size: ",
+      enum: [ "individual", "group of 1", "group of 2", "group of 3", "group of 4" ],
+      enumNames: [ "Individual", "Group of 2", "Group of 3", "Group of 4" ]
     }
   }
 };
