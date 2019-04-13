@@ -1,3 +1,4 @@
+/*
 self.__precacheManifest = [
   {
     "revision": "af7d474ce9924176589a",
@@ -20,3 +21,4 @@ self.__precacheManifest = [
     "url": "/modeling-the-draw/index.html"
   }
 ];
+*/
