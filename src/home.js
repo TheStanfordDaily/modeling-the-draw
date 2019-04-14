@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
+import Grid from '@material-ui/core/Grid';
 import {Link} from 'react-router-dom';
 import { isAbsolute } from 'path';
 
@@ -69,9 +70,15 @@ class Home extends React.Component {
                 </h1>
                 <br />
                 <div style={buttonStyle}>
-                    <ViewPastData />
-                    <Calculator />
-                    <Faq />
+                    <Grid
+                    container
+                    direction="row"
+                    justify="space-around"
+                    alignItems="center">
+                        <ViewPastData />
+                        <Calculator />
+                        <Faq />
+                    </Grid>
                 </div>
                 <br />
                 <br />
@@ -92,11 +99,3 @@ class Home extends React.Component {
 }
 
 export default Home;
-
-/*
-<Grid
-container
-direction="row"
-justify="space-around"
-alignItems="center">
-*/
