@@ -33,10 +33,12 @@ function Question1() {
                 What does Modeling the Draw use for its calculations?
             </p>
             <p style={answerStyle}>
-                Modeling the Draw utilizes historical cutoff numbers from previous Draws, as reported by 
-                Stanford R&amp;DE. For the purposes of the calculator, statistics from the years 2014-2018 
-                are taken into consideration. Many academic theme, Greek, and all-frosh residences are excluded 
-                from this dataset, and cannot be inputted into the calculator for an accurate reading.
+                Modeling the Draw uses historical cutoff numbers from previous Draws, 
+                as reported by Stanford R&amp;DE. For the purposes of the calculator, 
+                only the historical draw statistics from years 2014-2018 are considered. 
+                Many academic themed, Greek, and all-frosh residences are excluded from 
+                this dataset, and cannot be inputted into the calculator for an accurate 
+                reading.
             </p>
         </div>
     );
@@ -49,16 +51,18 @@ function Question2() {
                 How does MTD calculate my chances?
             </p>
             <p style={answerStyle}>
-                Modeling the Draw uses linear regression on historical cut-off numbers in order to determine the 
-                trend of popularity of various residences that partake in the 2019 Draw. Aside from the desired 
-                residence, several other factors – such as sex, desired type of room, the number of people 
-                applying in your group, and tier number – impact your chances of drawing into the residence.
+                Modeling the Draw uses linear regression on historical cut-off numbers 
+                in order to estimate the cut-off numbers of Stanford residences for the 
+                2019 Draw. Our calculator considers several factors in its calculation, 
+                including sex, desired residence, desired type of room, the number of 
+                people you're drawing with, and your tier number.
             </p>
             <p style={answerStyle}>
-                In the case of split groups – where some but not all students with a certain cut-off number could
-                make it into a particular residence – the calculator assumes that you are able to make the 
-                cut-off. Additionally, sophomore priority for particular residences and housing types – such 
-                as Toyon and FroSoCo – are not considered for the purposes of this calculator.
+                In the case of split groups – where some but not all students with a 
+                certain cut-off number can make it into a certain residence – the 
+                calculator assumes that you will be able to make the cut-off. Additionally, 
+                sophomore priority for residences such as Toyon and FroSoCo are not 
+                considered by the calculator.
             </p>
         </div>
     );
@@ -71,35 +75,36 @@ function Question3() {
                 What inputs does the calculator take, and what do they mean?
             </p>
             <p style={answerStyle}>
-                The first input, sex, will allow the calculator to consider either the men’s or women’s cut-off
-                numbers, and which correspond to the inputs “male” or “female”; for any other input, the 
-                calculator will not consider sex in its calculation.
+                The first input, sex, will allow the calculator to consider either the 
+                men’s or women’s historical cut-off numbers.
             </p>
             <p style={answerStyle}>
-                The second input, room type, refers to the type of room that you’d like to be placed in, and 
-                recognizes inputs such as “1 room single,” “2 room double,” and “1 room triple.” Please note 
-                that not all residences have your desired room type; inputting an invalid room type for 
-                a residence will not lead to an accurate calculation. Additionally, for apartment complexes 
-                such as Mirrielees, you may request either a “2 bedroom apartment,” “3 bedroom apartment,” 
-                “4 bedroom apartment,” or “substance free housing.” Similarly, you should request either a 
-                “4-person” or “6-person” suite for GovCo’s Suites, and either a “standard room” or “premier 
-                room” for Row residences. If you’re considering preassigning to a cross cultural theme house, 
-                you must input “ETHNIC” as the room type. Lastly, if you have no preference for the room type, 
+                The second input, room type, is the type of room that you’d like to draw 
+                into. The calculator recognizes inputs in the format of “1 room single,” 
+                “2 room double,” and “1 room triple.” Please note that your residence 
+                might not have your desired room type; inputting an invalid room type for 
+                a residence will not lead to an accurate calculation. Additionally, for 
+                apartment complexes such as Mirrielees, request either a “2 bedroom 
+                apartment,” “3 bedroom apartment,” “4 bedroom apartment,” or “substance free 
+                housing.” Similarly, you should request either a “4-person” or “6-person” 
+                suite for GovCo’s Suites, and either a “standard room” or “premier room” 
+                for Row residences. Lastly, if you have no preference for your room type, 
                 input “Any.”
+
             </p>
             <p style={answerStyle}>
-                The third input, residence, refers to the residence that you’re considering drawing into. You 
-                may input a particular residence (“Branner”), a residence hall (“Gerhard Casper”), a part of 
-                campus (“West Campus”), or any dorm (“Dorm”).
+                The third input, residence, is the residence that you’re considering 
+                drawing into. You could input a particular residence (e.g. “Branner”), 
+                a residence hall (e.g. “Gerhard Casper”), a part of campus (e.g. “West 
+                Campus”), or any dorm at Stanford (“Dorm”).
             </p>
             <p style={answerStyle}>
-                The fourth input, tier number, will take either 1, 2, or 3 as input, and refer to the tier 
-                level that you are selecting. Other inputs are not recognized by the calculator.
+                The fourth input, tier number, is the tier level that you are selecting.
             </p>
             <p style={answerStyle}>
-                The last input, apply type, refers to the number of people applying in your group. Recognized 
-                inputs include “individual,” “group of 2,” “group of 3,” or “group or 4.” Since our calculator 
-                calculates your chances for the 2019 draw, groups of 5 or greater or not recognized.
+                The last input, apply type, is the number of people drawing with you 
+                as a group. Since our calculator only calculates your chances for the 
+                2019 Draw, groups of 5 or greater or not recognized.
             </p>
         </div>
     );
@@ -109,13 +114,15 @@ function Question4() {
     return (
         <div>
             <p style={questionStyle}>
-                What does the outputted percentage mean?</p>
+                What does my outputted percentage mean?</p>
             <p style={answerStyle}>
-                The percentage that the Modeling the Draw calculator outputs is our estimate of your chances 
-                of drawing into the residence and room type that you’re applying for, based on data from 
-                previous years. If you receive the output “>99%,” it’s likely that your tier level exceeds 
-                the historical cut-off numbers. If you receive the output “&#60;0.1%,” it’s likely that your tier 
-                level is lower than the historical cut-off numbers.
+                The percentage that the Modeling the Draw calculator outputs is our 
+                estimate of your chances of drawing into the residence and room type 
+                that you’re applying for, based on historical draw data from previous 
+                years. If you receive the output “>99%,” it’s likely that your tier 
+                level is lower than our estimated cutoff number for your residence. If 
+                you receive the output “&#60;0.1%,” it’s likely that your tier level is 
+                higher than our estimated cutoff number for your residence.
             </p>
         </div>
     );
