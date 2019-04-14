@@ -22,12 +22,6 @@ const buttonStyle = {
     marginRight: '10%',
 };
 
-const footerStyle = {
-    textAlign: 'center',
-    fontFamily: 'Bad Script, cursive',
-    fontWeight: 'bold',
-};
-
 const footer2Style = {
     marginLeft: '20%',
     marginRight: '20%',
@@ -69,6 +63,8 @@ class Home extends React.Component {
                     MODELING THE DRAW
                 </h1>
                 <br />
+                <br />
+                <br />
                 <div style={buttonStyle}>
                     <Grid
                     container
@@ -83,9 +79,6 @@ class Home extends React.Component {
                 <br />
                 <br />
                 <br />
-                <p style = {footerStyle}>
-                    Sponsored by the Stanford Daily Tech Team
-                </p>
                 <br />
                 <p style = {footer2Style}>
                     Questions? Email Charles Pan, Tiffany Shi, 
