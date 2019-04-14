@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {HashRouter, Route} from 'react-router-dom';
 import './index.css';
 import './App.css';
 import Home from './home';
@@ -11,7 +11,7 @@ import PastData from './pastdata';
 class App extends React.Component {
   render() {
     return (
-      <BrowserRouter>
+      <HashRouter>
         <div>
           <Route exact={true} path='/' render={() => (
             <div className="App">
@@ -34,7 +34,7 @@ class App extends React.Component {
             </div>
           )} />
         </div>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
+import {Link} from 'react-router-dom';
 import { isAbsolute } from 'path';
 
 const divStyle = {
@@ -33,25 +34,25 @@ const footer2Style = {
 
 function ViewPastData() {
     return (
-        <Button variant="outline-danger" href="pastdata">
+        <Link to="/pastdata"><Button variant="outline-danger">
             View Past Data
-        </Button>
+        </Button></Link>
     )
 }
 
 function Calculator() {
     return (
-        <Button variant="outline-danger" href="calculator">
+        <Link to="/calculator"><Button variant="outline-danger">
             Calculate Your Chances
-        </Button>
+        </Button></Link>
     )
 }
 
 function Faq() {
     return (
-        <Button variant="outline-danger" href="faq">
+        <Link to="/faq"><Button variant="outline-danger">
             FAQ
-        </Button>
+        </Button></Link>
     );
 }
 
