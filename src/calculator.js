@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Form from "react-jsonschema-form";
+//import Grid from '@material-ui/core/Grid';
 
 const divStyle = {
   //backgroundColor: '#F7ADBB',
@@ -37,11 +38,40 @@ const schema = {
     },
     roomtype: {
       type: "string", 
-      title: "Room Type:"
+      title: "Room Type:",
+      enum: [ "1 room single", "1 room double", "1 room double (focus)", "2 room double", 
+        "2 room double (focus)", "1 room triple", "1 room quad", "4-person", "6-person", "standard room",
+        "premier room", "substance free housing", "ethnic housing",
+        "2 bedroom apartment", "3 bedroom apartment", "4 bedroom apartment", "Any" ],
+      enumNames: [ "1 Room Single", "1 Room Double", "1 Room Double (Focus)", "2 Room Double",
+        "2 Room Double (Focus)", "1 Room Triple", "1 Room Quad", "Four-Person Suite", "Six-Person Suite",
+        "Standard Room", "Premier Room", "Substance Free Housing", "Ethnic Housing",
+        "2 Bedroom Apartment", "3 Bedroom Apartment", "4 Bedroom Apartment", "Any" ]
     },
     residence: {
       type: "string", 
-      title: "Residence:"
+      title: "Residence:",
+      enum: [ "576 Alvarado", "680 Lomita", "Adelfa", "BOB", "Branner", "Cardenal", "Castano", "CCTH", 
+        "Columbae", "Crothers", "Dorm", "Durand", "EAST", "East Campus", "East FloMo", "EBF", "Eucalipto", 
+        "Faisan", "FloMo", "French House", "FroSoCo", "Gavilan", "Gerhard Casper Quad", "Gov Co", "Granada", 
+        "Grove", "Hammarskjold", "Haus Mitteleuropa", "Humanities House", "Jerry", "Kairos", "Kimball", 
+        "Lagunita", "Lantana", "La Casa Italiana", "Loro", "Lower Row Self Op", "Mars", "Meier", "Mirlo", 
+        "Mirrielees", "Muwekma", "Murray", "Naranja", "Narnia", "Norcliffe", "Okada", "Outdoor House", 
+        "Paloma", "Phi Sigma", "Pluto", "Potter", "Residence", "Robinson", "Roble", "Roth", "Self Op", 
+        "Self Op Lake", "Slavianskii Dom", "SterQuad", "Storey", "Suites", "Synergy", "Terra", "Toyon", 
+        "Trancos", "Ujamaa", "Upper Row Self Op", "West Campus", "West FloMo", "Xanadu", "Yost", 
+        "ZAP", "Zapata"],
+        enumNames: [ "576 Alvarado", "680 Lomita", "Adelfa", "BOB", "Branner", "Cardenal", "Castano", "CCTH", 
+        "Columbae", "Crothers", "Dorm", "Durand", "EAST", "East Campus", "East FloMo", "EBF", "Eucalipto", 
+        "Faisan", "FloMo", "French House", "FroSoCo", "Gavilan", "Gerhard Casper Quad", "Gov Co", "Granada", 
+        "Grove", "Hammarskjold", "Haus Mitteleuropa", "Humanities House", "Jerry", "Kairos", "Kimball", 
+        "Lagunita", "Lantana", "La Casa Italiana", "Loro", "Lower Row Self Op", "Mars", "Meier", "Mirlo", 
+        "Mirrielees", "Muwekma", "Murray", "Naranja", "Narnia", "Norcliffe", "Okada", "Outdoor House", 
+        "Paloma", "Phi Sigma", "Pluto", "Potter", "Residence", "Robinson", "Roble", "Roth", "Self Op", 
+        "Self Op Lake", "Slavianskii Dom", "SterQuad", "Storey", "Suites", "Synergy", "Terra", "Toyon", 
+        "Trancos", "Ujamaa", "Upper Row Self Op", "West Campus", "West FloMo", "Xanadu", "Yost", 
+        "ZAP", "Zapata"],
+
     },
     tiernumber: {
       type: "integer", 
@@ -53,8 +83,8 @@ const schema = {
     applytype: {
       type: "string",
       title: "Group Size: ",
-      enum: [ "individual", "group of 1", "group of 2", "group of 3", "group of 4" ],
-      enumNames: [ "Individual", "Group of 1", "Group of 2", "Group of 3", "Group of 4" ]
+      enum: [ "individual", "group of 2", "group of 3", "group of 4" ],
+      enumNames: [ "Individual", "Group of 2", "Group of 3", "Group of 4" ]
     }
   }
 };
@@ -90,6 +120,7 @@ function processTrends(gender, typeCol, resID, des_year) {
   const data_14 = require('./housingData14.json');
 
   let cutoffs = [];
+  let cutoffsStr = [];
   let yearList = [2014, 2015, 2016, 2017, 2018];
 
   let foundCutoff = false;
@@ -120,18 +151,23 @@ function processTrends(gender, typeCol, resID, des_year) {
         switch (typeCol) {
           case "individual":
             cutoffs.push(item.individual);
+            cutoffsStr.push(item.individual);
             break;
           case "group_2":
             cutoffs.push(item.group_2);
+            cutoffsStr.push(item.group_2);
             break;
           case "group_3":
             cutoffs.push(item.group_3);
+            cutoffsStr.push(item.group_3);
             break;
           case "group_4":
             cutoffs.push(item.group_4);
+            cutoffsStr.push(item.group_4);
         }
         if (cutoffs[cutoffs.length - 1] == "") {
           cutoffs.pop();
+          cutoffsStr[cutoffs.length - 1] = "N/A";
           foundCutoff = false;
         }
         break;
@@ -140,6 +176,9 @@ function processTrends(gender, typeCol, resID, des_year) {
     if (!foundCutoff) {
       yearList.splice(i, 1);
       i--;
+      if (cutoffsStr[cutoffs.length - 1] != "N/A") {
+        cutoffsStr.push("N/A");
+      }
     }
   }
 
@@ -149,8 +188,11 @@ function processTrends(gender, typeCol, resID, des_year) {
     return cutoffs[0];
   } else if (cutoffs.length > 1 && yearList.length == cutoffs.length) {
     const ls_model = findLeastSquares(yearList, cutoffs);
-    return Math.round(ls_model[0] * des_year + ls_model[1]);
+    let cutoff2019 = Math.round(ls_model[0] * des_year + ls_model[1]);
+    cutoffsStr.push(cutoff2019);
+    return cutoffsStr;
   }
+
   return 0;
 }
 
@@ -184,7 +226,7 @@ function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, 
     case "2 room double":
       roomType = "2 Room Double";
       break;
-    case "2 room double (focus)": 
+    case "2 room double (focus)":
       roomType = "2 Room Double (focus)";
       break;
     case "1 room triple": 
@@ -269,19 +311,30 @@ function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, 
     return "Invalid input";
   }
 
+  //TODO: move everything below to state
+
   let output = '';
   /* find percentage */
   const score_ceiling = tierNum * 1000;
   const score_floor = score_ceiling - 999;
-  const cutoff = processTrends(gender, typeCol, resID, 2019);
+  const cutoffsList = processTrends(gender, typeCol, resID, 2019);
 
-  if (cutoff > score_ceiling) {
-    output = '>99';
-  } else if (cutoff < score_floor) {
-    output = '<0.1';
+  //print out previous cutoffs
+  let yearList = [2014, 2015, 2016, 2017, 2018, 2019];
+  if (cutoffsList.length == yearList.length) {
+    for (let count = 0; count < yearList.length; count++) {
+      output += yearList[count] + " cutoff: " + cutoffsList[count];
+    }
+  }
+
+  //print out percentage
+  if (cutoffsList[cutoffsList.length - 1] > score_ceiling) {
+    output += "Your Chances: >99%";
+  } else if (cutoffsList[cutoffsList.length - 1] < score_floor) {
+    output += "Your Chances: <0.1%";
   } else {
-    //output = (cutoff - score_floor) / 10;
-    output = (score_ceiling - cutoff) / 10;
+    let percentage = (score_ceiling - cutoffsList[cutoffsList.length - 1]) / 10;
+    output += "Your Chances: " + percentage + "%";
   }
 
   return output;
@@ -315,15 +368,16 @@ class Calculator extends React.Component {
         <header className="Calculator-header" style={calculatorStyle}>
           <br />
           <h1 style={headerStyle}>Calculator</h1>
-          <Form schema={schema}
-            onChange={log("changed")}
-            onSubmit={this.onSubmit}
-            formData={this.formData}
-            onError={onError} />
+            <Form schema={schema}
+              onChange={log("changed")}
+              onSubmit={this.onSubmit}
+              formData={this.formData}
+              onError={onError} />
+              <br />
+            <div style={answerStyle}>
+              {this.state.results}
+            </div> 
           <br />
-          <div style={answerStyle}>
-            {this.state.results && `Your Chances: ${this.state.results}%` }
-          </div> 
           <br />
         </header>
       </div>
@@ -332,3 +386,7 @@ class Calculator extends React.Component {
 }
 
 export default Calculator;
+
+/*
+{this.state.results && `Your Chances: ${this.state.results}%` }
+*/
