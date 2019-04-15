@@ -3,7 +3,6 @@ import Form from "react-jsonschema-form";
 //import Grid from '@material-ui/core/Grid';
 
 const divStyle = {
-  //backgroundColor: '#F7ADBB',
   marginLeft: '20%',
   marginRight: '20%',
   border: "solid #8c1515",
@@ -21,9 +20,15 @@ const calculatorStyle = {
   marginRight: '20%',
 };
 
-const answerStyle = {
+const cutoffStyle = {
   fontSize: '20px',
+  textAlign: 'center',
 };
+
+const percentageStyle = {
+  fontSize: '25px',
+  textAlign: 'center',
+}
 
 const schema = {
   //title: "Calculator",
@@ -311,10 +316,8 @@ function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, 
     return "Invalid input";
   }
 
-  //TODO: move everything below to state
-
-  let output = '';
-  /* find percentage */
+  let output = [];
+  //find percentage
   const score_ceiling = tierNum * 1000;
   const score_floor = score_ceiling - 999;
   const cutoffsList = processTrends(gender, typeCol, resID, 2019);
@@ -323,18 +326,22 @@ function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, 
   let yearList = [2014, 2015, 2016, 2017, 2018, 2019];
   if (cutoffsList.length == yearList.length) {
     for (let count = 0; count < yearList.length; count++) {
-      output += yearList[count] + " cutoff: " + cutoffsList[count];
+      if (count == yearList.length - 1) {
+        output.push(yearList[count] + " estimated cutoff: " + cutoffsList[count]);
+      } else {
+        output.push(yearList[count] + " cutoff: " + cutoffsList[count]);
+      }
     }
   }
 
   //print out percentage
   if (cutoffsList[cutoffsList.length - 1] > score_ceiling) {
-    output += "Your Chances: >99%";
+    output.push("Your Chances: >99% – You're an (almost) guaranteed in!");
   } else if (cutoffsList[cutoffsList.length - 1] < score_floor) {
-    output += "Your Chances: <0.1%";
+    output.push("Your Chances: <0.1% – Good luck with that!");
   } else {
     let percentage = (score_ceiling - cutoffsList[cutoffsList.length - 1]) / 10;
-    output += "Your Chances: " + percentage + "%";
+    output.push("Your Chances: " + percentage + "%");
   }
 
   return output;
@@ -348,7 +355,13 @@ class Calculator extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      results: null
+      cutoff_2014: null,
+      cutoff_2015: null,
+      cutoff_2016: null,
+      cutoff_2017: null,
+      cutoff_2018: null,
+      cutoff_2019: null,
+      percentage: null
     }
   }
 
@@ -358,8 +371,17 @@ class Calculator extends React.Component {
     let residence = formData.residence;
     let tiernumber = formData.tiernumber;
     let applytype = formData.applytype;
+    let results = processSingleQuery(sex, roomtype, residence, tiernumber, applytype);
 
-    this.setState({results: processSingleQuery(sex, roomtype, residence, tiernumber, applytype)});
+    this.setState({
+      cutoff_2014: results[0],
+      cutoff_2015: results[1],
+      cutoff_2016: results[2],
+      cutoff_2017: results[3],
+      cutoff_2018: results[4],
+      cutoff_2019: results[5],
+      percentage: results[6]
+    });
   }
 
   render() {
@@ -374,8 +396,27 @@ class Calculator extends React.Component {
               formData={this.formData}
               onError={onError} />
               <br />
-            <div style={answerStyle}>
-              {this.state.results}
+            <div style={cutoffStyle}>
+              {this.state.cutoff_2014}
+            </div>
+            <div style={cutoffStyle}>
+              {this.state.cutoff_2015}
+            </div>
+            <div style={cutoffStyle}>
+              {this.state.cutoff_2016}
+            </div>
+            <div style={cutoffStyle}>
+              {this.state.cutoff_2017}
+            </div>
+            <div style={cutoffStyle}>
+              {this.state.cutoff_2018}
+            </div>
+            <div style={cutoffStyle}>
+              {this.state.cutoff_2019}
+            </div>
+            <br />
+            <div style={percentageStyle}>
+              {this.state.percentage}
             </div> 
           <br />
           <br />
@@ -386,7 +427,3 @@ class Calculator extends React.Component {
 }
 
 export default Calculator;
-
-/*
-{this.state.results && `Your Chances: ${this.state.results}%` }
-*/
