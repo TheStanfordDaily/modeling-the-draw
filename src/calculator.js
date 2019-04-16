@@ -142,10 +142,7 @@ function processTrends(gender, typeCol, resID, des_year) {
       case 2016:
         currData = data_16;
         break;
-      case 2017:
-        currData = data_1718;
-        break;
-      case 2018:
+      default:
         currData = data_1718;
     }
     foundCutoff = false;
@@ -170,10 +167,11 @@ function processTrends(gender, typeCol, resID, des_year) {
             cutoffs.push(item.group_4);
             cutoffsStr.push(item.group_4);
         }
-        if (cutoffs[cutoffs.length - 1] == null) {
+        if (cutoffs[cutoffs.length - 1] == "" || cutoffs[cutoffs.length - 1] == null) {
           cutoffs.pop();
-          cutoffsStr[cutoffs.length - 1] = "N/A";
-          foundCutoff = false;
+          yearList.splice(i, 1);
+          i--;
+          cutoffsStr[cutoffsStr.length - 1] = "N/A";
         }
         break;
       }
@@ -181,9 +179,7 @@ function processTrends(gender, typeCol, resID, des_year) {
     if (!foundCutoff) {
       yearList.splice(i, 1);
       i--;
-      if (cutoffsStr[cutoffs.length - 1] != "N/A") {
-        cutoffsStr.push("N/A");
-      }
+      cutoffsStr.push("N/A");
     }
   }
 
