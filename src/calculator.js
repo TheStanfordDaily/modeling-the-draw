@@ -359,6 +359,7 @@ class Calculator extends React.Component {
       cutoff_2018: null,
       cutoff_2019: null,
       percentage: null,
+      formData: null
     }
   }
 
@@ -389,7 +390,8 @@ class Calculator extends React.Component {
           <h1 style={headerStyle}>Calculator</h1>
             <Form schema={schema}
               onSubmit={this.onSubmit}
-              formData={this.formData}
+              formData={this.state.formData}
+              onChange={({formData}) => this.setState({formData})}
               onError={onError} />
             <br />
             <div style={cutoffStyle}> {this.state.cutoff_2014} </div>
