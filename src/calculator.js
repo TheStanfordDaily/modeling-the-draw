@@ -170,7 +170,7 @@ function processTrends(gender, typeCol, resID, des_year) {
             cutoffs.push(item.group_4);
             cutoffsStr.push(item.group_4);
         }
-        if (cutoffs[cutoffs.length - 1] == "") {
+        if (cutoffs[cutoffs.length - 1] == null) {
           cutoffs.pop();
           cutoffsStr[cutoffs.length - 1] = "N/A";
           foundCutoff = false;
@@ -340,14 +340,11 @@ function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, 
   } else if (cutoffsList[cutoffsList.length - 1] < score_floor) {
     output.push("Your Chances: <0.1% – Good luck with that!");
   } else {
-    let percentage = (score_ceiling - cutoffsList[cutoffsList.length - 1]) / 10;
+    let percentage = (cutoffsList[cutoffsList.length - 1] - score_floor) / 10;
     output.push("Your Chances: " + percentage + "%");
   }
-
   return output;
 }
-
-const log = (type) => console.log.bind(console, type);
 
 const onError = (errors) => console.log('I have', errors.length, 'errors to fix');
 
@@ -361,7 +358,7 @@ class Calculator extends React.Component {
       cutoff_2017: null,
       cutoff_2018: null,
       cutoff_2019: null,
-      percentage: null
+      percentage: null,
     }
   }
 
@@ -391,33 +388,18 @@ class Calculator extends React.Component {
           <br />
           <h1 style={headerStyle}>Calculator</h1>
             <Form schema={schema}
-              onChange={log("changed")}
               onSubmit={this.onSubmit}
               formData={this.formData}
               onError={onError} />
-              <br />
-            <div style={cutoffStyle}>
-              {this.state.cutoff_2014}
-            </div>
-            <div style={cutoffStyle}>
-              {this.state.cutoff_2015}
-            </div>
-            <div style={cutoffStyle}>
-              {this.state.cutoff_2016}
-            </div>
-            <div style={cutoffStyle}>
-              {this.state.cutoff_2017}
-            </div>
-            <div style={cutoffStyle}>
-              {this.state.cutoff_2018}
-            </div>
-            <div style={cutoffStyle}>
-              {this.state.cutoff_2019}
-            </div>
             <br />
-            <div style={percentageStyle}>
-              {this.state.percentage}
-            </div> 
+            <div style={cutoffStyle}> {this.state.cutoff_2014} </div>
+            <div style={cutoffStyle}> {this.state.cutoff_2015} </div>
+            <div style={cutoffStyle}> {this.state.cutoff_2016} </div>
+            <div style={cutoffStyle}> {this.state.cutoff_2017} </div>
+            <div style={cutoffStyle}> {this.state.cutoff_2018} </div>
+            <div style={cutoffStyle}> {this.state.cutoff_2019} </div>
+            <br />
+            <div style={percentageStyle}> {this.state.percentage} </div> 
           <br />
           <br />
         </header>

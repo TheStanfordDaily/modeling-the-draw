@@ -53,6 +53,14 @@ class PastData extends React.Component {
             filterType: 'checkbox',
             responsive: 'scroll',
             selectableRows: 'false',
+            print: 'false',
+            download: 'false',
+            isRowSelectable: (dataIndex) => {
+                return false;
+            },
+            onRowsDelete: (rowsDeleted) => {
+                return;
+            }
         };
 
         return (
