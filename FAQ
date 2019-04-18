@@ -25,19 +25,14 @@ What inputs does the calculator take, and what do they mean?
 The first input, sex, will allow the calculator to consider either the men’s or women’s 
 historical cut-off numbers.
 
-The second input, room type, is the type of room that you’d like to draw into. The calculator
-recognizes inputs in the format of “1 room single,” “2 room double,” and “1 room triple.” 
-Please note that your residence might not have your desired room type; inputting an invalid 
-room type for a residence will not lead to an accurate calculation. Additionally, 
-for apartment complexes such as Mirrielees, request either a “2 bedroom apartment,” 
-“3 bedroom apartment,” “4 bedroom apartment,” or “substance free housing.” Similarly, 
-you should request either a “4-person” or “6-person” suite for GovCo’s Suites, and either 
-a “standard room” or “premier room” for Row residences. Lastly, if you have no preference 
-for your room type, input “Any.”
-
-The third input, residence, is the residence that you’re considering drawing into. 
+The second input, residence, is the residence that you’re considering drawing into. 
 You could input a particular residence (e.g. “Branner”), a residence hall (e.g. 
 “Gerhard Casper”), a part of campus (e.g. “West Campus”), or any dorm at Stanford (“Dorm”).
+
+The third input, room type, is the type of room that you’d like to draw into (ex: "1 Room Single",
+"2 Room Double"). The calculator will automatically update the dropdown options
+to only show the room types that are offered in your residence. If you have no preference 
+for your room type, input “Any.”
 
 The fourth input, tier number, is the tier level that you are selecting.
 
