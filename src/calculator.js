@@ -1,97 +1,79 @@
 import React, { Component } from 'react';
 import Form from "react-jsonschema-form";
-//import Grid from '@material-ui/core/Grid';
 
 const divStyle = {
-  marginLeft: '20%',
-  marginRight: '20%',
-  border: "solid #8c1515",
+  marginLeft: '20%', 
+  marginRight: '20%', 
+  border: "solid #8c1515", 
   borderWidth: '4px',
 }
 
 const headerStyle = {
-  textAlign: 'center',
-  color: '#8c1515',
+  textAlign: 'center', 
+  color: '#8c1515', 
   fontFamily: 'Open Sans Condensed, sans-serif',
 };
 
 const calculatorStyle = {
-  marginLeft: '20%',
+  marginLeft: '20%', 
   marginRight: '20%',
 };
 
 const cutoffStyle = {
-  fontSize: '20px',
+  fontSize: '20px', 
   textAlign: 'center',
 };
 
 const percentageStyle = {
-  fontSize: '25px',
+  fontSize: '25px', 
   textAlign: 'center',
 }
 
+const allResidencesArray = [ "576 Alvarado", "680 Lomita", "Adelfa", "BOB", "Branner", "Cardenal", "Castano", "CCTH", "Columbae", 
+"Crothers", "Dorm", "Durand", "EAST", "East Campus", "East FloMo", "EBF", "Eucalipto", "Faisan", 
+"FloMo", "French House", "FroSoCo", "Gavilan", "Gerhard Casper Quad", "Gov Co", "Granada", "Grove", 
+"Hammarskjold", "Haus Mitteleuropa", "Humanities House", "Jerry", "Kairos", "Kimball", "Lagunita", 
+"Lantana", "La Casa Italiana", "Loro", "Lower Row Self Op", "Mars", "Meier", "Mirlo", "Mirrielees", 
+"Muwekma", "Murray", "Naranja", "Narnia", "Norcliffe", "Okada", "Outdoor House", "Paloma", "Phi Sigma", 
+"Pluto", "Potter", "Residence", "Robinson", "Roble", "Roth", "Self Op", "Self Op Lake", 
+"Slavianskii Dom", "SterQuad", "Storey", "Suites", "Synergy", "Terra", "Toyon", "Trancos", "Ujamaa", 
+"Upper Row Self Op", "West Campus", "West FloMo", "Xanadu", "Yost", "ZAP", "Zapata"];
+
 const schema = {
-  //title: "Calculator",
   type: "object",
-  required: ["sex", "roomtype", "residence", "tiernumber", "applytype"],
   properties: {
     sex: {
-      type: "string", 
       title: "Sex:",
-      enum: [ "male", "female", "n" ],
+      enum: [ "m", "f", "n" ],
       enumNames: [ "Male", "Female", "N/A" ]
     },
-    roomtype: {
-      type: "string", 
-      title: "Room Type:",
-      enum: [ "1 room single", "1 room double", "1 room double (focus)", "2 room double", 
-        "2 room double (focus)", "1 room triple", "1 room quad", "4-person", "6-person", "standard room",
-        "premier room", "substance free housing", "ethnic housing",
-        "2 bedroom apartment", "3 bedroom apartment", "4 bedroom apartment", "Any" ],
-      enumNames: [ "1 Room Single", "1 Room Double", "1 Room Double (Focus)", "2 Room Double",
-        "2 Room Double (Focus)", "1 Room Triple", "1 Room Quad", "Four-Person Suite", "Six-Person Suite",
-        "Standard Room", "Premier Room", "Substance Free Housing", "Ethnic Housing",
-        "2 Bedroom Apartment", "3 Bedroom Apartment", "4 Bedroom Apartment", "Any" ]
-    },
     residence: {
-      type: "string", 
       title: "Residence:",
-      enum: [ "576 Alvarado", "680 Lomita", "Adelfa", "BOB", "Branner", "Cardenal", "Castano", "CCTH", 
-        "Columbae", "Crothers", "Dorm", "Durand", "EAST", "East Campus", "East FloMo", "EBF", "Eucalipto", 
-        "Faisan", "FloMo", "French House", "FroSoCo", "Gavilan", "Gerhard Casper Quad", "Gov Co", "Granada", 
-        "Grove", "Hammarskjold", "Haus Mitteleuropa", "Humanities House", "Jerry", "Kairos", "Kimball", 
-        "Lagunita", "Lantana", "La Casa Italiana", "Loro", "Lower Row Self Op", "Mars", "Meier", "Mirlo", 
-        "Mirrielees", "Muwekma", "Murray", "Naranja", "Narnia", "Norcliffe", "Okada", "Outdoor House", 
-        "Paloma", "Phi Sigma", "Pluto", "Potter", "Residence", "Robinson", "Roble", "Roth", "Self Op", 
-        "Self Op Lake", "Slavianskii Dom", "SterQuad", "Storey", "Suites", "Synergy", "Terra", "Toyon", 
-        "Trancos", "Ujamaa", "Upper Row Self Op", "West Campus", "West FloMo", "Xanadu", "Yost", 
-        "ZAP", "Zapata"],
-        enumNames: [ "576 Alvarado", "680 Lomita", "Adelfa", "BOB", "Branner", "Cardenal", "Castano", "CCTH", 
-        "Columbae", "Crothers", "Dorm", "Durand", "EAST", "East Campus", "East FloMo", "EBF", "Eucalipto", 
-        "Faisan", "FloMo", "French House", "FroSoCo", "Gavilan", "Gerhard Casper Quad", "Gov Co", "Granada", 
-        "Grove", "Hammarskjold", "Haus Mitteleuropa", "Humanities House", "Jerry", "Kairos", "Kimball", 
-        "Lagunita", "Lantana", "La Casa Italiana", "Loro", "Lower Row Self Op", "Mars", "Meier", "Mirlo", 
-        "Mirrielees", "Muwekma", "Murray", "Naranja", "Narnia", "Norcliffe", "Okada", "Outdoor House", 
-        "Paloma", "Phi Sigma", "Pluto", "Potter", "Residence", "Robinson", "Roble", "Roth", "Self Op", 
-        "Self Op Lake", "Slavianskii Dom", "SterQuad", "Storey", "Suites", "Synergy", "Terra", "Toyon", 
-        "Trancos", "Ujamaa", "Upper Row Self Op", "West Campus", "West FloMo", "Xanadu", "Yost", 
-        "ZAP", "Zapata"],
-
+      enum: allResidencesArray,
+    },
+    roomtype: {
+      title: "Room Type:",
+      enum: [ "1 Room Single", "1 Room Double", "1 Room Double (focus)", "2 Room Double", "2 Room Double (focus)", 
+      "1 Room Triple", "1 Room Quad", "4-room", "6-room", "Standard", "Premier", "Substance Free Housing", 
+      "Ethnic (B)", "Ethnic (I)", "Ethnic (N)", "Ethnic (C)", "Ethnic (A)", "Double", "Triple", "Quad", "Any" ],
+      enumNames: [ "1 Room Single", "1 Room Double", "1 Room Double (Focus)", "2 Room Double", "2 Room Double (Focus)", 
+        "1 Room Triple", "1 Room Quad", "Four-Person Suite", "Six-Person Suite", "Standard Room", "Premier Room", 
+        "Substance Free Housing", "Ethnic Housing (Ujamaa)", "Ethnic Housing (Hammarskjold)", 
+        "Ethnic Housing (Muwekma)", "Ethnic Housing (Zapata)", "Ethnic Housing (Okada)", "2 Bedroom Apartment", 
+        "3 Bedroom Apartment", "4 Bedroom Apartment", "Any" ],
     },
     tiernumber: {
-      type: "integer", 
       title: "Tier Level:",
-      maxLength: 1,
       enum: [ 1, 2, 3],
       enumNames: [ "Tier 1", "Tier 2", "Tier 3" ]
     },
     applytype: {
-      type: "string",
       title: "Group Size: ",
-      enum: [ "individual", "group of 2", "group of 3", "group of 4" ],
+      enum: [ "individual", "group_2", "group_3", "group_4" ],
       enumNames: [ "Individual", "Group of 2", "Group of 3", "Group of 4" ]
     }
-  }
+  },
+  required: ["sex", "roomtype", "residence", "tiernumber", "applytype"],
 };
 
 function findLeastSquares(x_values, y_values) {
@@ -100,36 +82,31 @@ function findLeastSquares(x_values, y_values) {
   let xsq_sum = 0;
   let xy_sum = 0;
   let count = 0;
-
   for (let i = 0; i < x_values.length; i++) {
     let x = x_values[i];
     let y = y_values[i];
-
     x_sum += x;
     y_sum += y;
     xsq_sum += (x * x);
     xy_sum += (x * y);
     count++;
   }
-
   let aValue = ( (count * xy_sum) - (x_sum * y_sum) ) / ( (count * xsq_sum) - (x_sum * x_sum) );
   let bValue = ( (y_sum * xsq_sum) - (x_sum * xy_sum) ) / ( (count * xsq_sum) - (x_sum * x_sum) );
-
   return [aValue, bValue];  
 }
 
 function processTrends(gender, typeCol, resID, des_year) {
-  const data_1718 = require('./housingData1718.json');
-  const data_16 = require('./housingData16.json');
-  const data_15 = require('./housingData15.json');
-  const data_14 = require('./housingData14.json');
+  let data_1718 = require('./housingData1718.json');
+  let data_16 = require('./housingData16.json');
+  let data_15 = require('./housingData15.json');
+  let data_14 = require('./housingData14.json');
 
   let cutoffs = [];
   let cutoffsStr = [];
   let yearList = [2014, 2015, 2016, 2017, 2018];
 
   let foundCutoff = false;
-
   let currData;
   for (let i = 0; i < yearList.length; i++) {
     switch (yearList[i]) {
@@ -193,131 +170,22 @@ function processTrends(gender, typeCol, resID, des_year) {
     cutoffsStr.push(cutoff2019);
     return cutoffsStr;
   }
-
   return 0;
 }
 
 function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, applyType_raw) {
-
-  /* gender */
-  let gender;
-  switch(gender_raw) {
-    case "male":
-      gender = "m";
-      break;
-    case "female":
-      gender = "f";
-      break;
-    default:
-      gender = "n";
-  }
-
-  /* room type + residence */
-  let roomType;
-  switch(roomType_raw) {
-    case "1 room single":
-      roomType = "1 Room Single";
-      break;
-    case "1 room double":
-      roomType = "1 Room Double";
-      break;
-    case "1 room double (focus)":
-      roomType = "1 Room Double (focus)";
-      break;
-    case "2 room double":
-      roomType = "2 Room Double";
-      break;
-    case "2 room double (focus)":
-      roomType = "2 Room Double (focus)";
-      break;
-    case "1 room triple": 
-      roomType = "1 Room Triple";
-      break;
-    case "1 room quad":
-      roomType = "1 Room Quad";
-      break;
-    case "4-person":
-      roomType = "4-room";
-      break;
-    case "6-person":
-      roomType = "6-room";
-      break;
-    case "standard room": 
-      roomType = "Standard";
-      break;
-    case "premier room":
-      roomType = "Premier";
-      break;
-    case "substance free housing":
-      roomType = "Substance Free Housing";
-      break;
-    case "ethnic housing":
-      roomType = "ETHNIC";
-      break;
-    case "2 bedroom apartment":
-      roomType = "Double";
-      break;
-    case "3 bedroom apartment":
-      roomType = "Triple";
-      break;
-    case "4 bedroom apartment":
-      roomType = "Quad";
-      break;
-    default:
-      roomType = "Any";
-  }
-  if (roomType == "ETHNIC") {
-    switch (resName_raw) {
-      case "Ujamaa":
-        roomType = "Ethnic (B)";
-        break;
-      case "Hammarskjold":
-        roomType = "Ethnic (I)";
-        break;
-      case "Muwekma":
-        roomType = "Ethnic (N)";
-        break;
-      case "Zapata":
-        roomType = "Ethnic (C)";
-        break;
-      case "Okada":
-        roomType = "Ethnic (A)";
-        break;
-    }
-  }
+  let gender = gender_raw;
+  let roomType = roomType_raw;
   const resID = roomType + "," + resName_raw;
-
-  /* applytype (number of ppl in group) */
-  let typeCol;
-  switch (applyType_raw) {
-    case "individual":
-      typeCol = "individual";
-      break;
-    case "group of 2":
-      typeCol = "group_2";
-      break;
-    case "group of 3":
-      typeCol = "group_3";
-      break;
-    case "group of 4":
-      typeCol = "group_4";
-      break;
-    default :
-      return "Invalid input";
-  }
-
-  /* tier number */
+  let typeCol = applyType_raw;
   const tierNum = tierNum_raw;
-  if (tierNum != 1 && tierNum != 2 && tierNum != 3) {
-    return "Invalid input";
-  }
 
   let output = [];
   //find percentage
   const score_ceiling = tierNum * 1000;
   const score_floor = score_ceiling - 999;
   const cutoffsList = processTrends(gender, typeCol, resID, 2019);
-
+  
   //print out previous cutoffs
   let yearList = [2014, 2015, 2016, 2017, 2018, 2019];
   if (cutoffsList.length == yearList.length) {
@@ -347,15 +215,8 @@ const onError = (errors) => console.log('I have', errors.length, 'errors to fix'
 class Calculator extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      cutoff_2014: null,
-      cutoff_2015: null,
-      cutoff_2016: null,
-      cutoff_2017: null,
-      cutoff_2018: null,
-      cutoff_2019: null,
-      percentage: null,
-      formData: null
+    this.state = { cutoff_2014: null, cutoff_2015: null, cutoff_2016: null, cutoff_2017: null,
+      cutoff_2018: null, cutoff_2019: null, percentage: null, formData: null, schema: schema
     }
   }
 
@@ -367,15 +228,74 @@ class Calculator extends React.Component {
     let applytype = formData.applytype;
     let results = processSingleQuery(sex, roomtype, residence, tiernumber, applytype);
 
-    this.setState({
-      cutoff_2014: results[0],
-      cutoff_2015: results[1],
-      cutoff_2016: results[2],
-      cutoff_2017: results[3],
-      cutoff_2018: results[4],
-      cutoff_2019: results[5],
-      percentage: results[6]
+    this.setState({ cutoff_2014: results[0], cutoff_2015: results[1], cutoff_2016: results[2],
+      cutoff_2017: results[3], cutoff_2018: results[4], cutoff_2019: results[5], percentage: results[6]
     });
+  }
+
+  onChange = ({formData, schema}) => {
+    this.setState({formData});
+    this.setState({schema});
+
+    if (formData.residence != null) {
+      let residence = formData.residence;
+      if (residence == null || residence == "") {
+        return;
+      }
+    
+      let array = [];
+      let data_1718 = require('./housingData1718.json');
+      let data_16 = require('./housingData16.json');
+      let data_15 = require('./housingData15.json');
+      let data_14 = require('./housingData14.json');
+
+      let dataArrays = [data_1718, data_16, data_15, data_14];
+
+      for (let i = 0; i < dataArrays.length; i++) {
+        let data = dataArrays[i];
+        for (let j = 0; j < data.length; j++) {
+          let item = data[j];
+          if (item.res_name_edited.includes(residence)) {
+            let index = item.res_name_edited.indexOf(',');
+            let newStr = item.res_name_edited.substring(0, index);
+            if (!array.includes(newStr.trim())) {
+              array.push(newStr);
+            }
+          }
+        }
+      }
+
+      let newSchema = {
+        type: "object",
+        properties: {
+          sex: {
+            title: "Sex:",
+            enum: [ "m", "f", "n" ],
+            enumNames: [ "Male", "Female", "N/A" ]
+          },
+          residence: {
+            title: "Residence:",
+            enum: allResidencesArray,
+          },
+          roomtype: {
+            title: "Room Type:",
+            enum: array,
+          },
+          tiernumber: {
+            title: "Tier Level:",
+            enum: [ 1, 2, 3],
+            enumNames: [ "Tier 1", "Tier 2", "Tier 3" ]
+          },
+          applytype: {
+            title: "Group Size: ",
+            enum: [ "individual", "group_2", "group_3", "group_4" ],
+            enumNames: [ "Individual", "Group of 2", "Group of 3", "Group of 4" ]
+          }
+        },
+        required: ["sex", "roomtype", "residence", "tiernumber", "applytype"],
+      }
+      this.setState({schema: newSchema});
+    }
   }
 
   render() {
@@ -384,10 +304,11 @@ class Calculator extends React.Component {
         <header className="Calculator-header" style={calculatorStyle}>
           <br />
           <h1 style={headerStyle}>Calculator</h1>
-            <Form schema={schema}
+            <Form schema={this.state.schema}
               onSubmit={this.onSubmit}
               formData={this.state.formData}
-              onChange={({formData}) => this.setState({formData})}
+              //onChange={({formData}) => this.setState({formData}) }
+              onChange={this.onChange}
               onError={onError} />
             <br />
             <div style={cutoffStyle}> {this.state.cutoff_2014} </div>

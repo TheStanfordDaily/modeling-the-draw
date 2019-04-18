@@ -1,4 +1,4 @@
-[
+﻿[
  {
    "FIELD1": 0,
    "area": "BRN",
@@ -2099,7 +2099,7 @@
    "FIELD1": 131,
    "area": "ROW",
    "res_name_raw": "Durand, standard room",
-   "res_name_edited": "Stanford,Durand",
+   "res_name_edited": "Standard,Durand",
    "sex": "m",
    "individual": 1240,
    "group_2": 1236,
@@ -5059,7 +5059,7 @@
    "FIELD1": 316,
    "area": "ROW",
    "res_name_raw": "Durand, standard room",
-   "res_name_edited": "Stanford,Durand",
+   "res_name_edited": "Standard,Durand",
    "sex": "f",
    "individual": 866,
    "group_2": 866,
