@@ -81,7 +81,7 @@ class Home extends React.Component {
                 <br />
                 <br />
                 <p style = {footer2Style}>
-                    Questions? Email Charles Pan, Tiffany Shi, 
+                    Questions? Contact Charles Pan, Tiffany Shi, 
                     or Lily Zhou with your comments and concerns.
                 </p>
                 <br />
