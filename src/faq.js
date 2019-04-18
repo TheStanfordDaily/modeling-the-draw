@@ -86,8 +86,10 @@ function Question3() {
             <p style={answerStyle}>
                 The third input, room type, is the type of room that you’d like to draw into (ex: "1 Room Single",
                 "2 Room Double"). The calculator will automatically update the dropdown options
-                to only show the room types that are offered in your residence. If you have no preference 
+                to only show the room types that are offered in your residence. Please note that the availability
+                of room types could also hinge on other factors (i.e. sex and apply type). If you have no preference 
                 for your room type, input “Any.”
+
             </p>
             <p style={answerStyle}>
                 The fourth input, tier number, is the tier level that you are selecting.

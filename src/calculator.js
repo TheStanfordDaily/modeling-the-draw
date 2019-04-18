@@ -25,7 +25,7 @@ const cutoffStyle = {
 };
 
 const percentageStyle = {
-  fontSize: '25px', 
+  fontSize: '22px', 
   textAlign: 'center',
 }
 
@@ -167,6 +167,11 @@ function processTrends(gender, typeCol, resID, des_year) {
   } else if (cutoffs.length > 1 && yearList.length == cutoffs.length) {
     const ls_model = findLeastSquares(yearList, cutoffs);
     let cutoff2019 = Math.round(ls_model[0] * des_year + ls_model[1]);
+    if (cutoff2019 < 0) {
+      cutoff2019 = 1;
+    } else if (cutoff2019 > 3000) {
+      cutoff2019 = 3000;
+    }
     cutoffsStr.push(cutoff2019);
     return cutoffsStr;
   }
@@ -199,9 +204,9 @@ function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, 
   }
 
   //print out percentage
-  if (cutoffsList[cutoffsList.length - 1] > score_ceiling) {
+  if (cutoffsList[cutoffsList.length - 1] >= score_ceiling) {
     output.push("Your Chances: >99% – You're an (almost) guaranteed in!");
-  } else if (cutoffsList[cutoffsList.length - 1] < score_floor) {
+  } else if (cutoffsList[cutoffsList.length - 1] <= score_floor) {
     output.push("Your Chances: <0.1% – Good luck with that!");
   } else {
     let percentage = (cutoffsList[cutoffsList.length - 1] - score_floor) / 10;
@@ -239,9 +244,6 @@ class Calculator extends React.Component {
 
     if (formData.residence != null) {
       let residence = formData.residence;
-      if (residence == null || residence == "") {
-        return;
-      }
     
       let array = [];
       let data_1718 = require('./housingData1718.json');
