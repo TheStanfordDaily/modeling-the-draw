@@ -8,11 +8,13 @@
     "@material-ui/icons": "^3.0.2",
     "bootstrap": "^4.3.1",
     "flexbox-react": "^4.4.0",
+    "firebase": "^5.10.0",
     "material-ui-icons": "^1.0.0-beta.36",
     "mui-datatables": "^2.0.0-beta.59",
     "react": "^16.8.3",
     "react-bootstrap": "^1.0.0-beta.8",
     "react-dom": "^16.8.3",
+    "react-google-maps": "^9.4.5",
     "react-jsonschema-form": "^1.4.0",
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.5"

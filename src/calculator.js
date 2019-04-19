@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import {Link} from 'react-router-dom';
 import Form from "react-jsonschema-form";
+import save from "./store";
 
 const divStyle = {
   marginLeft: '20%', 
@@ -227,7 +228,7 @@ class Calculator extends React.Component {
     }
   }
 
-  onSubmit = ({formData}) => {
+  onSubmit = async ({formData}) => {
     let sex = formData.sex;
     let roomtype = formData.roomtype;
     let residence = formData.residence;
@@ -238,6 +239,7 @@ class Calculator extends React.Component {
     this.setState({ cutoff_2014: results[0], cutoff_2015: results[1], cutoff_2016: results[2],
       cutoff_2017: results[3], cutoff_2018: results[4], cutoff_2019: results[5], percentage: results[6]
     });
+    await save(formData);
   }
 
   onChange = ({formData, schema}) => {
