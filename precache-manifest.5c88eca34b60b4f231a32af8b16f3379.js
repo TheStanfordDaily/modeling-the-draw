@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/modeling-the-draw/static/js/runtime~main.af7d474c.js"
   },
   {
-    "revision": "a5539e7c7f8c55bb8855",
-    "url": "/modeling-the-draw/static/js/main.a5539e7c.chunk.js"
+    "revision": "e0b9b2d3ac904e012947",
+    "url": "/modeling-the-draw/static/js/main.e0b9b2d3.chunk.js"
   },
   {
     "revision": "03fc921eb39ee6c5b024",
     "url": "/modeling-the-draw/static/js/2.03fc921e.chunk.js"
   },
   {
-    "revision": "a5539e7c7f8c55bb8855",
-    "url": "/modeling-the-draw/static/css/main.28c508a5.chunk.css"
+    "revision": "e0b9b2d3ac904e012947",
+    "url": "/modeling-the-draw/static/css/main.75ea7f27.chunk.css"
   },
   {
-    "revision": "48c3d536362c12b4058ecd8c04dce53e",
+    "revision": "267a892be10a26aa82b21bb99120f951",
     "url": "/modeling-the-draw/index.html"
   }
 ];
