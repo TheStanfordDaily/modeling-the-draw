@@ -1,5 +1,7 @@
 import React from 'react';
 import MUIDataTable from 'mui-datatables';
+import Button from 'react-bootstrap/Button';
+import {Link} from 'react-router-dom';
 
 const headerStyle = {
     textAlign: 'center',
@@ -65,6 +67,11 @@ class PastData extends React.Component {
 
         return (
             <div>
+                <br />
+                <Link to="/"><Button variant="outline-danger">
+                    Back
+                </Button></Link>
+                <br />
                 <br />
                 <h1 style={headerStyle}>View Past Data</h1>
                 <MUIDataTable

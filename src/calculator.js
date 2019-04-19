@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Button from 'react-bootstrap/Button';
+import {Link} from 'react-router-dom';
 import Form from "react-jsonschema-form";
 
 const divStyle = {
@@ -304,6 +306,11 @@ class Calculator extends React.Component {
     return (
       <div className="Calculator" style={divStyle}>
         <header className="Calculator-header" style={calculatorStyle}>
+          <br />
+            <Link to="/"><Button variant="outline-danger">
+              Back
+            </Button></Link>
+          <br />
           <br />
           <h1 style={headerStyle}>Calculator</h1>
             <Form schema={this.state.schema}

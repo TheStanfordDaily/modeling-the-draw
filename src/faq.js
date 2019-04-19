@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
+import {Link} from 'react-router-dom';
 import './faq.css';
 
 const headerStyle = {
@@ -126,6 +128,11 @@ class FAQ extends React.Component {
         return (
             <div style={divStyle}>
                 <br />
+                <Link to="/"><Button variant="outline-danger">
+                    Back
+                </Button></Link>
+                <br />
+                <br />
                 <h1 style={headerStyle}>
                     Frequently Asked Questions
                 </h1>
@@ -141,7 +148,6 @@ class FAQ extends React.Component {
                 <p style={answerStyle}>
                     Contact lilyzhou@stanford.edu for further inquiries.
                 </p>
-                <br />
             </div>
  
         );
