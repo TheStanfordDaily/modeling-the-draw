@@ -204,6 +204,17 @@ function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, 
         output.push(yearList[count] + " cutoff: " + cutoffsList[count]);
       }
     }
+    //find cutoff average
+    let average = 0;
+    let count = 0;
+    for (let index = 0; index <= 4; index++) {
+      if (cutoffsList[index] != "N/A") {
+        average += cutoffsList[index];
+        count++;
+      }
+    }
+    average = Math.round(average / count);
+    output.push("Average cutoff: " + average);
   }
 
   //print out percentage
@@ -223,8 +234,17 @@ const onError = (errors) => console.log('I have', errors.length, 'errors to fix'
 class Calculator extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { cutoff_2014: null, cutoff_2015: null, cutoff_2016: null, cutoff_2017: null,
-      cutoff_2018: null, cutoff_2019: null, percentage: null, formData: null, schema: schema
+    this.state = { 
+      cutoff_2014: null, 
+      cutoff_2015: null, 
+      cutoff_2016: null, 
+      cutoff_2017: null,
+      cutoff_2018: null, 
+      cutoff_2019: null, 
+      cutoff_avg: null, 
+      percentage: null, 
+      formData: null, 
+      schema: schema
     }
   }
 
@@ -236,8 +256,15 @@ class Calculator extends React.Component {
     let applytype = formData.applytype;
     let results = processSingleQuery(sex, roomtype, residence, tiernumber, applytype);
 
-    this.setState({ cutoff_2014: results[0], cutoff_2015: results[1], cutoff_2016: results[2],
-      cutoff_2017: results[3], cutoff_2018: results[4], cutoff_2019: results[5], percentage: results[6]
+    this.setState({ 
+      cutoff_2014: results[0], 
+      cutoff_2015: results[1], 
+      cutoff_2016: results[2],
+      cutoff_2017: results[3], 
+      cutoff_2018: results[4], 
+      cutoff_2019: results[5], 
+      cutoff_avg: results[6],
+      percentage: results[7]
     });
     await save(formData);
   }
@@ -327,7 +354,9 @@ class Calculator extends React.Component {
             <div style={cutoffStyle}> {this.state.cutoff_2016} </div>
             <div style={cutoffStyle}> {this.state.cutoff_2017} </div>
             <div style={cutoffStyle}> {this.state.cutoff_2018} </div>
+            <br />
             <div style={cutoffStyle}> {this.state.cutoff_2019} </div>
+            <div style={cutoffStyle}> {this.state.cutoff_avg} </div>
             <br />
             <div style={percentageStyle}> {this.state.percentage} </div> 
           <br />
