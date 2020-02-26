@@ -1,12 +1,14 @@
-import React, { Component } from 'react';
-import Button from 'react-bootstrap/Button';
+import React from 'react';
+import {Button, Container, Row, Col} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import Form from "react-jsonschema-form";
 import save from "./store";
 
+import { Dot, ScatterChart, Scatter, XAxis, YAxis, LabelList } from 'recharts';
+
 const divStyle = {
-  marginLeft: '20%', 
-  marginRight: '20%', 
+  marginLeft: '10%', 
+  marginRight: '10%', 
   border: "solid #8c1515", 
   borderWidth: '4px',
 }
@@ -18,8 +20,8 @@ const headerStyle = {
 };
 
 const calculatorStyle = {
-  marginLeft: '20%', 
-  marginRight: '20%',
+  marginLeft: '0%',
+  marginRight: '0%'
 };
 
 const cutoffStyle = {
@@ -188,6 +190,8 @@ function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, 
   let typeCol = applyType_raw;
   const tierNum = tierNum_raw;
 
+  let outputDict = {};
+  let rawData = [];
   let output = [];
   //find percentage
   const score_ceiling = tierNum * 1000;
@@ -203,6 +207,7 @@ function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, 
       } else {
         output.push(yearList[count] + " cutoff: " + cutoffsList[count]);
       }
+      rawData.push({'year': yearList[count], 'cutoff': cutoffsList[count]});
     }
     //find cutoff average
     let average = 0;
@@ -226,10 +231,27 @@ function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, 
     let percentage = (cutoffsList[cutoffsList.length - 1] - score_floor) / 10;
     output.push("Your Chances: " + percentage + "%");
   }
-  return output;
+
+  outputDict['strings'] = output;
+  outputDict['rawData'] = rawData;
+  return outputDict;
 }
 
 const onError = (errors) => console.log('I have', errors.length, 'errors to fix');
+
+const renderLabel = (props) => {
+  const {cx, cy, value} = props;
+  return (
+    <g>
+      <Dot cx={cx} cy={cy} r={5} fill='black' />
+      <g transform={`translate(${cx},${cy})`}>
+        <text x={10} y={0} dx={5} textAnchor="center">{value}</text>
+      </g>
+    </g>
+   );
+};
+
+const data = [{year: 2014, cutoff: 100}, {year: 2015, cutoff: 150}, {year: 2016, cutoff: 120}];
 
 class Calculator extends React.Component {
   constructor(props) {
@@ -242,9 +264,10 @@ class Calculator extends React.Component {
       cutoff_2018: null, 
       cutoff_2019: null, 
       cutoff_avg: null, 
+      cutoff_raw_data: [{'year': 2014, cutoff: ''}, {'year': 2019, cutoff: ''}],
       percentage: null, 
       formData: null, 
-      schema: schema
+      schema: schema,
     }
   }
 
@@ -254,7 +277,8 @@ class Calculator extends React.Component {
     let residence = formData.residence;
     let tiernumber = formData.tiernumber;
     let applytype = formData.applytype;
-    let results = processSingleQuery(sex, roomtype, residence, tiernumber, applytype);
+    let allResults = processSingleQuery(sex, roomtype, residence, tiernumber, applytype);
+    let results = allResults['strings'];
 
     this.setState({ 
       cutoff_2014: results[0], 
@@ -264,7 +288,8 @@ class Calculator extends React.Component {
       cutoff_2018: results[4], 
       cutoff_2019: results[5], 
       cutoff_avg: results[6],
-      percentage: results[7]
+      percentage: results[7],
+      cutoff_raw_data: allResults['rawData']
     });
     await save(formData);
   }
@@ -331,6 +356,10 @@ class Calculator extends React.Component {
     }
   }
 
+  componentDidMount() {
+    
+  }
+
   render() {
     return (
       <div className="Calculator" style={divStyle}>
@@ -341,26 +370,40 @@ class Calculator extends React.Component {
             </Button></Link>
           <br />
           <br />
+
+          <Container>
+          <Row>
+
+          <Col>
           <h1 style={headerStyle}>Calculator</h1>
             <Form schema={this.state.schema}
               onSubmit={this.onSubmit}
               formData={this.state.formData}
-              //onChange={({formData}) => this.setState({formData}) }
               onChange={this.onChange}
               onError={onError} />
-            <br />
-            <div style={cutoffStyle}> {this.state.cutoff_2014} </div>
-            <div style={cutoffStyle}> {this.state.cutoff_2015} </div>
-            <div style={cutoffStyle}> {this.state.cutoff_2016} </div>
-            <div style={cutoffStyle}> {this.state.cutoff_2017} </div>
-            <div style={cutoffStyle}> {this.state.cutoff_2018} </div>
-            <br />
+            <br/>
+          </Col>
+          
+          <Col>
+            <div>
+              <ScatterChart width={400} height={400}>
+                <Scatter data={this.state.cutoff_raw_data} name="Cutoff" stroke="#8884d8">
+                  <LabelList dataKey="cutoff" content={renderLabel} />
+                </Scatter>
+                <XAxis dataKey="year" />
+                <YAxis dataKey="cutoff" reversed={true}/>
+              </ScatterChart>
+            </div>
+
             <div style={cutoffStyle}> {this.state.cutoff_2019} </div>
             <div style={cutoffStyle}> {this.state.cutoff_avg} </div>
             <br />
             <div style={percentageStyle}> {this.state.percentage} </div> 
-          <br />
-          <br />
+          </Col>
+
+          </Row>
+          </Container>
+
         </header>
       </div>
     );
