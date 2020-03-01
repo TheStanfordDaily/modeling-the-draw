@@ -4,7 +4,8 @@ import {Link} from 'react-router-dom';
 import Form from "react-jsonschema-form";
 import save from "./store";
 
-import { Dot, ScatterChart, Scatter, XAxis, YAxis, LabelList } from 'recharts';
+import { NumberCard } from './components/NumberCard.js'
+import { CutoffGraph } from './components/CutoffGraph.js'
 
 const divStyle = {
   marginLeft: '10%', 
@@ -81,6 +82,8 @@ const schema = {
   required: ["sex", "roomtype", "residence", "tiernumber", "applytype"],
 };
 
+const yearList = [2014, 2015, 2016, 2017, 2018, 2019];
+
 function findLeastSquares(x_values, y_values) {
   let x_sum = 0;
   let y_sum = 0;
@@ -109,12 +112,14 @@ function processTrends(gender, typeCol, resID, des_year) {
 
   let cutoffs = [];
   let cutoffsStr = [];
-  let yearList = [2014, 2015, 2016, 2017, 2018];
 
   let foundCutoff = false;
   let currData;
-  for (let i = 0; i < yearList.length; i++) {
-    switch (yearList[i]) {
+  let prevYears = yearList.slice(0, yearList.length - 1);
+
+  // Loop through all past years
+  for (let i = 0; i < prevYears.length; i++) {
+    switch (prevYears[i]) {
       case 2014:
         currData = data_14;
         break;
@@ -130,8 +135,9 @@ function processTrends(gender, typeCol, resID, des_year) {
     foundCutoff = false;
     for (let j = 0; j < currData.length; j++) {
       let item = currData[j];
-      if (item.year == yearList[i] && (gender == "n" || item.sex == gender) && item.res_name_edited == resID) {
+      if (item.year == prevYears[i] && (gender == "n" || item.sex == gender) && item.res_name_edited == resID) {
         foundCutoff = true;
+
         switch (typeCol) {
           case "individual":
             cutoffs.push(item.individual);
@@ -151,7 +157,7 @@ function processTrends(gender, typeCol, resID, des_year) {
         }
         if (cutoffs[cutoffs.length - 1] == "" || cutoffs[cutoffs.length - 1] == null) {
           cutoffs.pop();
-          yearList.splice(i, 1);
+          prevYears.splice(i, 1);
           i--;
           cutoffsStr[cutoffsStr.length - 1] = "N/A";
         }
@@ -159,7 +165,7 @@ function processTrends(gender, typeCol, resID, des_year) {
       }
     }
     if (!foundCutoff) {
-      yearList.splice(i, 1);
+      prevYears.splice(i, 1);
       i--;
       cutoffsStr.push("N/A");
     }
@@ -169,8 +175,8 @@ function processTrends(gender, typeCol, resID, des_year) {
     return "Invalid input";
   } else if (cutoffs.length == 1) {
     return cutoffs[0];
-  } else if (cutoffs.length > 1 && yearList.length == cutoffs.length) {
-    const ls_model = findLeastSquares(yearList, cutoffs);
+  } else if (cutoffs.length > 1 && prevYears.length == cutoffs.length) {
+    const ls_model = findLeastSquares(prevYears, cutoffs);
     let cutoff2019 = Math.round(ls_model[0] * des_year + ls_model[1]);
     if (cutoff2019 < 0) {
       cutoff2019 = 1;
@@ -192,21 +198,17 @@ function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, 
 
   let outputDict = {};
   let rawData = [];
-  let output = [];
   //find percentage
   const score_ceiling = tierNum * 1000;
   const score_floor = score_ceiling - 999;
   const cutoffsList = processTrends(gender, typeCol, resID, 2019);
-  
-  //print out previous cutoffs
-  let yearList = [2014, 2015, 2016, 2017, 2018, 2019];
+
   if (cutoffsList.length == yearList.length) {
     for (let count = 0; count < yearList.length; count++) {
       if (count == yearList.length - 1) {
-        output.push(yearList[count] + " estimated cutoff: " + cutoffsList[count]);
-      } else {
-        output.push(yearList[count] + " cutoff: " + cutoffsList[count]);
+        outputDict['estimate'] = cutoffsList[count];
       }
+
       rawData.push({'year': yearList[count], 'cutoff': cutoffsList[count]});
     }
     //find cutoff average
@@ -219,52 +221,32 @@ function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, 
       }
     }
     average = Math.round(average / count);
-    output.push("Average cutoff: " + average);
+    outputDict['averageCutoff'] = average;
   }
 
   //print out percentage
   if (cutoffsList[cutoffsList.length - 1] >= score_ceiling) {
-    output.push("Your Chances: >99% – You're an (almost) guaranteed in!");
+    outputDict['chance'] = '>99%';
   } else if (cutoffsList[cutoffsList.length - 1] <= score_floor) {
-    output.push("Your Chances: <0.1% – Good luck with that!");
+    outputDict['chance'] = '<0.1%';
   } else {
     let percentage = (cutoffsList[cutoffsList.length - 1] - score_floor) / 10;
-    output.push("Your Chances: " + percentage + "%");
+    outputDict['chance'] = `${percentage}%`;
   }
 
-  outputDict['strings'] = output;
   outputDict['rawData'] = rawData;
   return outputDict;
 }
 
 const onError = (errors) => console.log('I have', errors.length, 'errors to fix');
 
-const renderLabel = (props) => {
-  const {cx, cy, value} = props;
-  return (
-    <g>
-      <Dot cx={cx} cy={cy} r={5} fill='black' />
-      <g transform={`translate(${cx},${cy})`}>
-        <text x={10} y={0} dx={5} textAnchor="center">{value}</text>
-      </g>
-    </g>
-   );
-};
-
-const data = [{year: 2014, cutoff: 100}, {year: 2015, cutoff: 150}, {year: 2016, cutoff: 120}];
-
 class Calculator extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      cutoff_2014: null, 
-      cutoff_2015: null, 
-      cutoff_2016: null, 
-      cutoff_2017: null,
-      cutoff_2018: null, 
-      cutoff_2019: null, 
+      cutoff_predicted: null, 
       cutoff_avg: null, 
-      cutoff_raw_data: [{'year': 2014, cutoff: ''}, {'year': 2019, cutoff: ''}],
+      cutoff_raw_data: yearList.map((year) => [{'year': year, 'cutoff': ''}]).flat(),
       percentage: null, 
       formData: null, 
       schema: schema,
@@ -278,17 +260,11 @@ class Calculator extends React.Component {
     let tiernumber = formData.tiernumber;
     let applytype = formData.applytype;
     let allResults = processSingleQuery(sex, roomtype, residence, tiernumber, applytype);
-    let results = allResults['strings'];
 
     this.setState({ 
-      cutoff_2014: results[0], 
-      cutoff_2015: results[1], 
-      cutoff_2016: results[2],
-      cutoff_2017: results[3], 
-      cutoff_2018: results[4], 
-      cutoff_2019: results[5], 
-      cutoff_avg: results[6],
-      percentage: results[7],
+      cutoff_predicted: allResults['estimate'], 
+      cutoff_avg: allResults['averageCutoff'],
+      percentage: allResults['chance'],
       cutoff_raw_data: allResults['rawData']
     });
     await save(formData);
@@ -354,10 +330,8 @@ class Calculator extends React.Component {
       }
       this.setState({schema: newSchema});
     }
-  }
 
-  componentDidMount() {
-    
+    this.setState({tier: formData.tiernumber});
   }
 
   render() {
@@ -385,20 +359,26 @@ class Calculator extends React.Component {
           </Col>
           
           <Col>
-            <div>
-              <ScatterChart width={400} height={400}>
-                <Scatter data={this.state.cutoff_raw_data} name="Cutoff" stroke="#8884d8">
-                  <LabelList dataKey="cutoff" content={renderLabel} />
-                </Scatter>
-                <XAxis dataKey="year" />
-                <YAxis dataKey="cutoff" reversed={true}/>
-              </ScatterChart>
-            </div>
+            <Container>
+            <Row>
+              <CutoffGraph 
+                data={this.state.cutoff_raw_data}
+                tier={this.state.tier}
+              />
+            </Row>
 
-            <div style={cutoffStyle}> {this.state.cutoff_2019} </div>
-            <div style={cutoffStyle}> {this.state.cutoff_avg} </div>
-            <br />
-            <div style={percentageStyle}> {this.state.percentage} </div> 
+            <Row>
+              <Col>
+                <NumberCard title='Predicted cutoff' value={this.state.cutoff_predicted}/>
+              </Col>
+              <Col>
+                <NumberCard title='Average cutoff' value={this.state.cutoff_avg}/>
+              </Col>
+              <Col>
+                <NumberCard title='Your chances' value={this.state.percentage}/>
+              </Col>
+            </Row>
+            </Container>
           </Col>
 
           </Row>

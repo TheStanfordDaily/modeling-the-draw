@@ -4,22 +4,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^3.9.3",
+    "@material-ui/core": "^3.9.4",
     "@material-ui/icons": "^3.0.2",
-    "bootstrap": "^4.3.1",
-    "firebase": "^5.10.1",
+    "bootstrap": "^4.4.1",
+    "firebase": "^5.11.1",
     "flexbox-react": "^4.4.0",
     "material-ui-icons": "^1.0.0-beta.36",
-    "mui-datatables": "^2.0.0-beta.59",
-    "react": "^16.8.3",
-    "react-bootstrap": "^1.0.0-beta.8",
+    "mui-datatables": "^2.14.0",
+    "react": "^16.13.0",
+    "react-bootstrap": "^1.0.0-beta.17",
     "react-d3-library": "^1.1.8",
-    "react-dom": "^16.8.3",
+    "react-dom": "^16.13.0",
     "react-google-maps": "^9.4.5",
-    "react-jsonschema-form": "^1.4.0",
-    "react-router-dom": "^5.0.0",
+    "react-jsonschema-form": "^1.8.1",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "2.1.5",
-    "recharts": "^2.0.0-beta.1"
+    "recharts": "^1.8.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -39,6 +39,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "gh-pages": "^2.0.1"
+    "gh-pages": "^2.2.0"
   }
 }
