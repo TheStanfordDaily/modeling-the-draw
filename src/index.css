@@ -21,6 +21,34 @@ code {
     monospace;
 }
 
-.axis {
+button.btn-outline-danger {
+  color: #8C1515;
+  border-color: #8C1515;
+}
+
+button.btn-outline-danger:hover {
+  background-color: #8C1515;
+  border-color: #8C1515;
+}
+
+button.btn-info {
+  background-color: #8C1515;
+  border-color: #8C1515;
+}
+
+.recharts-scatter .recharts-label-list text {
   font-size: 0.9em;
+}
+
+.recharts-cartesian-axis-tick {
+  font-size: 0.9em;
+}
+
+.recharts-reference-area text.recharts-label {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.recharts-reference-area path {
+  fill: #ddd;
 }

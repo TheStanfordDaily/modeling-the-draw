@@ -25,16 +25,6 @@ const calculatorStyle = {
   marginRight: '0%'
 };
 
-const cutoffStyle = {
-  fontSize: '20px', 
-  textAlign: 'center',
-};
-
-const percentageStyle = {
-  fontSize: '22px', 
-  textAlign: 'center',
-}
-
 const allResidencesArray = [ "576 Alvarado", "680 Lomita", "Adelfa", "BOB", "Branner", "Cardenal", "Castano", "CCTH", "Columbae", 
 "Crothers", "Dorm", "Durand", "EAST", "East Campus", "East FloMo", "EBF", "Eucalipto", "Faisan", 
 "FloMo", "French House", "FroSoCo", "Gavilan", "Gerhard Casper Quad", "Gov Co", "Granada", "Grove", 
@@ -246,10 +236,10 @@ class Calculator extends React.Component {
     this.state = { 
       cutoff_predicted: null, 
       cutoff_avg: null, 
-      cutoff_raw_data: yearList.map((year) => [{'year': year, 'cutoff': ''}]).flat(),
+      cutoff_raw_data: yearList.map((year) => [{'year': year, 'cutoff': 'n/a'}]).flat(),
       percentage: null, 
       formData: null, 
-      schema: schema,
+      schema: schema
     }
   }
 
@@ -265,7 +255,8 @@ class Calculator extends React.Component {
       cutoff_predicted: allResults['estimate'], 
       cutoff_avg: allResults['averageCutoff'],
       percentage: allResults['chance'],
-      cutoff_raw_data: allResults['rawData']
+      cutoff_raw_data: allResults['rawData'],
+      tier: formData.tiernumber
     });
     await save(formData);
   }
@@ -330,8 +321,6 @@ class Calculator extends React.Component {
       }
       this.setState({schema: newSchema});
     }
-
-    this.setState({tier: formData.tiernumber});
   }
 
   render() {

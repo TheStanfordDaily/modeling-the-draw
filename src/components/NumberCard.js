@@ -20,15 +20,10 @@ const valueStyle = {
 	color: '#8C1515',
 	margin: 0,
 	fontSize: '30px',
-	height: '30px'
+	height: '40px'
 }
 
 export class NumberCard extends Component {
-	
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 		return (
 			<div style={divStyle}>

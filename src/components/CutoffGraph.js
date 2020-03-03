@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { ResponsiveContainer, Dot, ScatterChart, Scatter, XAxis, 
-	YAxis, Label, Text, LabelList, ReferenceArea, ReferenceLine } from 'recharts';
+import { ResponsiveContainer, ScatterChart, Scatter, XAxis, 
+	YAxis, Label, LabelList, ReferenceArea, ReferenceLine } from 'recharts';
 
 const tierToYRange = {
 	1: {
@@ -18,27 +18,39 @@ const tierToYRange = {
 };
 
 export class CutoffGraph extends Component {
-	constructor(props) {
-		super(props);
-	}
-
 	renderLabel = (props) => {
 	  const {x, y, value} = props;
+	  if (isNaN(y)) return;
+	  const labelY = y > 30 ? -10 : 30; // Place label above or below dot
 	  return (
 	    <g transform={`translate(${x},${y})`}>
-	      <text x={5} y={-10} textAnchor="middle">{value}</text>
+	      <text x={5} y={labelY} textAnchor="middle">{value}</text>
 	    </g>
 	   );
 	};
+
+	renderTierLabel = () => {
+		return (
+			<Label 
+				value={`Tier ${this.props.tier}`} 
+				position='center'
+			/>
+		);
+	}
 
 	renderReferenceArea = () => {
 		if (this.props.tier) {
 			return (
 				<ReferenceArea 
 					y1={tierToYRange[this.props.tier]['y1']} 
-					y2={tierToYRange[this.props.tier]['y2']} 
-					label={`Tier ${this.props.tier}`}
-				/>
+					y2={tierToYRange[this.props.tier]['y2']}
+				>
+					<Label 
+						value={`Tier ${this.props.tier}`} 
+						position='left'
+						offset={10}
+					/>
+				</ReferenceArea>
 			);
 		} else {
 			return;
