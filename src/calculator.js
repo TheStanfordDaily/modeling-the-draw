@@ -99,6 +99,8 @@ function processTrends(gender, typeCol, resID, des_year) {
   let data_16 = require('./housingData16.json');
   let data_15 = require('./housingData15.json');
   let data_14 = require('./housingData14.json');
+  
+  let data_19 = require('./housingData19.json');
 
   let cutoffs = [];
   let cutoffsStr = [];
@@ -119,8 +121,12 @@ function processTrends(gender, typeCol, resID, des_year) {
       case 2016:
         currData = data_16;
         break;
-      default:
+      case 2017:
+      case 2018:
         currData = data_1718;
+        break;
+      default:
+        currData = data_19;
     }
     foundCutoff = false;
     for (let j = 0; j < currData.length; j++) {
@@ -274,7 +280,9 @@ class Calculator extends React.Component {
       let data_15 = require('./housingData15.json');
       let data_14 = require('./housingData14.json');
 
-      let dataArrays = [data_1718, data_16, data_15, data_14];
+      let data_19 = require('./housingData19.json');
+
+      let dataArrays = [data_19, data_1718, data_16, data_15, data_14];
 
       for (let i = 0; i < dataArrays.length; i++) {
         let data = dataArrays[i];
