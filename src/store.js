@@ -13,5 +13,5 @@ firebase.initializeApp(config);
 
 export default async (data) => {
     var db = firebase.firestore();
-    await db.collection("modeling-the-draw-2019").add({...data, date: new Date()});
+    await db.collection("modeling-the-draw-2020").add({...data, date: new Date()});
 }

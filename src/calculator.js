@@ -107,7 +107,8 @@ function processTrends(gender, typeCol, resID, des_year) {
 
   let foundCutoff = false;
   let currData;
-  let prevYears = yearList.slice(0, yearList.length - 1);
+  let prevYears = yearList.slice(0, yearList.length);
+  // console.log(prevYears);
 
   // Loop through all past years
   for (let i = 0; i < prevYears.length; i++) {
@@ -197,14 +198,13 @@ function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, 
   //find percentage
   const score_ceiling = tierNum * 1000;
   const score_floor = score_ceiling - 999;
-  const cutoffsList = processTrends(gender, typeCol, resID, 2019);
+  const cutoffsList = processTrends(gender, typeCol, resID, 2020);
+  // console.log(cutoffsList, yearList);
 
-  if (cutoffsList.length == yearList.length) {
+  if (cutoffsList.length == yearList.length + 1) {
+    // console.log('asdf')
+    outputDict['estimate'] = cutoffsList[cutoffsList.length - 1];
     for (let count = 0; count < yearList.length; count++) {
-      if (count == yearList.length - 1) {
-        outputDict['estimate'] = cutoffsList[count];
-      }
-
       rawData.push({'year': yearList[count], 'cutoff': cutoffsList[count]});
     }
     //find cutoff average
@@ -256,6 +256,8 @@ class Calculator extends React.Component {
     let tiernumber = formData.tiernumber;
     let applytype = formData.applytype;
     let allResults = processSingleQuery(sex, roomtype, residence, tiernumber, applytype);
+
+    // console.log(allResults);
 
     this.setState({ 
       cutoff_predicted: allResults['estimate'], 
