@@ -29,13 +29,18 @@ button.btn-outline-danger {
 }
 
 button.btn-outline-danger:hover {
-  background-color: #8C1515;
-  border-color: #8C1515;
+  background-color: #A62F2F;
+  border-color: #A62F2F;
 }
 
 button.btn-info {
   background-color: #8C1515;
   border-color: #8C1515;
+}
+
+button.btn-info:hover {
+  background-color: #A62F2F;
+  border-color: #A62F2F;
 }
 
 
@@ -60,6 +65,11 @@ button.btn-info {
 div.tab-content {
   margin-top: 3em;
 }
+
+/*div.tab-content div.container {
+  margin-left: 1em;
+  margin-right: 1em;
+}*/
 
 div#root nav a.nav-link {
   border-radius: 0;

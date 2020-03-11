@@ -316,10 +316,10 @@ class Calculator extends React.Component {
   render() {
     return (
       <div className="Calculator tab-content">
-        <Container>
+        <Container fluid>
         <Row>
 
-        <Col>
+        <Col xs={12} md={4}>
         <h1>Calculator</h1>
           <Form schema={this.state.schema}
             onSubmit={this.onSubmit}
@@ -329,25 +329,18 @@ class Calculator extends React.Component {
           <br/>
         </Col>
         
-        <Col>
-          <Container>
+        <Col xs={12} md={8}>
+          <Container fluid>
+          <Row className="justify-content-md-center">
+            <Col xs={3}>
+              <NumberCard title='Your chances' value={this.state.percentage}/>
+            </Col>
+          </Row>
           <Row>
             <CutoffGraph 
               data={this.state.cutoff_raw_data}
               tier={this.state.tier}
             />
-          </Row>
-
-          <Row>
-            <Col>
-              <NumberCard title='Predicted cutoff' value={this.state.cutoff_predicted}/>
-            </Col>
-            <Col>
-              <NumberCard title='Average cutoff' value={this.state.cutoff_avg}/>
-            </Col>
-            <Col>
-              <NumberCard title='Your chances' value={this.state.percentage}/>
-            </Col>
           </Row>
           </Container>
         </Col>

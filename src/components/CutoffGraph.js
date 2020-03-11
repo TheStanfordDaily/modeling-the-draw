@@ -59,7 +59,7 @@ export class CutoffGraph extends Component {
 
 	render() {
 		return (
-			<ResponsiveContainer width='100%' height={400}>
+			<ResponsiveContainer width='100%' height={500}>
 				<ScatterChart margin={{ top: 0, right: 20, left: 20, bottom: 20 }}>
 					{ this.renderReferenceArea() }
           <ReferenceLine y={1000} stroke='#B5B5B5' strokeDasharray='6 6'/>
