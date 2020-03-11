@@ -80,7 +80,7 @@ export class CutoffGraph extends Component {
             ticks={[0, 1000, 2000, 3000]}
             tickMargin={5}
           >
-            <Label angle={-90} offset={0} value='Cutoff' position='insideLeft'/>
+            <Label angle={-90} offset={0} value='Cutoff Draw Number' position='insideLeft'/>
           </YAxis>
         </ScatterChart>
       </ResponsiveContainer>

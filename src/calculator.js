@@ -7,24 +7,6 @@ import save from "./store";
 import { NumberCard } from './components/NumberCard.js'
 import { CutoffGraph } from './components/CutoffGraph.js'
 
-const divStyle = {
-  marginLeft: '10%', 
-  marginRight: '10%', 
-  border: "solid #8c1515", 
-  borderWidth: '4px',
-}
-
-const headerStyle = {
-  textAlign: 'center', 
-  color: '#8c1515', 
-  fontFamily: 'Open Sans Condensed, sans-serif',
-};
-
-const calculatorStyle = {
-  marginLeft: '0%',
-  marginRight: '0%'
-};
-
 const allResidencesArray = [ "576 Alvarado", "680 Lomita", "Adelfa", "BOB", "Branner", "Cardenal", "Castano", "CCTH", "Columbae", 
 "Crothers", "Dorm", "Durand", "EAST", "East Campus", "East FloMo", "EBF", "Eucalipto", "Faisan", 
 "FloMo", "French House", "FroSoCo", "Gavilan", "Gerhard Casper Quad", "Gov Co", "Granada", "Grove", 
@@ -333,55 +315,45 @@ class Calculator extends React.Component {
 
   render() {
     return (
-      <div className="Calculator" style={divStyle}>
-        <header className="Calculator-header" style={calculatorStyle}>
-          <br />
-            <Link to="/"><Button variant="outline-danger">
-              Back
-            </Button></Link>
-          <br />
-          <br />
+      <div className="Calculator tab-content">
+        <Container>
+        <Row>
 
+        <Col>
+        <h1>Calculator</h1>
+          <Form schema={this.state.schema}
+            onSubmit={this.onSubmit}
+            formData={this.state.formData}
+            onChange={this.onChange}
+            onError={onError} />
+          <br/>
+        </Col>
+        
+        <Col>
           <Container>
           <Row>
+            <CutoffGraph 
+              data={this.state.cutoff_raw_data}
+              tier={this.state.tier}
+            />
+          </Row>
 
-          <Col>
-          <h1 style={headerStyle}>Calculator</h1>
-            <Form schema={this.state.schema}
-              onSubmit={this.onSubmit}
-              formData={this.state.formData}
-              onChange={this.onChange}
-              onError={onError} />
-            <br/>
-          </Col>
-          
-          <Col>
-            <Container>
-            <Row>
-              <CutoffGraph 
-                data={this.state.cutoff_raw_data}
-                tier={this.state.tier}
-              />
-            </Row>
-
-            <Row>
-              <Col>
-                <NumberCard title='Predicted cutoff' value={this.state.cutoff_predicted}/>
-              </Col>
-              <Col>
-                <NumberCard title='Average cutoff' value={this.state.cutoff_avg}/>
-              </Col>
-              <Col>
-                <NumberCard title='Your chances' value={this.state.percentage}/>
-              </Col>
-            </Row>
-            </Container>
-          </Col>
-
+          <Row>
+            <Col>
+              <NumberCard title='Predicted cutoff' value={this.state.cutoff_predicted}/>
+            </Col>
+            <Col>
+              <NumberCard title='Average cutoff' value={this.state.cutoff_avg}/>
+            </Col>
+            <Col>
+              <NumberCard title='Your chances' value={this.state.percentage}/>
+            </Col>
           </Row>
           </Container>
+        </Col>
 
-        </header>
+        </Row>
+        </Container>
       </div>
     );
   }

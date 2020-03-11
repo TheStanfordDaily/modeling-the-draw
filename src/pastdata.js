@@ -4,9 +4,7 @@ import Button from 'react-bootstrap/Button';
 import {Link} from 'react-router-dom';
 
 const headerStyle = {
-    textAlign: 'center',
-    color: '#8c1515',
-    fontFamily: 'Open Sans Condensed, sans-serif',
+    textAlign: 'center'
 };
 
 class PastData extends React.Component {
@@ -66,13 +64,7 @@ class PastData extends React.Component {
         };
 
         return (
-            <div>
-                <br />
-                <Link to="/"><Button variant="outline-danger">
-                    Back
-                </Button></Link>
-                <br />
-                <br />
+            <div className='tab-content'>
                 <h1 style={headerStyle}>View Past Data</h1>
                 <MUIDataTable
                     data={data}
