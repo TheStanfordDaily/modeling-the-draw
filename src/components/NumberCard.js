@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 const divStyle = {
-	height: '100px',
+	height: '7em',
 	backgroundColor: '#E5E5E5',
 	textAlign: 'center',
 	padding: '10px',
@@ -19,8 +19,9 @@ const valueStyle = {
 	textAlign: 'center',
 	color: '#8C1515',
 	margin: 0,
-	fontSize: '30px',
-	height: '40px'
+	fontSize: '3em',
+	height: '1.2em',
+	fontWeight: 'bold'
 }
 
 export class NumberCard extends Component {

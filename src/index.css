@@ -57,10 +57,6 @@ button.btn-info:hover {
   color: #666;
 }
 
-.recharts-reference-area path {
-  fill: #ddd;
-}
-
 
 div.tab-content {
   margin-top: 3em;

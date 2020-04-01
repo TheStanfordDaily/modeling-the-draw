@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { ResponsiveContainer, ScatterChart, Scatter, XAxis, 
+import React, { Component, Fragment } from 'react';
+import { ResponsiveContainer, ComposedChart, Scatter, Line, XAxis, 
 	YAxis, Label, LabelList, ReferenceArea, ReferenceLine } from 'recharts';
 
 const tierToYRange = {
@@ -36,7 +36,7 @@ export class CutoffGraph extends Component {
 				position='center'
 			/>
 		);
-	}
+	};
 
 	renderReferenceArea = () => {
 		if (this.props.tier) {
@@ -44,6 +44,7 @@ export class CutoffGraph extends Component {
 				<ReferenceArea 
 					y1={tierToYRange[this.props.tier]['y1']} 
 					y2={tierToYRange[this.props.tier]['y2']}
+					fill='#ddd'
 				>
 					<Label 
 						value={`Tier ${this.props.tier}`} 
@@ -55,21 +56,56 @@ export class CutoffGraph extends Component {
 		} else {
 			return;
 		}
-	}
+	};
+
+	renderEmptyState = () => {
+		const dataValues = this.props.historicalData.map((x) => x['cutoff']);
+		const isEmptyData = dataValues.every((x) => isNaN(x));
+
+		if (isEmptyData) {
+			return (
+				<ReferenceArea y1={0} y2={3000} fill='#fff' fillOpacity={0.7}>
+					<Label value={"Fill out the form to calculate your draw chances!"}/>
+				</ReferenceArea>
+			)
+		} else {
+			return;
+		}
+	};
 
 	render() {
 		return (
 			<ResponsiveContainer width='100%' height={500}>
-				<ScatterChart margin={{ top: 0, right: 20, left: 20, bottom: 20 }}>
+				<ComposedChart margin={{ top: 0, right: 20, left: 20, bottom: 20 }}>
+					{ /* Reference area and lines for showing tiers */ }
 					{ this.renderReferenceArea() }
           <ReferenceLine y={1000} stroke='#B5B5B5' strokeDasharray='6 6'/>
           <ReferenceLine y={2000} stroke='#B5B5B5' strokeDasharray='6 6'/>
 
-          <Scatter data={this.props.data} name="Cutoff" stroke="#8C1515" fill="#8C1515">
-            <LabelList dataKey="cutoff" content={this.renderLabel} />
-          </Scatter>
+          { this.renderEmptyState() }
 
-          <XAxis className='axis' dataKey='year' tickMargin={5}/>
+    			{ /* Least squares regression line */ }
+		      <Line 
+		      	data={this.props.regressionData}
+		      	dataKey="predicted" 
+		      	stroke="#EFB7B7"
+		      	strokeWidth='3'
+		      	strokeDasharray = '10 10' 
+		      	dot={false} 
+						activeDot={false} 
+						legendType="none"
+					/>
+
+					{ /* Scatter dots for historical and predicted cutoff numbers */ }
+		      <Scatter data={this.props.historicalData} name="Cutoff" stroke="#8C1515" fill="#8C1515">
+		        <LabelList dataKey="cutoff" content={this.renderLabel} />
+		      </Scatter>
+
+		      <Scatter data={this.props.predictedData} name="Predicted" stroke="#8C1515" strokeWidth="2" fill="#EFB7B7">
+		        <LabelList dataKey="cutoff" content={this.renderLabel} />
+		      </Scatter>	      
+
+          <XAxis className='axis' dataKey='year' tickMargin={5} allowDuplicatedCategory={false}/>
           <YAxis 
             className='axis'
             dataKey="cutoff" 
@@ -82,7 +118,7 @@ export class CutoffGraph extends Component {
           >
             <Label angle={-90} offset={0} value='Cutoff Draw Number' position='insideLeft'/>
           </YAxis>
-        </ScatterChart>
+        </ComposedChart>
       </ResponsiveContainer>
 		);
 	}

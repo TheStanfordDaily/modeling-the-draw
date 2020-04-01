@@ -54,7 +54,7 @@ const schema = {
   required: ["sex", "roomtype", "residence", "tiernumber", "applytype"],
 };
 
-const yearList = [2014, 2015, 2016, 2017, 2018, 2019];
+const yearList = [2014, 2015, 2016, 2017, 2018, 2019, 2020];
 
 function findLeastSquares(x_values, y_values) {
   let x_sum = 0;
@@ -81,7 +81,6 @@ function processTrends(gender, typeCol, resID, des_year) {
   let data_16 = require('./housingData16.json');
   let data_15 = require('./housingData15.json');
   let data_14 = require('./housingData14.json');
-  
   let data_19 = require('./housingData19.json');
 
   let cutoffs = [];
@@ -149,22 +148,21 @@ function processTrends(gender, typeCol, resID, des_year) {
     }
   }
 
-  if (cutoffs.length == 0) {
-    return "Invalid input";
-  } else if (cutoffs.length == 1) {
-    return cutoffs[0];
+  if (cutoffs.length == 1) {
+    return {'cutoffs': cutoffs[0], 'regression': null};
   } else if (cutoffs.length > 1 && prevYears.length == cutoffs.length) {
     const ls_model = findLeastSquares(prevYears, cutoffs);
-    let cutoff2019 = Math.round(ls_model[0] * des_year + ls_model[1]);
-    if (cutoff2019 < 0) {
-      cutoff2019 = 1;
-    } else if (cutoff2019 > 3000) {
-      cutoff2019 = 3000;
+    let predictedCutoff = Math.round(ls_model[0] * des_year + ls_model[1]);
+    if (predictedCutoff < 0) {
+      predictedCutoff = 1;
+    } else if (predictedCutoff > 3000) {
+      predictedCutoff = 3000;
     }
-    cutoffsStr.push(cutoff2019);
-    return cutoffsStr;
+    cutoffsStr.push(predictedCutoff);
+    return {'cutoffs': cutoffsStr, 'regression': ls_model};
   }
-  return 0;
+
+  return {'cutoffs': null, 'regression': null}
 }
 
 function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, applyType_raw) {
@@ -179,7 +177,9 @@ function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, 
   //find percentage
   const score_ceiling = tierNum * 1000;
   const score_floor = score_ceiling - 999;
-  const cutoffsList = processTrends(gender, typeCol, resID, 2019);
+
+  const trendsDict = processTrends(gender, typeCol, resID, yearList[yearList.length - 1]);
+  const cutoffsList = trendsDict['cutoffs'];
 
   if (cutoffsList.length == yearList.length) {
     for (let count = 0; count < yearList.length; count++) {
@@ -213,18 +213,28 @@ function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, 
   }
 
   outputDict['rawData'] = rawData;
+
+  // Calculate points on the regression line for plotting
+  const ls_model = trendsDict['regression'];
+  outputDict['regressionRawData'] = yearList.map((year) => [{
+    'year': year, 
+    'predicted': ls_model[0] * year + ls_model[1]
+  }]).flat();
+
   return outputDict;
 }
 
 const onError = (errors) => console.log('I have', errors.length, 'errors to fix');
+const test_cutoff_data = yearList.map((year) => [{'year': year, 'cutoff': Math.floor(Math.random()*3000)}]).flat();
+const test_regression_data = yearList.map((year) => [{'year': year, 'predicted': -10 * year + 21000}]).flat();
 
 class Calculator extends React.Component {
   constructor(props) {
     super(props);
+    console.log(test_regression_data)
     this.state = { 
-      cutoff_predicted: null, 
-      cutoff_avg: null, 
-      cutoff_raw_data: yearList.map((year) => [{'year': year, 'cutoff': 'n/a'}]).flat(),
+      cutoff_raw_data: yearList.map((year) => [{'year': year, 'cutoff': 'n/a'}]).flat(), //test_cutoff_data,
+      regression_raw_data: yearList.map((year) => [{'year': year, 'predicted': 'n/a'}]).flat(), //test_regression_data,
       percentage: null, 
       formData: null, 
       schema: schema
@@ -240,10 +250,9 @@ class Calculator extends React.Component {
     let allResults = processSingleQuery(sex, roomtype, residence, tiernumber, applytype);
 
     this.setState({ 
-      cutoff_predicted: allResults['estimate'], 
-      cutoff_avg: allResults['averageCutoff'],
       percentage: allResults['chance'],
       cutoff_raw_data: allResults['rawData'],
+      regression_raw_data: allResults['regressionRawData'],
       tier: formData.tiernumber
     });
     await save(formData);
@@ -261,7 +270,6 @@ class Calculator extends React.Component {
       let data_16 = require('./housingData16.json');
       let data_15 = require('./housingData15.json');
       let data_14 = require('./housingData14.json');
-
       let data_19 = require('./housingData19.json');
 
       let dataArrays = [data_19, data_1718, data_16, data_15, data_14];
@@ -320,7 +328,6 @@ class Calculator extends React.Component {
         <Row>
 
         <Col xs={12} md={4}>
-        <h1>Calculator</h1>
           <Form schema={this.state.schema}
             onSubmit={this.onSubmit}
             formData={this.state.formData}
@@ -331,16 +338,18 @@ class Calculator extends React.Component {
         
         <Col xs={12} md={8}>
           <Container fluid>
+          <Row>
+            <CutoffGraph 
+              historicalData={this.state.cutoff_raw_data.slice(0, -1)}
+              predictedData={this.state.cutoff_raw_data.slice(-1)}
+              regressionData={this.state.regression_raw_data}
+              tier={this.state.tier}
+            />
+          </Row>
           <Row className="justify-content-md-center">
             <Col xs={3}>
               <NumberCard title='Your chances' value={this.state.percentage}/>
             </Col>
-          </Row>
-          <Row>
-            <CutoffGraph 
-              data={this.state.cutoff_raw_data}
-              tier={this.state.tier}
-            />
           </Row>
           </Container>
         </Col>
