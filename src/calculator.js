@@ -6,6 +6,7 @@ import save from "./store";
 
 import { NumberCard } from './components/NumberCard.js'
 import { CutoffGraph } from './components/CutoffGraph.js'
+import { HistoryTable } from './components/HistoryTable.js'
 
 const allResidencesArray = [ "576 Alvarado", "680 Lomita", "Adelfa", "BOB", "Branner", "Cardenal", "Castano", "CCTH", "Columbae", 
 "Crothers", "Dorm", "Durand", "EAST", "East Campus", "East FloMo", "EBF", "Eucalipto", "Faisan", 
@@ -225,20 +226,20 @@ function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, 
 }
 
 const onError = (errors) => console.log('I have', errors.length, 'errors to fix');
-const test_cutoff_data = yearList.map((year) => [{'year': year, 'cutoff': Math.floor(Math.random()*3000)}]).flat();
-const test_regression_data = yearList.map((year) => [{'year': year, 'predicted': -10 * year + 21000}]).flat();
 
 class Calculator extends React.Component {
   constructor(props) {
     super(props);
-    console.log(test_regression_data)
     this.state = { 
       cutoff_raw_data: yearList.map((year) => [{'year': year, 'cutoff': 'n/a'}]).flat(), //test_cutoff_data,
       regression_raw_data: yearList.map((year) => [{'year': year, 'predicted': 'n/a'}]).flat(), //test_regression_data,
       percentage: null, 
       formData: null, 
-      schema: schema
+      schema: schema,
+      tableData: []
     }
+    this.onSubmit = this.onSubmit.bind(this)
+
   }
 
   onSubmit = async ({formData}) => {
@@ -249,14 +250,23 @@ class Calculator extends React.Component {
     let applytype = formData.applytype;
     let allResults = processSingleQuery(sex, roomtype, residence, tiernumber, applytype);
 
-    this.setState({ 
+    this.setState(state => ({ 
       percentage: allResults['chance'],
       cutoff_raw_data: allResults['rawData'],
       regression_raw_data: allResults['regressionRawData'],
-      tier: formData.tiernumber
-    });
+      tier: formData.tiernumber,
+      tableData: state.tableData.concat({
+        'residence': formData.residence,
+        'roomtype': formData.roomtype,
+        'cutoff_predicted': allResults['estimate'],
+        'cutoff_avg': allResults['averageCutoff'],
+        'percentage': allResults['chance']
+      }),
+    }));
+
     await save(formData);
   }
+
 
   onChange = ({formData, schema}) => {
     this.setState({formData});
@@ -321,44 +331,47 @@ class Calculator extends React.Component {
     }
   }
 
+  
   render() {
     return (
       <div className="Calculator tab-content">
         <Container fluid>
         <Row>
-
-        <Col xs={12} md={4}>
-          <Form schema={this.state.schema}
-            onSubmit={this.onSubmit}
-            formData={this.state.formData}
-            onChange={this.onChange}
-            onError={onError} />
-          <br/>
-        </Col>
-        
-        <Col xs={12} md={8}>
-          <Container fluid>
-          <Row>
-            <CutoffGraph 
-              historicalData={this.state.cutoff_raw_data.slice(0, -1)}
-              predictedData={this.state.cutoff_raw_data.slice(-1)}
-              regressionData={this.state.regression_raw_data}
-              tier={this.state.tier}
-            />
-          </Row>
-          <Row className="justify-content-md-center">
-            <Col xs={3}>
+          <Col xs={12} md={4}>
+            <Form schema={this.state.schema}
+              onSubmit={this.onSubmit}
+              formData={this.state.formData}
+              onChange={this.onChange}
+              onError={onError} />
+            <br/>
+          </Col>
+          
+          <Col xs={12} md={8}>
+            <Container fluid>
+            <Row className="justify-content-md-center">
               <NumberCard title='Your chances' value={this.state.percentage}/>
-            </Col>
-          </Row>
-          </Container>
-        </Col>
-
+            </Row>
+            <Row>
+              <CutoffGraph 
+                historicalData={this.state.cutoff_raw_data.slice(0, -1)}
+                predictedData={this.state.cutoff_raw_data.slice(-1)}
+                regressionData={this.state.regression_raw_data}
+                tier={this.state.tier}
+              />
+            </Row>
+            </Container>
+          </Col>
         </Row>
+
+        <HistoryTable tableData={this.state.tableData}/>
+
         </Container>
       </div>
     );
+    
   }
+
+  
 }
 
 export default Calculator;

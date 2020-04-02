@@ -75,7 +75,7 @@ export class CutoffGraph extends Component {
 
 	render() {
 		return (
-			<ResponsiveContainer width='100%' height={500}>
+			<ResponsiveContainer width='100%' height={400}>
 				<ComposedChart margin={{ top: 0, right: 20, left: 20, bottom: 20 }}>
 					{ /* Reference area and lines for showing tiers */ }
 					{ this.renderReferenceArea() }
@@ -105,7 +105,9 @@ export class CutoffGraph extends Component {
 		        <LabelList dataKey="cutoff" content={this.renderLabel} />
 		      </Scatter>	      
 
+		    	{ /* Axes */ }
           <XAxis className='axis' dataKey='year' tickMargin={5} allowDuplicatedCategory={false}/>
+
           <YAxis 
             className='axis'
             dataKey="cutoff" 

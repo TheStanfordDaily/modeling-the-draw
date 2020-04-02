@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 const divStyle = {
 	height: '7em',
-	backgroundColor: '#E5E5E5',
+	// backgroundColor: '#E5E5E5',
 	textAlign: 'center',
 	padding: '10px',
 	display: 'flex',
@@ -29,7 +29,7 @@ export class NumberCard extends Component {
 		return (
 			<div style={divStyle}>
 				<div>
-					<p style={titleStyle}>{this.props.title}</p>
+					<p style={titleStyle}>{this.props.value ? this.props.title : ''}</p>
 					<p style={valueStyle}>{this.props.value}</p>
 				</div>
 			</div>
