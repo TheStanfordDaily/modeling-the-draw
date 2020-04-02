@@ -87,3 +87,8 @@ div#root nav a.nav-link.active {
 div#history-table {
   margin-top: 2em;
 }
+
+text.y-axis-label {
+  transform: translate(5%, 20%) rotate(-90deg);
+  transform-origin: left;
+}

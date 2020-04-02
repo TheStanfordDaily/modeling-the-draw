@@ -19,14 +19,14 @@ const tierToYRange = {
 
 export class CutoffGraph extends Component {
 	renderLabel = (props) => {
-	  const {x, y, value} = props;
-	  if (isNaN(y)) return;
-	  const labelY = y > 30 ? -10 : 30; // Place label above or below dot
-	  return (
-	    <g transform={`translate(${x},${y})`}>
-	      <text x={5} y={labelY} textAnchor="middle">{value}</text>
-	    </g>
-	   );
+		const {x, y, value} = props;
+		if (isNaN(y)) return;
+		const labelY = y > 30 ? -10 : 30; // Place label above or below dot
+		return (
+			<g transform={`translate(${x},${y})`}>
+				<text x={5} y={labelY} textAnchor="middle">{value}</text>
+			</g>
+		 );
 	};
 
 	renderTierLabel = () => {
@@ -79,49 +79,51 @@ export class CutoffGraph extends Component {
 				<ComposedChart margin={{ top: 0, right: 20, left: 20, bottom: 20 }}>
 					{ /* Reference area and lines for showing tiers */ }
 					{ this.renderReferenceArea() }
-          <ReferenceLine y={1000} stroke='#B5B5B5' strokeDasharray='6 6'/>
-          <ReferenceLine y={2000} stroke='#B5B5B5' strokeDasharray='6 6'/>
+					<ReferenceLine y={1000} stroke='#B5B5B5' strokeDasharray='6 6'/>
+					<ReferenceLine y={2000} stroke='#B5B5B5' strokeDasharray='6 6'/>
 
-          { this.renderEmptyState() }
+					{ this.renderEmptyState() }
 
-    			{ /* Least squares regression line */ }
-		      <Line 
-		      	data={this.props.regressionData}
-		      	dataKey="predicted" 
-		      	stroke="#EFB7B7"
-		      	strokeWidth='3'
-		      	strokeDasharray = '10 10' 
-		      	dot={false} 
+					{ /* Least squares regression line */ }
+					<Line 
+						data={this.props.regressionData}
+						dataKey="predicted" 
+						stroke="#EFB7B7"
+						strokeWidth='3'
+						strokeDasharray = '10 10' 
+						dot={false} 
 						activeDot={false} 
 						legendType="none"
 					/>
 
 					{ /* Scatter dots for historical and predicted cutoff numbers */ }
-		      <Scatter data={this.props.historicalData} name="Cutoff" stroke="#8C1515" fill="#8C1515">
-		        <LabelList dataKey="cutoff" content={this.renderLabel} />
-		      </Scatter>
+					<Scatter data={this.props.historicalData} name="Cutoff" stroke="#8C1515" fill="#8C1515">
+						<LabelList dataKey="cutoff" content={this.renderLabel} />
+					</Scatter>
 
-		      <Scatter data={this.props.predictedData} name="Predicted" stroke="#8C1515" strokeWidth="2" fill="#EFB7B7">
-		        <LabelList dataKey="cutoff" content={this.renderLabel} />
-		      </Scatter>	      
+					<Scatter data={this.props.predictedData} name="Predicted" stroke="#8C1515" strokeWidth="2" fill="#EFB7B7">
+						<LabelList dataKey="cutoff" content={this.renderLabel} />
+					</Scatter>	      
 
-		    	{ /* Axes */ }
-          <XAxis className='axis' dataKey='year' tickMargin={5} allowDuplicatedCategory={false}/>
+					{ /* Axes */ }
+					<XAxis className='axis' dataKey='year' tickMargin={5} allowDuplicatedCategory={false}>
+						<Label value="Year" position='bottom'/>
+					</XAxis>
 
-          <YAxis 
-            className='axis'
-            dataKey="cutoff" 
-            reversed={true} 
-            domain={[0, 3000]} 
-            padding={{ top: 5, bottom: 0 }}
-            interval="preserveStartEnd"
-            ticks={[0, 1000, 2000, 3000]}
-            tickMargin={5}
-          >
-            <Label angle={-90} offset={0} value='Cutoff Draw Number' position='insideLeft'/>
-          </YAxis>
-        </ComposedChart>
-      </ResponsiveContainer>
+					<YAxis 
+						className='axis'
+						dataKey="cutoff" 
+						reversed={true} 
+						domain={[0, 3000]} 
+						padding={{ top: 5, bottom: 0 }}
+						interval="preserveStartEnd"
+						ticks={[0, 1000, 2000, 3000]}
+						tickMargin={5}
+					>
+						<Label className="y-axis-label" angle={-90} value='Cutoff Draw Number' position='insideLeft'/>
+					</YAxis>
+				</ComposedChart>
+			</ResponsiveContainer>
 		);
 	}
 }

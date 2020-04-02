@@ -47,7 +47,7 @@ class PastData extends React.Component {
             }
         ];
 
-        const data = require('./housingData_all.json');
+        const data = require('./data/housingData_all.json');
 
         const options = {
             filterType: 'checkbox',

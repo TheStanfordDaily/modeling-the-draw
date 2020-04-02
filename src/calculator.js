@@ -78,11 +78,11 @@ function findLeastSquares(x_values, y_values) {
 }
 
 function processTrends(gender, typeCol, resID, des_year) {
-  let data_1718 = require('./housingData1718.json');
-  let data_16 = require('./housingData16.json');
-  let data_15 = require('./housingData15.json');
-  let data_14 = require('./housingData14.json');
-  let data_19 = require('./housingData19.json');
+  let data_1718 = require('./data/housingData1718.json');
+  let data_16 = require('./data/housingData16.json');
+  let data_15 = require('./data/housingData15.json');
+  let data_14 = require('./data/housingData14.json');
+  let data_19 = require('./data/housingData19.json');
 
   let cutoffs = [];
   let cutoffsStr = [];
@@ -276,11 +276,11 @@ class Calculator extends React.Component {
       let residence = formData.residence;
     
       let array = [];
-      let data_1718 = require('./housingData1718.json');
-      let data_16 = require('./housingData16.json');
-      let data_15 = require('./housingData15.json');
-      let data_14 = require('./housingData14.json');
-      let data_19 = require('./housingData19.json');
+      let data_1718 = require('./data/housingData1718.json');
+      let data_16 = require('./data/housingData16.json');
+      let data_15 = require('./data/housingData15.json');
+      let data_14 = require('./data/housingData14.json');
+      let data_19 = require('./data/housingData19.json');
 
       let dataArrays = [data_19, data_1718, data_16, data_15, data_14];
 
