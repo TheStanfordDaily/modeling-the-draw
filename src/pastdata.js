@@ -54,7 +54,7 @@ class PastData extends React.Component {
         const options = {
             filterType: 'checkbox',
             responsive: 'scroll',
-            selectableRows: 'false',
+            selectableRows: 'true',
             print: 'false',
             download: 'false',
             isRowSelectable: (dataIndex) => {

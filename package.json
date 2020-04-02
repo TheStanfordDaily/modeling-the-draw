@@ -11,6 +11,7 @@
     "flexbox-react": "^4.4.0",
     "material-ui-icons": "^1.0.0-beta.36",
     "mui-datatables": "^2.14.0",
+    "node": "^10.10.0",
     "react": "^16.13.0",
     "react-bootstrap": "^1.0.0-beta.17",
     "react-d3-library": "^1.1.8",
@@ -19,6 +20,8 @@
     "react-jsonschema-form": "^1.8.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "2.1.5",
+    "react-select": "^3.0.8",
+    "react-table": "^7.0.0",
     "recharts": "^1.8.5"
   },
   "scripts": {

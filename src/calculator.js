@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Container, Row, Col} from 'react-bootstrap';
+import {Button, Container, Row, Col, Table} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import Form from "react-jsonschema-form";
 import save from "./store";
@@ -240,6 +240,7 @@ function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, 
 
 const onError = (errors) => console.log('I have', errors.length, 'errors to fix');
 
+
 class Calculator extends React.Component {
   constructor(props) {
     super(props);
@@ -250,7 +251,11 @@ class Calculator extends React.Component {
       percentage: null, 
       formData: null, 
       schema: schema,
+      residenceArr: [], 
+      isFirst: true,
     }
+    this.onSubmit = this.onSubmit.bind(this)
+
   }
 
   onSubmit = async ({formData}) => {
@@ -261,14 +266,19 @@ class Calculator extends React.Component {
     let applytype = formData.applytype;
     let allResults = processSingleQuery(sex, roomtype, residence, tiernumber, applytype);
 
-    this.setState({ 
+    this.setState(state =>({ 
       cutoff_predicted: allResults['estimate'], 
       cutoff_avg: allResults['averageCutoff'],
       percentage: allResults['chance'],
-      cutoff_raw_data: allResults['rawData']
-    });
+      cutoff_raw_data: allResults['rawData'],
+      residence: formData.residence,
+      roomtype: formData.roomtype,
+      residenceArr: state.residenceArr.concat(state),
+      isFirst: false,
+    }));
     await save(formData);
   }
+
 
   onChange = ({formData, schema}) => {
     this.setState({formData});
@@ -334,7 +344,57 @@ class Calculator extends React.Component {
     this.setState({tier: formData.tiernumber});
   }
 
+  
   render() {
+    const isFirst = this.state.isFirst;
+    let historyTable;
+    if(!isFirst){
+      historyTable = <Container>
+        <br />
+        <h2 style={headerStyle}>Your History</h2>
+        <br />
+        <Button onClick={() => window.location.reload(false)} variant="outline-danger">
+              Clear
+            </Button>
+        <br />
+        <br />
+            
+      <Table striped bordered hover>
+      <thead>
+  <tr>
+    <th>Residence</th>
+    <th>Room Type</th>
+    <th>Predicted cutoff</th>
+    <th>Average cutoff</th>
+    <th>Your chances</th>
+  </tr>
+  </thead>
+
+  
+  <tbody>
+
+    {this.state.residenceArr.slice(1).map(history => 
+            <tr><td>{history.residence}</td>
+            <td>{history.roomtype}</td>
+            <td>{history.cutoff_predicted}</td>
+            <td>{history.cutoff_avg}</td>
+            <td>{history.percentage}</td></tr>)}
+    
+    <tr>
+       <td>{this.state.residence}</td>
+       <td>{this.state.roomtype}</td>
+       <td>{this.state.cutoff_predicted}</td>
+       <td>{this.state.cutoff_avg}</td>
+       <td>{this.state.percentage}</td>
+    </tr>
+
+  
+    </tbody>
+</Table>;
+</Container>
+    } else {
+      historyTable = <h4 style={headerStyle}>Your history will show up here.</h4>;
+    }
     return (
       <div className="Calculator" style={divStyle}>
         <header className="Calculator-header" style={calculatorStyle}>
@@ -347,7 +407,6 @@ class Calculator extends React.Component {
 
           <Container>
           <Row>
-
           <Col>
           <h1 style={headerStyle}>Calculator</h1>
             <Form schema={this.state.schema}
@@ -363,6 +422,7 @@ class Calculator extends React.Component {
             <Row>
               <CutoffGraph 
                 data={this.state.cutoff_raw_data}
+                residence={this.state.residence}
                 tier={this.state.tier}
               />
             </Row>
@@ -378,16 +438,25 @@ class Calculator extends React.Component {
                 <NumberCard title='Your chances' value={this.state.percentage}/>
               </Col>
             </Row>
+
             </Container>
           </Col>
 
           </Row>
+        
+          {historyTable}
+
+          <br />
+          
           </Container>
 
         </header>
       </div>
     );
+    
   }
+
+  
 }
 
 export default Calculator;

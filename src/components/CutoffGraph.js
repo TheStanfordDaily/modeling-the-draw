@@ -52,12 +52,16 @@ export class CutoffGraph extends Component {
 					{ this.renderReferenceArea() }
           <ReferenceLine y={1000} stroke='#B5B5B5' strokeDasharray='6 6'/>
           <ReferenceLine y={2000} stroke='#B5B5B5' strokeDasharray='6 6'/>
-
-          <Scatter data={this.props.data} name="Cutoff" stroke="#8C1515" fill="#8C1515">
+		
+          <Scatter data={this.props.data} name="Residence" stroke="#8C1515" fill="#8C1515">
             <LabelList dataKey="cutoff" content={this.renderLabel} />
           </Scatter>
 
-          <XAxis className='axis' dataKey='year' tickMargin={5}/>
+		  
+		  <XAxis 
+		  	className='axis' 
+			dataKey='year' 
+			tickMargin={5}/>
           <YAxis 
             className='axis'
             dataKey="cutoff" 
