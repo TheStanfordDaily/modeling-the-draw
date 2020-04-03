@@ -238,7 +238,8 @@ class Calculator extends React.Component {
       formData: null, 
       schema: schema,
       pastQueries: [],
-      plottedIndices: [],
+      // Map of indices of the queries to plot. Value is bool for whether to show numbers on the plot.
+      plottedIndices: new Map(),
     }
     this.onSubmit = this.onSubmit.bind(this)
 
@@ -273,9 +274,12 @@ class Calculator extends React.Component {
     newState.pastQueries = [].concat(this.state.pastQueries, currQuery);
 
     // Add most recent query to be plotted, remove oldest if over the max number to plot
-    newState.plottedIndices = [].concat(this.state.plottedIndices, newState.pastQueries.length - 1)
-    if (newState.plottedIndices.length > maxQueriesToPlot) {
-      newState.plottedIndices.splice(0, 1);
+    const newestIndex = newState.pastQueries.length - 1;
+    newState.plottedIndices = new Map(this.state.plottedIndices);
+    newState.plottedIndices.set(newestIndex, true)
+    if (newState.plottedIndices.size > maxQueriesToPlot) {
+      const oldestIndex = newState.plottedIndices.keys().next().value;
+      newState.plottedIndices.delete(oldestIndex);
     }
 
     this.setState(newState);
@@ -347,19 +351,24 @@ class Calculator extends React.Component {
     }
   }
 
-  handleTableCheck = (index) => {
-    var newIndices = this.state.plottedIndices.slice(); // Make a copy
+  handleTableTogglePlot = (index) => {
+    // Make copy
+    var newIndices = new Map(this.state.plottedIndices);
 
     // Toggle index
-    const found = newIndices.indexOf(index);
-    if (found >= 0) {
-      newIndices.splice(found, 1);
-    } else {
-      // Add index only if we are under the max number of indices to plot
-      if (newIndices.length < maxQueriesToPlot) newIndices.push(index);
+    if (newIndices.has(index)) { // Toggle off
+      newIndices.delete(index);
+    } else { // Toggle on (only if we are under the max number of indices to plot)
+      if (newIndices.size < maxQueriesToPlot) newIndices.set(index, false);
     }
 
-    this.setState({plottedIndices: newIndices});
+    this.setState({ plottedIndices: newIndices });
+  }
+
+  handleTableToggleShowNumbers = (index) => {
+    this.setState( (state) => {
+      return { plottedIndices: state.plottedIndices.set(index, !state.plottedIndices.get(index)) };
+    })
   }
 
   
@@ -384,8 +393,8 @@ class Calculator extends React.Component {
             </Row>
             <Row>
               <CutoffGraph 
-                plotData={this.state.plottedIndices.map(i => this.state.pastQueries[i])}
-
+                plotData={Array.from(this.state.plottedIndices).map(x => this.state.pastQueries[x[0]])}
+                shouldShowNumbers={Array.from(this.state.plottedIndices.values())}
                 historicalData={this.state.cutoff_raw_data.slice(0, -1)}
                 predictedData={this.state.cutoff_raw_data.slice(-1)}
                 regressionData={this.state.regression_raw_data}
@@ -399,7 +408,8 @@ class Calculator extends React.Component {
         <HistoryTable 
           tableData={this.state.pastQueries}
           checkedRows={this.state.plottedIndices}
-          onCheck={this.handleTableCheck}
+          togglePlot={this.handleTableTogglePlot}
+          toggleShowNumbers={this.handleTableToggleShowNumbers}
         />
 
         </Container>

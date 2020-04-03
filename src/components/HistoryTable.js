@@ -5,13 +5,27 @@ import graphColors from '../helpers/GraphColors.js'
 export class HistoryTable extends Component {
 
 	getRowColor = (i) => {
-		const found = this.props.checkedRows.indexOf(i);
-		console.log(found)
+		const allIndices = Array.from(this.props.checkedRows.keys());
+		const found = allIndices.indexOf(i);
 		if (found >= 0) {
 			return {'backgroundColor': graphColors[found].light};
 		} else {
 			return {};
 		}
+	}
+
+	renderShowNumbersCheckbox = (i) => {
+		if (this.props.checkedRows.has(i)) {
+  		return (
+  			<input
+      		type='checkbox'
+      		checked={this.props.checkedRows.get(i)}
+      		onChange={() => { this.props.toggleShowNumbers(i) }}
+      	/>
+  		)
+  	} else {
+  		return;
+  	}
 	}
 
 	render() {
@@ -43,7 +57,8 @@ export class HistoryTable extends Component {
 								<th>Group size</th>
 								<th>Predicted cutoff</th>
 								<th>Your chances</th>
-								<th>{`Plot (${this.props.checkedRows.length} of 3)`}</th>
+								<th>{`Plot (${this.props.checkedRows.size} of 3)`}</th>
+								<th>Show numbers</th>
 							</tr>
 						</thead>
 
@@ -60,10 +75,11 @@ export class HistoryTable extends Component {
 			            <td>
 			            	<input
 			            		type='checkbox' 
-			            		onChange={() => {this.props.onCheck(i)}}
-			            		checked={this.props.checkedRows.includes(i)}
+			            		onChange={() => {this.props.togglePlot(i)}}
+			            		checked={this.props.checkedRows.has(i)}
 			            	/>
 			            </td>
+			            <td>{this.renderShowNumbersCheckbox(i)}</td>
 		            </tr>
 							)}
 						</tbody>

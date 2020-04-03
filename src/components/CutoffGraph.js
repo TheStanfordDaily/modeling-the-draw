@@ -20,7 +20,7 @@ const tierToYRange = {
 
 export class CutoffGraph extends Component {
 	renderLabel = (props, i) => {
-		if (i != this.props.plotData.length - 1) {
+		if (!this.props.shouldShowNumbers[i]) {
 			return;
 		}
 
@@ -94,7 +94,6 @@ export class CutoffGraph extends Component {
 					{ /* Least squares regression line and scatter dots for cutoff numbers */ }
 					{
 						this.props.plotData.map((data, i) => {
-							console.log(data);
 							return (
 								[
 								<Line 
