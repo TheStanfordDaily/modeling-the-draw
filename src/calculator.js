@@ -226,6 +226,7 @@ function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, 
 }
 
 const onError = (errors) => console.log('I have', errors.length, 'errors to fix');
+const maxQueriesToPlot = 3;
 
 class Calculator extends React.Component {
   constructor(props) {
@@ -236,7 +237,8 @@ class Calculator extends React.Component {
       percentage: null, 
       formData: null, 
       schema: schema,
-      tableData: []
+      pastQueries: [],
+      plottedIndices: [],
     }
     this.onSubmit = this.onSubmit.bind(this)
 
@@ -250,19 +252,29 @@ class Calculator extends React.Component {
     let applytype = formData.applytype;
     let allResults = processSingleQuery(sex, roomtype, residence, tiernumber, applytype);
 
-    this.setState(state => ({ 
+    let currQuery = { 
       percentage: allResults['chance'],
+      cutoff_predicted: allResults['estimate'],
+      cutoff_avg: allResults['averageCutoff'],
+
       cutoff_raw_data: allResults['rawData'],
       regression_raw_data: allResults['regressionRawData'],
+
       tier: formData.tiernumber,
-      tableData: state.tableData.concat({
-        'residence': formData.residence,
-        'roomtype': formData.roomtype,
-        'cutoff_predicted': allResults['estimate'],
-        'cutoff_avg': allResults['averageCutoff'],
-        'percentage': allResults['chance']
-      }),
-    }));
+      residence: formData.residence,
+      roomtype: formData.roomtype
+    };
+
+    var newState = Object.assign({}, currQuery); // Make a copy to avoid recursive newState object
+    newState.pastQueries = [].concat(this.state.pastQueries, currQuery);
+
+    // Add most recent query to be plotted, remove oldest if over the max number to plot
+    newState.plottedIndices = [].concat(this.state.plottedIndices, newState.pastQueries.length - 1)
+    if (newState.plottedIndices.length > maxQueriesToPlot) {
+      newState.plottedIndices.splice(0, 1);
+    }
+
+    this.setState(newState);
 
     await save(formData);
   }
@@ -331,6 +343,21 @@ class Calculator extends React.Component {
     }
   }
 
+  handleTableCheck = (index) => {
+    var newIndices = this.state.plottedIndices.slice(); // Make a copy
+
+    // Toggle index
+    const found = newIndices.indexOf(index);
+    if (found >= 0) {
+      newIndices.splice(found, 1);
+    } else {
+      // Add index only if we are under the max number of indices to plot
+      if (newIndices.length < maxQueriesToPlot) newIndices.push(index);
+    }
+
+    this.setState({plottedIndices: newIndices});
+  }
+
   
   render() {
     return (
@@ -353,6 +380,8 @@ class Calculator extends React.Component {
             </Row>
             <Row>
               <CutoffGraph 
+                plotData={this.state.plottedIndices.map(i => this.state.pastQueries[i])}
+
                 historicalData={this.state.cutoff_raw_data.slice(0, -1)}
                 predictedData={this.state.cutoff_raw_data.slice(-1)}
                 regressionData={this.state.regression_raw_data}
@@ -363,7 +392,11 @@ class Calculator extends React.Component {
           </Col>
         </Row>
 
-        <HistoryTable tableData={this.state.tableData}/>
+        <HistoryTable 
+          tableData={this.state.pastQueries}
+          checkedRows={this.state.plottedIndices}
+          onCheck={this.handleTableCheck}
+        />
 
         </Container>
       </div>

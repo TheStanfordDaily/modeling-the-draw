@@ -24,22 +24,32 @@ export class HistoryTable extends Component {
 					<Table striped bordered hover>
 						<thead>
 							<tr>
+								<th></th>
 								<th>Residence</th>
 								<th>Room Type</th>
 								<th>Predicted cutoff</th>
 								<th>Average cutoff</th>
 								<th>Your chances</th>
+								<th>Plot</th>
 							</tr>
 						</thead>
 
 						<tbody>
 							{this.props.tableData.map((history, i) => 
 		            <tr key={i}>
+		            	<td>{i}</td>
 			            <td>{history.residence}</td>
 			            <td>{history.roomtype}</td>
 			            <td>{history.cutoff_predicted}</td>
 			            <td>{history.cutoff_avg}</td>
 			            <td>{history.percentage}</td>
+			            <td>
+			            	<input
+			            		type='checkbox' 
+			            		onChange={() => {this.props.onCheck(i)}}
+			            		checked={this.props.checkedRows.includes(i)}
+			            	/>
+			            </td>
 		            </tr>
 							)}
 						</tbody>

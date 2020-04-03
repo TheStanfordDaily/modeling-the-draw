@@ -17,14 +17,26 @@ const tierToYRange = {
 	},
 };
 
+const colors = [
+	{'dark': '#8C1515', 'light': '#EFB7B7'}, // "Cardinal Red"
+	{'dark': '#E98300', 'light': '#F8CA8E'}, // "Poppy"
+	{'dark': '#007C92', 'light': '#7FD3E2'}, // "Lagunita"
+]
+
 export class CutoffGraph extends Component {
-	renderLabel = (props) => {
+	renderLabel = (props, i) => {
+		if (i != this.props.plotData.length - 1) {
+			return;
+		}
+
 		const {x, y, value} = props;
 		if (isNaN(y)) return;
 		const labelY = y > 30 ? -10 : 30; // Place label above or below dot
 		return (
 			<g transform={`translate(${x},${y})`}>
-				<text x={5} y={labelY} textAnchor="middle">{value}</text>
+				<text x={5} y={labelY} textAnchor="middle" fill={colors[i].dark}>
+					{value}
+				</text>
 			</g>
 		 );
 	};
@@ -78,32 +90,45 @@ export class CutoffGraph extends Component {
 			<ResponsiveContainer width='100%' height={400}>
 				<ComposedChart margin={{ top: 0, right: 20, left: 20, bottom: 20 }}>
 					{ /* Reference area and lines for showing tiers */ }
-					{ this.renderReferenceArea() }
+					{ /* this.renderReferenceArea() */ }
 					<ReferenceLine y={1000} stroke='#B5B5B5' strokeDasharray='6 6'/>
 					<ReferenceLine y={2000} stroke='#B5B5B5' strokeDasharray='6 6'/>
 
 					{ this.renderEmptyState() }
 
-					{ /* Least squares regression line */ }
-					<Line 
-						data={this.props.regressionData}
-						dataKey="predicted" 
-						stroke="#EFB7B7"
-						strokeWidth='3'
-						strokeDasharray = '10 10' 
-						dot={false} 
-						activeDot={false} 
-						legendType="none"
-					/>
+					{ /* Least squares regression line and scatter dots for cutoff numbers */ }
+					{
+						this.props.plotData.map((data, i) => {
+							console.log(data);
+							return (
+								[
+								<Line 
+									data={data.regression_raw_data}
+									dataKey="predicted" 
+									stroke={colors[i].light}
+									strokeWidth='3'
+									strokeDasharray = '10 10' 
+									dot={false} 
+									activeDot={false} 
+									legendType="none"
+									isAnimationActive={false}
+								/>,
 
-					{ /* Scatter dots for historical and predicted cutoff numbers */ }
-					<Scatter data={this.props.historicalData} name="Cutoff" stroke="#8C1515" fill="#8C1515">
-						<LabelList dataKey="cutoff" content={this.renderLabel} />
-					</Scatter>
+								<Scatter 
+									data={data.cutoff_raw_data.slice(0, -1)} name="Cutoff" isAnimationActive={false}
+									stroke={colors[i].dark} fill={colors[i].dark}>
+									<LabelList dataKey="cutoff" content={(args) => {return this.renderLabel(args, i)}} />
+								</Scatter>,
 
-					<Scatter data={this.props.predictedData} name="Predicted" stroke="#8C1515" strokeWidth="2" fill="#EFB7B7">
-						<LabelList dataKey="cutoff" content={this.renderLabel} />
-					</Scatter>	      
+								<Scatter 
+									data={data.cutoff_raw_data.slice(-1)} name="Predicted" isAnimationActive={false}
+									stroke={colors[i].dark} strokeWidth="2" fill={colors[i].light}>
+									<LabelList dataKey="cutoff" content={(args) => {return this.renderLabel(args, i)}} />
+								</Scatter>
+								]
+							);
+						})
+					}					
 
 					{ /* Axes */ }
 					<XAxis className='axis' dataKey='year' tickMargin={5} allowDuplicatedCategory={false}>
