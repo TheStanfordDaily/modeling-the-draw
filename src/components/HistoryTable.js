@@ -1,7 +1,19 @@
 import React, { Component, Fragment } from 'react';
 import {Button, Container, Row, Col, Table} from 'react-bootstrap';
+import graphColors from '../helpers/GraphColors.js'
 
 export class HistoryTable extends Component {
+
+	getRowColor = (i) => {
+		const found = this.props.checkedRows.indexOf(i);
+		console.log(found)
+		if (found >= 0) {
+			return {'backgroundColor': graphColors[found].light};
+		} else {
+			return {};
+		}
+	}
+
 	render() {
 		if (this.props.tableData.length == 0) {
 			return (
@@ -31,13 +43,13 @@ export class HistoryTable extends Component {
 								<th>Group size</th>
 								<th>Predicted cutoff</th>
 								<th>Your chances</th>
-								<th>Plot</th>
+								<th>{`Plot (${this.props.checkedRows.length} of 3)`}</th>
 							</tr>
 						</thead>
 
 						<tbody>
 							{this.props.tableData.map((history, i) => 
-		            <tr key={i}>
+		            <tr key={i} style={this.getRowColor(i)}>
 		            	<td>{history.sex}</td>
 			            <td>{history.residence}</td>
 			            <td>{history.roomtype}</td>

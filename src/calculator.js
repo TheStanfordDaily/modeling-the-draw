@@ -245,8 +245,6 @@ class Calculator extends React.Component {
   }
 
   onSubmit = async ({formData}) => {
-    console.log(formData);
-    console.log(this.state.schema);
     let sex = formData.sex;
     let roomtype = formData.roomtype;
     let residence = formData.residence;

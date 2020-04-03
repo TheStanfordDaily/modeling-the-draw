@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { ResponsiveContainer, ComposedChart, Scatter, Line, XAxis, 
 	YAxis, Label, LabelList, ReferenceArea, ReferenceLine } from 'recharts';
+import graphColors from '../helpers/GraphColors.js'
 
 const tierToYRange = {
 	1: {
@@ -17,12 +18,6 @@ const tierToYRange = {
 	},
 };
 
-const colors = [
-	{'dark': '#8C1515', 'light': '#EFB7B7'}, // "Cardinal Red"
-	{'dark': '#E98300', 'light': '#F8CA8E'}, // "Poppy"
-	{'dark': '#007C92', 'light': '#7FD3E2'}, // "Lagunita"
-]
-
 export class CutoffGraph extends Component {
 	renderLabel = (props, i) => {
 		if (i != this.props.plotData.length - 1) {
@@ -34,7 +29,7 @@ export class CutoffGraph extends Component {
 		const labelY = y > 30 ? -10 : 30; // Place label above or below dot
 		return (
 			<g transform={`translate(${x},${y})`}>
-				<text x={5} y={labelY} textAnchor="middle" fill={colors[i].dark}>
+				<text x={5} y={labelY} textAnchor="middle" fill={graphColors[i].dark}>
 					{value}
 				</text>
 			</g>
@@ -105,7 +100,7 @@ export class CutoffGraph extends Component {
 								<Line 
 									data={data.regression_raw_data}
 									dataKey="predicted" 
-									stroke={colors[i].light}
+									stroke={graphColors[i].light}
 									strokeWidth='3'
 									strokeDasharray = '10 10' 
 									dot={false} 
@@ -116,13 +111,13 @@ export class CutoffGraph extends Component {
 
 								<Scatter 
 									data={data.cutoff_raw_data.slice(0, -1)} name="Cutoff" isAnimationActive={false}
-									stroke={colors[i].dark} fill={colors[i].dark}>
+									stroke={graphColors[i].dark} fill={graphColors[i].dark}>
 									<LabelList dataKey="cutoff" content={(args) => {return this.renderLabel(args, i)}} />
 								</Scatter>,
 
 								<Scatter 
 									data={data.cutoff_raw_data.slice(-1)} name="Predicted" isAnimationActive={false}
-									stroke={colors[i].dark} strokeWidth="2" fill={colors[i].light}>
+									stroke={graphColors[i].dark} strokeWidth="2" fill={graphColors[i].light}>
 									<LabelList dataKey="cutoff" content={(args) => {return this.renderLabel(args, i)}} />
 								</Scatter>
 								]
