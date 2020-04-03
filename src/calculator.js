@@ -245,12 +245,16 @@ class Calculator extends React.Component {
   }
 
   onSubmit = async ({formData}) => {
+    console.log(formData);
+    console.log(this.state.schema);
     let sex = formData.sex;
     let roomtype = formData.roomtype;
     let residence = formData.residence;
     let tiernumber = formData.tiernumber;
     let applytype = formData.applytype;
     let allResults = processSingleQuery(sex, roomtype, residence, tiernumber, applytype);
+
+    let schemaProperties = this.state.schema.properties;
 
     let currQuery = { 
       percentage: allResults['chance'],
@@ -260,9 +264,11 @@ class Calculator extends React.Component {
       cutoff_raw_data: allResults['rawData'],
       regression_raw_data: allResults['regressionRawData'],
 
+      sex: schemaProperties.sex.enumNames[schemaProperties.sex.enum.indexOf(formData.sex)],
       tier: formData.tiernumber,
       residence: formData.residence,
-      roomtype: formData.roomtype
+      roomtype: formData.roomtype,
+      groupsize: schemaProperties.applytype.enumNames[schemaProperties.applytype.enum.indexOf(formData.applytype)]
     };
 
     var newState = Object.assign({}, currQuery); // Make a copy to avoid recursive newState object
