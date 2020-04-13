@@ -58,6 +58,10 @@ const schema = {
 const yearList = [2014, 2015, 2016, 2017, 2018, 2019, 2020];
 
 function findLeastSquares(x_values, y_values) {
+  if (x_values.length == 1 && y_values.length == 1) {
+    return [0, y_values[0]]
+  }
+
   let x_sum = 0;
   let y_sum = 0;
   let xsq_sum = 0;
@@ -142,6 +146,7 @@ function processTrends(gender, typeCol, resID, des_year) {
         break;
       }
     }
+
     if (!foundCutoff) {
       prevYears.splice(i, 1);
       i--;
@@ -149,9 +154,7 @@ function processTrends(gender, typeCol, resID, des_year) {
     }
   }
 
-  if (cutoffs.length == 1) {
-    return {'cutoffs': cutoffs[0], 'regression': null};
-  } else if (cutoffs.length > 1 && prevYears.length == cutoffs.length) {
+  if (cutoffs.length > 0 && prevYears.length == cutoffs.length) {
     const ls_model = findLeastSquares(prevYears, cutoffs);
     let predictedCutoff = Math.round(ls_model[0] * des_year + ls_model[1]);
     if (predictedCutoff < 0) {
@@ -180,6 +183,12 @@ function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, 
   const score_floor = score_ceiling - 999;
 
   const trendsDict = processTrends(gender, typeCol, resID, yearList[yearList.length - 1]);
+
+  // Catch bad query output
+  if (trendsDict['cutoffs'] == null || trendsDict['regression'] == null) {
+    return null;
+  }
+
   const cutoffsList = trendsDict['cutoffs'];
 
   if (cutoffsList.length == yearList.length) {
@@ -252,6 +261,10 @@ class Calculator extends React.Component {
     let tiernumber = formData.tiernumber;
     let applytype = formData.applytype;
     let allResults = processSingleQuery(sex, roomtype, residence, tiernumber, applytype);
+
+    if (allResults == null) {
+      return;
+    }
 
     let schemaProperties = this.state.schema.properties;
 
