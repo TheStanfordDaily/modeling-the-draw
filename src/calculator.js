@@ -1,36 +1,12 @@
-import React, { Component } from 'react';
-import Button from 'react-bootstrap/Button';
+import React from 'react';
+import {Button, Container, Row, Col} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import Form from "react-jsonschema-form";
 import save from "./store";
 
-const divStyle = {
-  marginLeft: '20%', 
-  marginRight: '20%', 
-  border: "solid #8c1515", 
-  borderWidth: '4px',
-}
-
-const headerStyle = {
-  textAlign: 'center', 
-  color: '#8c1515', 
-  fontFamily: 'Open Sans Condensed, sans-serif',
-};
-
-const calculatorStyle = {
-  marginLeft: '20%', 
-  marginRight: '20%',
-};
-
-const cutoffStyle = {
-  fontSize: '20px', 
-  textAlign: 'center',
-};
-
-const percentageStyle = {
-  fontSize: '22px', 
-  textAlign: 'center',
-}
+import { NumberCard } from './components/NumberCard.js'
+import { CutoffGraph } from './components/CutoffGraph.js'
+import { HistoryTable } from './components/HistoryTable.js'
 
 const allResidencesArray = [ "576 Alvarado", "680 Lomita", "Adelfa", "BOB", "Branner", "Cardenal", "Castano", "CCTH", "Columbae", 
 "Crothers", "Dorm", "Durand", "EAST", "East Campus", "East FloMo", "EBF", "Eucalipto", "Faisan", 
@@ -79,7 +55,13 @@ const schema = {
   required: ["sex", "roomtype", "residence", "tiernumber", "applytype"],
 };
 
+const yearList = [2014, 2015, 2016, 2017, 2018, 2019, 2020];
+
 function findLeastSquares(x_values, y_values) {
+  if (x_values.length == 1 && y_values.length == 1) {
+    return [0, y_values[0]]
+  }
+
   let x_sum = 0;
   let y_sum = 0;
   let xsq_sum = 0;
@@ -100,19 +82,22 @@ function findLeastSquares(x_values, y_values) {
 }
 
 function processTrends(gender, typeCol, resID, des_year) {
-  let data_1718 = require('./housingData1718.json');
-  let data_16 = require('./housingData16.json');
-  let data_15 = require('./housingData15.json');
-  let data_14 = require('./housingData14.json');
+  let data_1718 = require('./data/housingData1718.json');
+  let data_16 = require('./data/housingData16.json');
+  let data_15 = require('./data/housingData15.json');
+  let data_14 = require('./data/housingData14.json');
+  let data_19 = require('./data/housingData19.json');
 
   let cutoffs = [];
   let cutoffsStr = [];
-  let yearList = [2014, 2015, 2016, 2017, 2018];
 
   let foundCutoff = false;
   let currData;
-  for (let i = 0; i < yearList.length; i++) {
-    switch (yearList[i]) {
+  let prevYears = yearList.slice(0, yearList.length - 1);
+
+  // Loop through all past years
+  for (let i = 0; i < prevYears.length; i++) {
+    switch (prevYears[i]) {
       case 2014:
         currData = data_14;
         break;
@@ -122,14 +107,19 @@ function processTrends(gender, typeCol, resID, des_year) {
       case 2016:
         currData = data_16;
         break;
-      default:
+      case 2017:
+      case 2018:
         currData = data_1718;
+        break;
+      default:
+        currData = data_19;
     }
     foundCutoff = false;
     for (let j = 0; j < currData.length; j++) {
       let item = currData[j];
-      if (item.year == yearList[i] && (gender == "n" || item.sex == gender) && item.res_name_edited == resID) {
+      if (item.year == prevYears[i] && (gender == "n" || item.sex == gender) && item.res_name_edited == resID) {
         foundCutoff = true;
+
         switch (typeCol) {
           case "individual":
             cutoffs.push(item.individual);
@@ -149,36 +139,34 @@ function processTrends(gender, typeCol, resID, des_year) {
         }
         if (cutoffs[cutoffs.length - 1] == "" || cutoffs[cutoffs.length - 1] == null) {
           cutoffs.pop();
-          yearList.splice(i, 1);
+          prevYears.splice(i, 1);
           i--;
           cutoffsStr[cutoffsStr.length - 1] = "N/A";
         }
         break;
       }
     }
+
     if (!foundCutoff) {
-      yearList.splice(i, 1);
+      prevYears.splice(i, 1);
       i--;
       cutoffsStr.push("N/A");
     }
   }
 
-  if (cutoffs.length == 0) {
-    return "Invalid input";
-  } else if (cutoffs.length == 1) {
-    return cutoffs[0];
-  } else if (cutoffs.length > 1 && yearList.length == cutoffs.length) {
-    const ls_model = findLeastSquares(yearList, cutoffs);
-    let cutoff2019 = Math.round(ls_model[0] * des_year + ls_model[1]);
-    if (cutoff2019 < 0) {
-      cutoff2019 = 1;
-    } else if (cutoff2019 > 3000) {
-      cutoff2019 = 3000;
+  if (cutoffs.length > 0 && prevYears.length == cutoffs.length) {
+    const ls_model = findLeastSquares(prevYears, cutoffs);
+    let predictedCutoff = Math.round(ls_model[0] * des_year + ls_model[1]);
+    if (predictedCutoff < 0) {
+      predictedCutoff = 1;
+    } else if (predictedCutoff > 3000) {
+      predictedCutoff = 3000;
     }
-    cutoffsStr.push(cutoff2019);
-    return cutoffsStr;
+    cutoffsStr.push(predictedCutoff);
+    return {'cutoffs': cutoffsStr, 'regression': ls_model};
   }
-  return 0;
+
+  return {'cutoffs': null, 'regression': null}
 }
 
 function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, applyType_raw) {
@@ -188,21 +176,28 @@ function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, 
   let typeCol = applyType_raw;
   const tierNum = tierNum_raw;
 
-  let output = [];
+  let outputDict = {};
+  let rawData = [];
   //find percentage
   const score_ceiling = tierNum * 1000;
   const score_floor = score_ceiling - 999;
-  const cutoffsList = processTrends(gender, typeCol, resID, 2019);
-  
-  //print out previous cutoffs
-  let yearList = [2014, 2015, 2016, 2017, 2018, 2019];
+
+  const trendsDict = processTrends(gender, typeCol, resID, yearList[yearList.length - 1]);
+
+  // Catch bad query output
+  if (trendsDict['cutoffs'] == null || trendsDict['regression'] == null) {
+    return null;
+  }
+
+  const cutoffsList = trendsDict['cutoffs'];
+
   if (cutoffsList.length == yearList.length) {
     for (let count = 0; count < yearList.length; count++) {
       if (count == yearList.length - 1) {
-        output.push(yearList[count] + " estimated cutoff: " + cutoffsList[count]);
-      } else {
-        output.push(yearList[count] + " cutoff: " + cutoffsList[count]);
+        outputDict['estimate'] = cutoffsList[count];
       }
+
+      rawData.push({'year': yearList[count], 'cutoff': cutoffsList[count]});
     }
     //find cutoff average
     let average = 0;
@@ -214,38 +209,49 @@ function processSingleQuery(gender_raw, roomType_raw, resName_raw, tierNum_raw, 
       }
     }
     average = Math.round(average / count);
-    output.push("Average cutoff: " + average);
+    outputDict['averageCutoff'] = average;
   }
 
   //print out percentage
   if (cutoffsList[cutoffsList.length - 1] >= score_ceiling) {
-    output.push("Your Chances: >99% – You're an (almost) guaranteed in!");
+    outputDict['chance'] = '>99%';
   } else if (cutoffsList[cutoffsList.length - 1] <= score_floor) {
-    output.push("Your Chances: <0.1% – Good luck with that!");
+    outputDict['chance'] = '<0.1%';
   } else {
     let percentage = (cutoffsList[cutoffsList.length - 1] - score_floor) / 10;
-    output.push("Your Chances: " + percentage + "%");
+    outputDict['chance'] = `${percentage}%`;
   }
-  return output;
+
+  outputDict['rawData'] = rawData;
+
+  // Calculate points on the regression line for plotting
+  const ls_model = trendsDict['regression'];
+  outputDict['regressionRawData'] = yearList.map((year) => [{
+    'year': year, 
+    'predicted': ls_model[0] * year + ls_model[1]
+  }]).flat();
+
+  return outputDict;
 }
 
 const onError = (errors) => console.log('I have', errors.length, 'errors to fix');
+const maxQueriesToPlot = 3;
 
 class Calculator extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      cutoff_2014: null, 
-      cutoff_2015: null, 
-      cutoff_2016: null, 
-      cutoff_2017: null,
-      cutoff_2018: null, 
-      cutoff_2019: null, 
-      cutoff_avg: null, 
+      cutoff_raw_data: yearList.map((year) => [{'year': year, 'cutoff': 'n/a'}]).flat(), //test_cutoff_data,
+      regression_raw_data: yearList.map((year) => [{'year': year, 'predicted': 'n/a'}]).flat(), //test_regression_data,
       percentage: null, 
       formData: null, 
-      schema: schema
+      schema: schema,
+      pastQueries: [],
+      // Map of indices of the queries to plot. Value is bool for whether to show numbers on the plot.
+      plottedIndices: new Map(),
     }
+    this.onSubmit = this.onSubmit.bind(this)
+
   }
 
   onSubmit = async ({formData}) => {
@@ -254,20 +260,46 @@ class Calculator extends React.Component {
     let residence = formData.residence;
     let tiernumber = formData.tiernumber;
     let applytype = formData.applytype;
-    let results = processSingleQuery(sex, roomtype, residence, tiernumber, applytype);
+    let allResults = processSingleQuery(sex, roomtype, residence, tiernumber, applytype);
 
-    this.setState({ 
-      cutoff_2014: results[0], 
-      cutoff_2015: results[1], 
-      cutoff_2016: results[2],
-      cutoff_2017: results[3], 
-      cutoff_2018: results[4], 
-      cutoff_2019: results[5], 
-      cutoff_avg: results[6],
-      percentage: results[7]
-    });
+    if (allResults == null) {
+      return;
+    }
+
+    let schemaProperties = this.state.schema.properties;
+
+    let currQuery = { 
+      percentage: allResults['chance'],
+      cutoff_predicted: allResults['estimate'],
+      cutoff_avg: allResults['averageCutoff'],
+
+      cutoff_raw_data: allResults['rawData'],
+      regression_raw_data: allResults['regressionRawData'],
+
+      sex: schemaProperties.sex.enumNames[schemaProperties.sex.enum.indexOf(formData.sex)],
+      tier: formData.tiernumber,
+      residence: formData.residence,
+      roomtype: formData.roomtype,
+      groupsize: schemaProperties.applytype.enumNames[schemaProperties.applytype.enum.indexOf(formData.applytype)]
+    };
+
+    var newState = Object.assign({}, currQuery); // Make a copy to avoid recursive newState object
+    newState.pastQueries = [].concat(this.state.pastQueries, currQuery);
+
+    // Add most recent query to be plotted, remove oldest if over the max number to plot
+    const newestIndex = newState.pastQueries.length - 1;
+    newState.plottedIndices = new Map(this.state.plottedIndices);
+    newState.plottedIndices.set(newestIndex, true)
+    if (newState.plottedIndices.size > maxQueriesToPlot) {
+      const oldestIndex = newState.plottedIndices.keys().next().value;
+      newState.plottedIndices.delete(oldestIndex);
+    }
+
+    this.setState(newState);
+
     await save(formData);
   }
+
 
   onChange = ({formData, schema}) => {
     this.setState({formData});
@@ -277,12 +309,13 @@ class Calculator extends React.Component {
       let residence = formData.residence;
     
       let array = [];
-      let data_1718 = require('./housingData1718.json');
-      let data_16 = require('./housingData16.json');
-      let data_15 = require('./housingData15.json');
-      let data_14 = require('./housingData14.json');
+      let data_1718 = require('./data/housingData1718.json');
+      let data_16 = require('./data/housingData16.json');
+      let data_15 = require('./data/housingData15.json');
+      let data_14 = require('./data/housingData14.json');
+      let data_19 = require('./data/housingData19.json');
 
-      let dataArrays = [data_1718, data_16, data_15, data_14];
+      let dataArrays = [data_19, data_1718, data_16, data_15, data_14];
 
       for (let i = 0; i < dataArrays.length; i++) {
         let data = dataArrays[i];
@@ -331,40 +364,74 @@ class Calculator extends React.Component {
     }
   }
 
+  handleTableTogglePlot = (index) => {
+    // Make copy
+    var newIndices = new Map(this.state.plottedIndices);
+
+    // Toggle index
+    if (newIndices.has(index)) { // Toggle off
+      newIndices.delete(index);
+    } else { // Toggle on (only if we are under the max number of indices to plot)
+      if (newIndices.size < maxQueriesToPlot) newIndices.set(index, false);
+    }
+
+    this.setState({ plottedIndices: newIndices });
+  }
+
+  handleTableToggleShowNumbers = (index) => {
+    this.setState( (state) => {
+      return { plottedIndices: state.plottedIndices.set(index, !state.plottedIndices.get(index)) };
+    })
+  }
+
+  
   render() {
     return (
-      <div className="Calculator" style={divStyle}>
-        <header className="Calculator-header" style={calculatorStyle}>
-          <br />
-            <Link to="/"><Button variant="outline-danger">
-              Back
-            </Button></Link>
-          <br />
-          <br />
-          <h1 style={headerStyle}>Calculator</h1>
+      <div className="Calculator tab-content">
+        <Container fluid>
+        <Row>
+          <Col xs={12} md={4}>
             <Form schema={this.state.schema}
               onSubmit={this.onSubmit}
               formData={this.state.formData}
-              //onChange={({formData}) => this.setState({formData}) }
               onChange={this.onChange}
               onError={onError} />
-            <br />
-            <div style={cutoffStyle}> {this.state.cutoff_2014} </div>
-            <div style={cutoffStyle}> {this.state.cutoff_2015} </div>
-            <div style={cutoffStyle}> {this.state.cutoff_2016} </div>
-            <div style={cutoffStyle}> {this.state.cutoff_2017} </div>
-            <div style={cutoffStyle}> {this.state.cutoff_2018} </div>
-            <br />
-            <div style={cutoffStyle}> {this.state.cutoff_2019} </div>
-            <div style={cutoffStyle}> {this.state.cutoff_avg} </div>
-            <br />
-            <div style={percentageStyle}> {this.state.percentage} </div> 
-          <br />
-          <br />
-        </header>
+            <br/>
+          </Col>
+          
+          <Col xs={12} md={8}>
+            <Container fluid>
+            <Row className="justify-content-md-center">
+              <NumberCard title='Your chances' value={this.state.percentage}/>
+            </Row>
+            <Row>
+              <CutoffGraph 
+                plotData={Array.from(this.state.plottedIndices).map(x => this.state.pastQueries[x[0]])}
+                shouldShowNumbers={Array.from(this.state.plottedIndices.values())}
+                historicalData={this.state.cutoff_raw_data.slice(0, -1)}
+                predictedData={this.state.cutoff_raw_data.slice(-1)}
+                regressionData={this.state.regression_raw_data}
+                tier={this.state.tier}
+              />
+            </Row>
+            </Container>
+          </Col>
+        </Row>
+
+        <HistoryTable 
+          tableData={this.state.pastQueries}
+          checkedRows={this.state.plottedIndices}
+          togglePlot={this.handleTableTogglePlot}
+          toggleShowNumbers={this.handleTableToggleShowNumbers}
+        />
+
+        </Container>
       </div>
     );
+    
   }
+
+  
 }
 
 export default Calculator;

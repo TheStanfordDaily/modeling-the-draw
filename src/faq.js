@@ -3,15 +3,9 @@ import Button from 'react-bootstrap/Button';
 import {Link} from 'react-router-dom';
 import './faq.css';
 
-const headerStyle = {
-    fontFamily: 'Open Sans Condensed, sans-serif',
-    color: '#8c1515',
-};
-
 const questionStyle = {
     fontWeight: 'bold',
     fontStyle: 'italic',
-    fontFamily: 'Glegoo, serif',
     fontSize: '16px',
     marginLeft: '3%',
     marginRight: '3%',
@@ -20,12 +14,6 @@ const questionStyle = {
 const answerStyle = {
     marginLeft: '3%',
     marginRight: '3%',
-};
-
-const divStyle = {
-    //backgroundColor: '#95CCEB',
-    border: "solid #8c1515",
-    borderWidth: '4px',
 };
 
 function Question1() {
@@ -126,14 +114,8 @@ function Question4() {
 class FAQ extends React.Component {
     render() {
         return (
-            <div style={divStyle}>
-                <br />
-                <Link to="/"><Button variant="outline-danger">
-                    Back
-                </Button></Link>
-                <br />
-                <br />
-                <h1 style={headerStyle}>
+            <div className='tab-content'>
+                <h1>
                     Frequently Asked Questions
                 </h1>
                 <br />

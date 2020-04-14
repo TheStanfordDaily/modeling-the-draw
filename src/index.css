@@ -1,15 +1,23 @@
 body {
   margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  padding: 1em;
+  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h1 {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 300;
+  color: #8c1515;
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 300;
+  color: #8c1515;
+  font-size: 2em;
 }
 
 p {
@@ -19,4 +27,68 @@ p {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+
+button.btn-outline-danger {
+  color: #8C1515;
+  border-color: #8C1515;
+}
+
+button.btn-outline-danger:hover {
+  background-color: #A62F2F;
+  border-color: #A62F2F;
+}
+
+button.btn-info {
+  background-color: #8C1515;
+  border-color: #8C1515;
+}
+
+button.btn-info:hover {
+  background-color: #A62F2F;
+  border-color: #A62F2F;
+}
+
+
+.recharts-scatter .recharts-label-list text {
+  font-size: 0.9em;
+}
+
+.recharts-cartesian-axis-tick {
+  font-size: 0.9em;
+}
+
+.recharts-reference-area text.recharts-label {
+  font-size: 0.9em;
+  color: #666;
+}
+
+
+div.tab-content {
+  margin-top: 3em;
+}
+
+/*div.tab-content div.container {
+  margin-left: 1em;
+  margin-right: 1em;
+}*/
+
+div#root nav a.nav-link {
+  border-radius: 0;
+  color: #8c1515;
+}
+
+div#root nav a.nav-link.active {
+  border-top: solid #8c1515 2px;
+}
+
+
+div#history-table {
+  margin-top: 2em;
+}
+
+text.y-axis-label {
+  transform: translate(5%, 20%) rotate(-90deg);
+  transform-origin: left;
 }

@@ -1,0 +1,3802 @@
+[
+    {
+        "res_name_edited": "Any,576 Alvarado",
+        "res_name_raw": "576Alvarado",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Premier,680 Lomita",
+        "res_name_raw": "680LomPrm",
+        "sex": "f",
+        "individual": 266.0,
+        "group_2": 266.0,
+        "group_3": 263.0,
+        "year": 2019,
+        "group_4": 263.0
+    },
+    {
+        "res_name_edited": "Standard,680 Lomita",
+        "res_name_raw": "680LomStd",
+        "sex": "f",
+        "individual": 679.0,
+        "group_2": 679.0,
+        "group_3": 679.0,
+        "year": 2019,
+        "group_4": 673.0
+    },
+    {
+        "res_name_edited": "1 Room Double,Adelfa",
+        "res_name_raw": "Adelfa1rmDbl",
+        "sex": "f",
+        "individual": 1625.0,
+        "group_2": 1625.0,
+        "group_3": 1602.0,
+        "year": 2019,
+        "group_4": 1602.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Adelfa",
+        "res_name_raw": "Adelfa1rmSgl",
+        "sex": "f",
+        "individual": 614.0,
+        "group_2": 614.0,
+        "group_3": 587.0,
+        "year": 2019,
+        "group_4": 587.0
+    },
+    {
+        "res_name_edited": "Any,Alondra",
+        "res_name_raw": "Alondra",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Any,680 Lomita",
+        "res_name_raw": "Any 680Lomita",
+        "sex": "f",
+        "individual": 679.0,
+        "group_2": 679.0,
+        "group_3": 679.0,
+        "year": 2019,
+        "group_4": 673.0
+    },
+    {
+        "res_name_edited": "Any,Adelfa",
+        "res_name_raw": "Any Adelfa",
+        "sex": "f",
+        "individual": 1625.0,
+        "group_2": 1625.0,
+        "group_3": 1602.0,
+        "year": 2019,
+        "group_4": 1602.0
+    },
+    {
+        "res_name_edited": "Any,BOB",
+        "res_name_raw": "Any BOB",
+        "sex": "f",
+        "individual": 461.0,
+        "group_2": 461.0,
+        "group_3": 445.0,
+        "year": 2019,
+        "group_4": 445.0
+    },
+    {
+        "res_name_edited": "Any,Branner",
+        "res_name_raw": "Any Branner",
+        "sex": "f",
+        "individual": 1469.0,
+        "group_2": 1469.0,
+        "group_3": 1469.0,
+        "year": 2019,
+        "group_4": 1370.0
+    },
+    {
+        "res_name_edited": "Any,CCTH",
+        "res_name_raw": "Any CCTH",
+        "sex": "f",
+        "individual": 1993.0,
+        "group_2": 1926.0,
+        "group_3": 1926.0,
+        "year": 2019,
+        "group_4": 1917.0
+    },
+    {
+        "res_name_edited": "Any,Cardenal",
+        "res_name_raw": "Any Cardenal",
+        "sex": "f",
+        "individual": 2735.0,
+        "group_2": 2551.0,
+        "group_3": 2551.0,
+        "year": 2019,
+        "group_4": 2437.0
+    },
+    {
+        "res_name_edited": "Any,Castano",
+        "res_name_raw": "Any Castano",
+        "sex": "f",
+        "individual": 1765.0,
+        "group_2": 1673.0,
+        "group_3": 1673.0,
+        "year": 2019,
+        "group_4": 1640.0
+    },
+    {
+        "res_name_edited": "Any,Crothers",
+        "res_name_raw": "Any Cro",
+        "sex": "f",
+        "individual": 2801.0,
+        "group_2": 2801.0,
+        "group_3": 2781.0,
+        "year": 2019,
+        "group_4": 2781.0
+    },
+    {
+        "res_name_edited": "Any,Dorm",
+        "res_name_raw": "Any Dorm",
+        "sex": "f",
+        "individual": 2867.0,
+        "group_2": 2862.0,
+        "group_3": 2857.0,
+        "year": 2019,
+        "group_4": 2857.0
+    },
+    {
+        "res_name_edited": "Any,Durand",
+        "res_name_raw": "Any Durand",
+        "sex": "f",
+        "individual": 808.0,
+        "group_2": 808.0,
+        "group_3": 773.0,
+        "year": 2019,
+        "group_4": 767.0
+    },
+    {
+        "res_name_edited": "Any,East FloMo",
+        "res_name_raw": "Any E FloMo",
+        "sex": "f",
+        "individual": 2735.0,
+        "group_2": 2551.0,
+        "group_3": 2551.0,
+        "year": 2019,
+        "group_4": 2543.0
+    },
+    {
+        "res_name_edited": "Any,EAST",
+        "res_name_raw": "Any EAST",
+        "sex": "f",
+        "individual": 2848.0,
+        "group_2": 2823.0,
+        "group_3": 2650.0,
+        "year": 2019,
+        "group_4": 2650.0
+    },
+    {
+        "res_name_edited": "Any,East Campus",
+        "res_name_raw": "Any East",
+        "sex": "f",
+        "individual": 2801.0,
+        "group_2": 2801.0,
+        "group_3": 2781.0,
+        "year": 2019,
+        "group_4": 2781.0
+    },
+    {
+        "res_name_edited": "Any,Eucalipto",
+        "res_name_raw": "Any Eucalipto",
+        "sex": "f",
+        "individual": 1735.0,
+        "group_2": 1735.0,
+        "group_3": 353.0,
+        "year": 2019,
+        "group_4": 351.0
+    },
+    {
+        "res_name_edited": "Any,Faisan",
+        "res_name_raw": "Any Faisan",
+        "sex": "f",
+        "individual": 2735.0,
+        "group_2": 2551.0,
+        "group_3": 2551.0,
+        "year": 2019,
+        "group_4": 2543.0
+    },
+    {
+        "res_name_edited": "Any,FloMo",
+        "res_name_raw": "Any FloMo",
+        "sex": "f",
+        "individual": 2735.0,
+        "group_2": 2551.0,
+        "group_3": 2551.0,
+        "year": 2019,
+        "group_4": 2543.0
+    },
+    {
+        "res_name_edited": "Any,French House",
+        "res_name_raw": "Any French",
+        "sex": "f",
+        "individual": 366.0,
+        "group_2": 336.0,
+        "group_3": 336.0,
+        "year": 2019,
+        "group_4": 330.0
+    },
+    {
+        "res_name_edited": "Any,Gavilan",
+        "res_name_raw": "Any Gavilan",
+        "sex": "f",
+        "individual": 2200.0,
+        "group_2": 2200.0,
+        "group_3": 2128.0,
+        "year": 2019,
+        "group_4": 2128.0
+    },
+    {
+        "res_name_edited": "Any,Gerhard Casper Quad",
+        "res_name_raw": "Any Gerhard",
+        "sex": "f",
+        "individual": 1765.0,
+        "group_2": 1747.0,
+        "group_3": 1726.0,
+        "year": 2019,
+        "group_4": 1726.0
+    },
+    {
+        "res_name_edited": "Any,Gov Co",
+        "res_name_raw": "Any GovCo",
+        "sex": "f",
+        "individual": 2867.0,
+        "group_2": 2862.0,
+        "group_3": 2857.0,
+        "year": 2019,
+        "group_4": 2857.0
+    },
+    {
+        "res_name_edited": "Any,Granada",
+        "res_name_raw": "Any Granada",
+        "sex": "f",
+        "individual": 1825.0,
+        "group_2": 1592.0,
+        "group_3": 1592.0,
+        "year": 2019,
+        "group_4": 1592.0
+    },
+    {
+        "res_name_edited": "Any,Grove",
+        "res_name_raw": "Any Grove",
+        "sex": "f",
+        "individual": 719.0,
+        "group_2": 708.0,
+        "group_3": 708.0,
+        "year": 2019,
+        "group_4": 702.0
+    },
+    {
+        "res_name_edited": "Any,Haus Mitteleuropa",
+        "res_name_raw": "Any HausMit",
+        "sex": "f",
+        "individual": 608.0,
+        "group_2": 600.0,
+        "group_3": 600.0,
+        "year": 2019,
+        "group_4": 571.0
+    },
+    {
+        "res_name_edited": "Any,La Casa Italiana",
+        "res_name_raw": "Any Italian",
+        "sex": "f",
+        "individual": 227.0,
+        "group_2": 227.0,
+        "group_3": 215.0,
+        "year": 2019,
+        "group_4": 215.0
+    },
+    {
+        "res_name_edited": "Any,Kimball",
+        "res_name_raw": "Any Kimball",
+        "sex": "f",
+        "individual": 1747.0,
+        "group_2": 1647.0,
+        "group_3": 1611.0,
+        "year": 2019,
+        "group_4": 1611.0
+    },
+    {
+        "res_name_edited": "Any,Lagunita",
+        "res_name_raw": "Any Lag",
+        "sex": "f",
+        "individual": 1825.0,
+        "group_2": 1735.0,
+        "group_3": 1735.0,
+        "year": 2019,
+        "group_4": 1625.0
+    },
+    {
+        "res_name_edited": "Any,Lantana",
+        "res_name_raw": "Any Lantana",
+        "sex": "f",
+        "individual": 1765.0,
+        "group_2": 1747.0,
+        "group_3": 1726.0,
+        "year": 2019,
+        "group_4": 1726.0
+    },
+    {
+        "res_name_edited": "Any,Loro",
+        "res_name_raw": "Any Loro",
+        "sex": "f",
+        "individual": 2180.0,
+        "group_2": 2098.0,
+        "group_3": 2092.0,
+        "year": 2019,
+        "group_4": 2092.0
+    },
+    {
+        "res_name_edited": "Any,Mars",
+        "res_name_raw": "Any Mars",
+        "sex": "f",
+        "individual": 428.0,
+        "group_2": 372.0,
+        "group_3": 269.0,
+        "year": 2019,
+        "group_4": 269.0
+    },
+    {
+        "res_name_edited": "Any,Meier",
+        "res_name_raw": "Any Meier",
+        "sex": "f",
+        "individual": 695.0,
+        "group_2": 676.0,
+        "group_3": 676.0,
+        "year": 2019,
+        "group_4": 639.0
+    },
+    {
+        "res_name_edited": "Any,Mirlo",
+        "res_name_raw": "Any Mirlo",
+        "sex": "f",
+        "individual": 1923.0,
+        "group_2": 1923.0,
+        "group_3": 1731.0,
+        "year": 2019,
+        "group_4": 1720.0
+    },
+    {
+        "res_name_edited": "Any,Mirrielees",
+        "res_name_raw": "Any Mirr",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Any,Murray",
+        "res_name_raw": "Any Murray",
+        "sex": "f",
+        "individual": 2817.0,
+        "group_2": 2053.0,
+        "group_3": 1990.0,
+        "year": 2019,
+        "group_4": 1990.0
+    },
+    {
+        "res_name_edited": "Any,Naranja",
+        "res_name_raw": "Any Naranja",
+        "sex": "f",
+        "individual": 1273.0,
+        "group_2": 1273.0,
+        "group_3": 617.0,
+        "year": 2019,
+        "group_4": 595.0
+    },
+    {
+        "res_name_edited": "Any,Narnia",
+        "res_name_raw": "Any Narnia",
+        "sex": "f",
+        "individual": 507.0,
+        "group_2": 507.0,
+        "group_3": 507.0,
+        "year": 2019,
+        "group_4": 478.0
+    },
+    {
+        "res_name_edited": "Any,Norcliffe",
+        "res_name_raw": "Any Norcliffe",
+        "sex": "f",
+        "individual": 671.0,
+        "group_2": 300.0,
+        "group_3": 284.0,
+        "year": 2019,
+        "group_4": 254.0
+    },
+    {
+        "res_name_edited": "Any,Paloma",
+        "res_name_raw": "Any Paloma",
+        "sex": "f",
+        "individual": 2098.0,
+        "group_2": 2092.0,
+        "group_3": 2092.0,
+        "year": 2019,
+        "group_4": 2068.0
+    },
+    {
+        "res_name_edited": "Any,Phi Sigma",
+        "res_name_raw": "Any PhiSig",
+        "sex": "f",
+        "individual": 404.0,
+        "group_2": 404.0,
+        "group_3": 156.0,
+        "year": 2019,
+        "group_4": 156.0
+    },
+    {
+        "res_name_edited": "Any,Pluto",
+        "res_name_raw": "Any Pluto",
+        "sex": "f",
+        "individual": 1037.0,
+        "group_2": 957.0,
+        "group_3": 957.0,
+        "year": 2019,
+        "group_4": 952.0
+    },
+    {
+        "res_name_edited": "Any,Potter",
+        "res_name_raw": "Any Potter",
+        "sex": "f",
+        "individual": 2867.0,
+        "group_2": 2862.0,
+        "group_3": 2857.0,
+        "year": 2019,
+        "group_4": 2857.0
+    },
+    {
+        "res_name_edited": "Any,Residence",
+        "res_name_raw": "Any Res",
+        "sex": "f",
+        "individual": 2867.0,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Any,Robinson",
+        "res_name_raw": "Any Robinson",
+        "sex": "f",
+        "individual": 2867.0,
+        "group_2": 2862.0,
+        "group_3": 2857.0,
+        "year": 2019,
+        "group_4": 2857.0
+    },
+    {
+        "res_name_edited": "Any,Roble",
+        "res_name_raw": "Any Roble",
+        "sex": "f",
+        "individual": 1850.0,
+        "group_2": 1805.0,
+        "group_3": 1805.0,
+        "year": 2019,
+        "group_4": 1793.0
+    },
+    {
+        "res_name_edited": "Any,Roth",
+        "res_name_raw": "Any Roth",
+        "sex": "f",
+        "individual": 1525.0,
+        "group_2": 1101.0,
+        "group_3": 1101.0,
+        "year": 2019,
+        "group_4": 1063.0
+    },
+    {
+        "res_name_edited": "Any,Self Op",
+        "res_name_raw": "Any SelfOp",
+        "sex": "f",
+        "individual": 1525.0,
+        "group_2": 1404.0,
+        "group_3": 1404.0,
+        "year": 2019,
+        "group_4": 1354.0
+    },
+    {
+        "res_name_edited": "Any,Self Op Lake",
+        "res_name_raw": "Any SelfOpLake",
+        "sex": "f",
+        "individual": 507.0,
+        "group_2": 507.0,
+        "group_3": 507.0,
+        "year": 2019,
+        "group_4": 478.0
+    },
+    {
+        "res_name_edited": "Any,Slavianskii Dom",
+        "res_name_raw": "Any SlavDom",
+        "sex": "f",
+        "individual": 873.0,
+        "group_2": 720.0,
+        "group_3": 720.0,
+        "year": 2019,
+        "group_4": 621.0
+    },
+    {
+        "res_name_edited": "Any,SterQuad",
+        "res_name_raw": "Any SterQuad",
+        "sex": "f",
+        "individual": 2867.0,
+        "group_2": 2862.0,
+        "group_3": 2857.0,
+        "year": 2019,
+        "group_4": 2857.0
+    },
+    {
+        "res_name_edited": "Any,Suites",
+        "res_name_raw": "Any Suites",
+        "sex": "f",
+        "individual": 944.0,
+        "group_2": 877.0,
+        "group_3": 863.0,
+        "year": 2019,
+        "group_4": 863.0
+    },
+    {
+        "res_name_edited": "Any,Toyon",
+        "res_name_raw": "Any Toyon",
+        "sex": "f",
+        "individual": 1349.0,
+        "group_2": 1349.0,
+        "group_3": 1349.0,
+        "year": 2019,
+        "group_4": 1349.0
+    },
+    {
+        "res_name_edited": "Any,Trancos",
+        "res_name_raw": "Any Trancos",
+        "sex": "f",
+        "individual": 2867.0,
+        "group_2": 2862.0,
+        "group_3": 2857.0,
+        "year": 2019,
+        "group_4": 2857.0
+    },
+    {
+        "res_name_edited": "Any,West FloMo",
+        "res_name_raw": "Any W FloMo",
+        "sex": "f",
+        "individual": 2180.0,
+        "group_2": 2098.0,
+        "group_3": 2092.0,
+        "year": 2019,
+        "group_4": 2092.0
+    },
+    {
+        "res_name_edited": "Any,West Campus",
+        "res_name_raw": "Any West",
+        "sex": "f",
+        "individual": 2867.0,
+        "group_2": 2862.0,
+        "group_3": 2857.0,
+        "year": 2019,
+        "group_4": 2857.0
+    },
+    {
+        "res_name_edited": "Any,Xanadu",
+        "res_name_raw": "Any Xanadu",
+        "sex": "f",
+        "individual": 542.0,
+        "group_2": 542.0,
+        "group_3": 513.0,
+        "year": 2019,
+        "group_4": 513.0
+    },
+    {
+        "res_name_edited": "Any,Yost",
+        "res_name_raw": "Any Yost",
+        "sex": "f",
+        "individual": 1410.0,
+        "group_2": 1311.0,
+        "group_3": 1311.0,
+        "year": 2019,
+        "group_4": 1310.0
+    },
+    {
+        "res_name_edited": "Premier,BOB",
+        "res_name_raw": "BOBPrm",
+        "sex": "f",
+        "individual": 145.0,
+        "group_2": 124.0,
+        "group_3": 123.0,
+        "year": 2019,
+        "group_4": 118.0
+    },
+    {
+        "res_name_edited": "Standard,BOB",
+        "res_name_raw": "BOBStd",
+        "sex": "f",
+        "individual": 461.0,
+        "group_2": 461.0,
+        "group_3": 445.0,
+        "year": 2019,
+        "group_4": 445.0
+    },
+    {
+        "res_name_edited": "1 Room Double,Branner",
+        "res_name_raw": "Bran1rmDbl",
+        "sex": "f",
+        "individual": 1469.0,
+        "group_2": 1242.0,
+        "group_3": 1242.0,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Single,Branner",
+        "res_name_raw": "Bran1rmSgl",
+        "sex": "f",
+        "individual": 169.0,
+        "group_2": 155.0,
+        "group_3": 155.0,
+        "year": 2019,
+        "group_4": 146.0
+    },
+    {
+        "res_name_edited": "2 Room Double,Branner",
+        "res_name_raw": "Bran2rmDbl",
+        "sex": "f",
+        "individual": 752.0,
+        "group_2": 752.0,
+        "group_3": 685.0,
+        "year": 2019,
+        "group_4": 638.0
+    },
+    {
+        "res_name_edited": "Triple,Branner",
+        "res_name_raw": "BrannerTrp",
+        "sex": "f",
+        "individual": 1469.0,
+        "group_2": 1469.0,
+        "group_3": 1370.0,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Double,Cardenal",
+        "res_name_raw": "Card1rmDbl",
+        "sex": "f",
+        "individual": 2735.0,
+        "group_2": 2551.0,
+        "group_3": 2551.0,
+        "year": 2019,
+        "group_4": 2437.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Cardenal",
+        "res_name_raw": "Card1rmSgl",
+        "sex": "f",
+        "individual": 651.0,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Double,Castano",
+        "res_name_raw": "Cast1rmDbl",
+        "sex": "f",
+        "individual": 1673.0,
+        "group_2": 1673.0,
+        "group_3": 1640.0,
+        "year": 2019,
+        "group_4": 1640.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Castano",
+        "res_name_raw": "Cast1rmSgl",
+        "sex": "f",
+        "individual": 537.0,
+        "group_2": 400.0,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "2 Room Double,Castano",
+        "res_name_raw": "Cast2rmDbl",
+        "sex": "f",
+        "individual": 1405.0,
+        "group_2": 1405.0,
+        "group_3": 1365.0,
+        "year": 2019,
+        "group_4": 1341.0
+    },
+    {
+        "res_name_edited": "Triple,Castano",
+        "res_name_raw": "CastanoTrp",
+        "sex": "f",
+        "individual": 1765.0,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Any,Columbae",
+        "res_name_raw": "Columbae",
+        "sex": "f",
+        "individual": 914.0,
+        "group_2": 824.0,
+        "group_3": 781.0,
+        "year": 2019,
+        "group_4": 549.0
+    },
+    {
+        "res_name_edited": "1 Room Double,Crothers",
+        "res_name_raw": "Cro1rmDbl",
+        "sex": "f",
+        "individual": 2801.0,
+        "group_2": 2801.0,
+        "group_3": 2781.0,
+        "year": 2019,
+        "group_4": 2781.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Crothers",
+        "res_name_raw": "Cro1rmSgl",
+        "sex": "f",
+        "individual": 674.0,
+        "group_2": 667.0,
+        "group_3": 660.0,
+        "year": 2019,
+        "group_4": 646.0
+    },
+    {
+        "res_name_edited": "Premier,Durand",
+        "res_name_raw": "DurandPrm",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Standard,Durand",
+        "res_name_raw": "DurandStd",
+        "sex": "f",
+        "individual": 808.0,
+        "group_2": 808.0,
+        "group_3": 773.0,
+        "year": 2019,
+        "group_4": 767.0
+    },
+    {
+        "res_name_edited": "1 Room Double,EAST",
+        "res_name_raw": "EAST1rmDbl",
+        "sex": "f",
+        "individual": 2823.0,
+        "group_2": 2544.0,
+        "group_3": 2544.0,
+        "year": 2019,
+        "group_4": 2319.0
+    },
+    {
+        "res_name_edited": "1 Room Single,EAST",
+        "res_name_raw": "EAST1rmSgl",
+        "sex": "f",
+        "individual": 287.0,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "2 Room Double,EAST",
+        "res_name_raw": "EAST2rmDbl",
+        "sex": "f",
+        "individual": 1736.0,
+        "group_2": 1578.0,
+        "group_3": 1538.0,
+        "year": 2019,
+        "group_4": 1538.0
+    },
+    {
+        "res_name_edited": "Triple,EAST",
+        "res_name_raw": "EASTTrp",
+        "sex": "f",
+        "individual": 2848.0,
+        "group_2": 2823.0,
+        "group_3": 2650.0,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Any,EBF",
+        "res_name_raw": "EBF",
+        "sex": "f",
+        "individual": 348.0,
+        "group_2": 348.0,
+        "group_3": 296.0,
+        "year": 2019,
+        "group_4": 296.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Eucalipto",
+        "res_name_raw": "Euc1rmDbl",
+        "sex": "f",
+        "individual": 1735.0,
+        "group_2": 1735.0,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Double,Eucalipto",
+        "res_name_raw": "Euc1rmSgl",
+        "sex": "f",
+        "individual": 353.0,
+        "group_2": 351.0,
+        "group_3": 223.0,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Triple,Eucalipto",
+        "res_name_raw": "EucTrpl",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Double,Faisan",
+        "res_name_raw": "Fais1rmDbl",
+        "sex": "f",
+        "individual": 2735.0,
+        "group_2": 2551.0,
+        "group_3": 2551.0,
+        "year": 2019,
+        "group_4": 2543.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Faisan",
+        "res_name_raw": "Fais1rmSgl",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Premier,French House",
+        "res_name_raw": "FrenchPrm",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Standard,French House",
+        "res_name_raw": "FrenchStd",
+        "sex": "f",
+        "individual": 366.0,
+        "group_2": 336.0,
+        "group_3": 336.0,
+        "year": 2019,
+        "group_4": 330.0
+    },
+    {
+        "res_name_edited": "Any,FroSoCo",
+        "res_name_raw": "FroSoCo",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Double,Gavilan",
+        "res_name_raw": "Gav1rmDbl",
+        "sex": "f",
+        "individual": 2200.0,
+        "group_2": 2200.0,
+        "group_3": 2128.0,
+        "year": 2019,
+        "group_4": 2128.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Gavilan",
+        "res_name_raw": "Gav1rmSgl",
+        "sex": "f",
+        "individual": 791.0,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Double,Granada",
+        "res_name_raw": "Gran1rmDbl",
+        "sex": "f",
+        "individual": 1825.0,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Single,Granada",
+        "res_name_raw": "Gran1rmSgl",
+        "sex": "f",
+        "individual": 415.0,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Triple,Granada",
+        "res_name_raw": "GranTrpl",
+        "sex": "f",
+        "individual": 1592.0,
+        "group_2": 1592.0,
+        "group_3": 1592.0,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Premier,Grove",
+        "res_name_raw": "GrovPrm",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Standard,Grove",
+        "res_name_raw": "GrovStd",
+        "sex": "f",
+        "individual": 719.0,
+        "group_2": 708.0,
+        "group_3": 708.0,
+        "year": 2019,
+        "group_4": 702.0
+    },
+    {
+        "res_name_edited": "Any,Hammarskjold",
+        "res_name_raw": "Hammarsk",
+        "sex": "f",
+        "individual": 452.0,
+        "group_2": 452.0,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Any,Hammarskjold",
+        "res_name_raw": "Hammarsk (ethnic,I)",
+        "sex": "f",
+        "individual": 1510.0,
+        "group_2": 888.0,
+        "group_3": 522.0,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Premier,Haus Mitteleuropa",
+        "res_name_raw": "HausMitPrm",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Standard,Haus Mitteleuropa",
+        "res_name_raw": "HausMitStd",
+        "sex": "f",
+        "individual": 608.0,
+        "group_2": 600.0,
+        "group_3": 600.0,
+        "year": 2019,
+        "group_4": 571.0
+    },
+    {
+        "res_name_edited": "Any,Humanities House",
+        "res_name_raw": "Humanities",
+        "sex": "f",
+        "individual": 748.0,
+        "group_2": 743.0,
+        "group_3": 620.0,
+        "year": 2019,
+        "group_4": 385.0
+    },
+    {
+        "res_name_edited": "Premier,La Casa Italiana",
+        "res_name_raw": "ItalianPrm",
+        "sex": "f",
+        "individual": 11.0,
+        "group_2": 6.0,
+        "group_3": 6.0,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Standard,La Casa Italiana",
+        "res_name_raw": "ItalianStd",
+        "sex": "f",
+        "individual": 227.0,
+        "group_2": 227.0,
+        "group_3": 215.0,
+        "year": 2019,
+        "group_4": 215.0
+    },
+    {
+        "res_name_edited": "Premier,Jerry",
+        "res_name_raw": "JerryPrm",
+        "sex": "f",
+        "individual": 415.0,
+        "group_2": 414.0,
+        "group_3": 414.0,
+        "year": 2019,
+        "group_4": 413.0
+    },
+    {
+        "res_name_edited": "Any,Kairos",
+        "res_name_raw": "Kairos",
+        "sex": "f",
+        "individual": 948.0,
+        "group_2": 906.0,
+        "group_3": 906.0,
+        "year": 2019,
+        "group_4": 892.0
+    },
+    {
+        "res_name_edited": "1 Room Double,Kimball",
+        "res_name_raw": "Kim1rmDbl",
+        "sex": "f",
+        "individual": 1540.0,
+        "group_2": 1515.0,
+        "group_3": 1515.0,
+        "year": 2019,
+        "group_4": 1510.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Kimball",
+        "res_name_raw": "Kim1rmSgl",
+        "sex": "f",
+        "individual": 379.0,
+        "group_2": 379.0,
+        "group_3": 379.0,
+        "year": 2019,
+        "group_4": 68.0
+    },
+    {
+        "res_name_edited": "2 Room Double,Kimball",
+        "res_name_raw": "Kim2rmDbl",
+        "sex": "f",
+        "individual": 1319.0,
+        "group_2": 1121.0,
+        "group_3": 1100.0,
+        "year": 2019,
+        "group_4": 1100.0
+    },
+    {
+        "res_name_edited": "Quad,Kimball",
+        "res_name_raw": "KimQuad",
+        "sex": "f",
+        "individual": 1747.0,
+        "group_2": 1611.0,
+        "group_3": 1611.0,
+        "year": 2019,
+        "group_4": 1611.0
+    },
+    {
+        "res_name_edited": "Triple,Kimball",
+        "res_name_raw": "KimballTrp",
+        "sex": "f",
+        "individual": 1747.0,
+        "group_2": 1647.0,
+        "group_3": 1584.0,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Double,Lantana",
+        "res_name_raw": "Lant1rmDbl",
+        "sex": "f",
+        "individual": 1765.0,
+        "group_2": 1726.0,
+        "group_3": 1726.0,
+        "year": 2019,
+        "group_4": 1726.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Lantana",
+        "res_name_raw": "Lant1rmSgl",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "2 Room Double,Lantana",
+        "res_name_raw": "Lant2rmDbl",
+        "sex": "f",
+        "individual": 1399.0,
+        "group_2": 1399.0,
+        "group_3": 1372.0,
+        "year": 2019,
+        "group_4": 1372.0
+    },
+    {
+        "res_name_edited": "Triple,LantanaTrpana",
+        "res_name_raw": "LantanaTrp",
+        "sex": "f",
+        "individual": 1765.0,
+        "group_2": 1588.0,
+        "group_3": 1588.0,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Double,Loro",
+        "res_name_raw": "Loro1rmDbl",
+        "sex": "f",
+        "individual": 2180.0,
+        "group_2": 2098.0,
+        "group_3": 2092.0,
+        "year": 2019,
+        "group_4": 2092.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Loro",
+        "res_name_raw": "Loro1rmSgl",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Any,Lower Row Self Op",
+        "res_name_raw": "LwRwSelfOp",
+        "sex": "f",
+        "individual": 679.0,
+        "group_2": 679.0,
+        "group_3": 679.0,
+        "year": 2019,
+        "group_4": 673.0
+    },
+    {
+        "res_name_edited": "Premier,Mars",
+        "res_name_raw": "MarsPrm",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Standard,Mars",
+        "res_name_raw": "MarsStd",
+        "sex": "f",
+        "individual": 428.0,
+        "group_2": 372.0,
+        "group_3": 269.0,
+        "year": 2019,
+        "group_4": 269.0
+    },
+    {
+        "res_name_edited": "1 Room Double,Meier",
+        "res_name_raw": "Meier1rmDbl",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Double,Meier",
+        "res_name_raw": "Meier1rmDbl (focus)",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Single,Meier",
+        "res_name_raw": "Meier1rmSgl",
+        "sex": "f",
+        "individual": 200.0,
+        "group_2": 200.0,
+        "group_3": 192.0,
+        "year": 2019,
+        "group_4": 168.0
+    },
+    {
+        "res_name_edited": "2 Room Double,Meier",
+        "res_name_raw": "Meier2rmDbl",
+        "sex": "f",
+        "individual": 695.0,
+        "group_2": 676.0,
+        "group_3": 676.0,
+        "year": 2019,
+        "group_4": 639.0
+    },
+    {
+        "res_name_edited": "2 Room Double,Meier",
+        "res_name_raw": "Meier2rmDbl (focus)",
+        "sex": "f",
+        "individual": 1414.0,
+        "group_2": 1308.0,
+        "group_3": 1308.0,
+        "year": 2019,
+        "group_4": 1224.0
+    },
+    {
+        "res_name_edited": "Substance Free Housing,Mirrielees",
+        "res_name_raw": "MirSubFree",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Double,Mirrielees",
+        "res_name_raw": "Mirr2brDbl",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Triple,Mirrielees",
+        "res_name_raw": "Mirr3brTrp",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Double,Mirlo",
+        "res_name_raw": "Mrlo1rmDbl",
+        "sex": "f",
+        "individual": 1923.0,
+        "group_2": 1923.0,
+        "group_3": 1731.0,
+        "year": 2019,
+        "group_4": 1720.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Mirlo",
+        "res_name_raw": "Mrlo1rmSgl",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Double,Murray",
+        "res_name_raw": "Murr1rmDbl",
+        "sex": "f",
+        "individual": 2817.0,
+        "group_2": 2053.0,
+        "group_3": 1990.0,
+        "year": 2019,
+        "group_4": 1990.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Murray",
+        "res_name_raw": "Murr1rmSgl",
+        "sex": "f",
+        "individual": 900.0,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "2 Room Double,Murray",
+        "res_name_raw": "Murr2rmDbl",
+        "sex": "f",
+        "individual": 1565.0,
+        "group_2": 1536.0,
+        "group_3": 1536.0,
+        "year": 2019,
+        "group_4": 1493.0
+    },
+    {
+        "res_name_edited": "Any,Muwekma",
+        "res_name_raw": "Muwekma",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Any,Muwekma",
+        "res_name_raw": "Muwekma (ethnic,N)",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Premier,Narnia",
+        "res_name_raw": "NarniaPrm",
+        "sex": "f",
+        "individual": 507.0,
+        "group_2": 507.0,
+        "group_3": 507.0,
+        "year": 2019,
+        "group_4": 478.0
+    },
+    {
+        "res_name_edited": "Standard,Narnia",
+        "res_name_raw": "NarniaStd",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Single,Norcliffe",
+        "res_name_raw": "Norcliffe1rmSgl",
+        "sex": "f",
+        "individual": 300.0,
+        "group_2": 284.0,
+        "group_3": 229.0,
+        "year": 2019,
+        "group_4": 213.0
+    },
+    {
+        "res_name_edited": "2 Room Double,Norcliffe",
+        "res_name_raw": "Norcliffe2rmDbl",
+        "sex": "f",
+        "individual": 671.0,
+        "group_2": 254.0,
+        "group_3": 254.0,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "2 Room Double,Norcliffe",
+        "res_name_raw": "Norcliffe2rmDbl (focus)",
+        "sex": "f",
+        "individual": 1274.0,
+        "group_2": 1103.0,
+        "group_3": 1095.0,
+        "year": 2019,
+        "group_4": 1074.0
+    },
+    {
+        "res_name_edited": "1 Room Double,Naranja",
+        "res_name_raw": "Nrja1rmDbl",
+        "sex": "f",
+        "individual": 1273.0,
+        "group_2": 1273.0,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Single,Naranja",
+        "res_name_raw": "Nrja1rmSgl",
+        "sex": "f",
+        "individual": 617.0,
+        "group_2": 595.0,
+        "group_3": 586.0,
+        "year": 2019,
+        "group_4": 575.0
+    },
+    {
+        "res_name_edited": "Any,Okada",
+        "res_name_raw": "Okada",
+        "sex": "f",
+        "individual": 1832.0,
+        "group_2": 1571.0,
+        "group_3": 1483.0,
+        "year": 2019,
+        "group_4": 1483.0
+    },
+    {
+        "res_name_edited": "Any,Okada",
+        "res_name_raw": "Okada (ethnic,A)",
+        "sex": "f",
+        "individual": 1553.0,
+        "group_2": 664.0,
+        "group_3": 565.0,
+        "year": 2019,
+        "group_4": 349.0
+    },
+    {
+        "res_name_edited": ",Outdoor House",
+        "res_name_raw": "Outdoor",
+        "sex": "f",
+        "individual": 239.0,
+        "group_2": 239.0,
+        "group_3": 170.0,
+        "year": 2019,
+        "group_4": 170.0
+    },
+    {
+        "res_name_edited": "1 Room Double,Paloma",
+        "res_name_raw": "Palo1rmDbl",
+        "sex": "f",
+        "individual": 2098.0,
+        "group_2": 2092.0,
+        "group_3": 2092.0,
+        "year": 2019,
+        "group_4": 2068.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Paloma",
+        "res_name_raw": "Palo1rmSgl",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Premier,Phi Sigma",
+        "res_name_raw": "PhiSgPrm",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Standard,Phi Sigma",
+        "res_name_raw": "PhiSgStd",
+        "sex": "f",
+        "individual": 404.0,
+        "group_2": 404.0,
+        "group_3": 156.0,
+        "year": 2019,
+        "group_4": 156.0
+    },
+    {
+        "res_name_edited": "Premier,Pluto",
+        "res_name_raw": "PlutoPrm",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Standard,Pluto",
+        "res_name_raw": "PlutoStd",
+        "sex": "f",
+        "individual": 1037.0,
+        "group_2": 957.0,
+        "group_3": 957.0,
+        "year": 2019,
+        "group_4": 952.0
+    },
+    {
+        "res_name_edited": "1 Room Double,Potter",
+        "res_name_raw": "Pott1rmDbl",
+        "sex": "f",
+        "individual": 2867.0,
+        "group_2": 2862.0,
+        "group_3": 2748.0,
+        "year": 2019,
+        "group_4": 2615.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Potter",
+        "res_name_raw": "Pott1rmSgl",
+        "sex": "f",
+        "individual": 1419.0,
+        "group_2": 1390.0,
+        "group_3": 1379.0,
+        "year": 2019,
+        "group_4": 1161.0
+    },
+    {
+        "res_name_edited": "2 Room Double,Potter",
+        "res_name_raw": "Pott2rmDbl",
+        "sex": "f",
+        "individual": 2526.0,
+        "group_2": 2438.0,
+        "group_3": 2438.0,
+        "year": 2019,
+        "group_4": 2406.0
+    },
+    {
+        "res_name_edited": "Triple,Potter",
+        "res_name_raw": "PotterTrp",
+        "sex": "f",
+        "individual": 2867.0,
+        "group_2": 2862.0,
+        "group_3": 2857.0,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Double,Roble",
+        "res_name_raw": "Robl1rmDbl",
+        "sex": "f",
+        "individual": 1850.0,
+        "group_2": 1805.0,
+        "group_3": 1805.0,
+        "year": 2019,
+        "group_4": 1793.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Roble",
+        "res_name_raw": "Robl1rmSgl",
+        "sex": "f",
+        "individual": 968.0,
+        "group_2": 962.0,
+        "group_3": 961.0,
+        "year": 2019,
+        "group_4": 943.0
+    },
+    {
+        "res_name_edited": "2 Room Double,Roble",
+        "res_name_raw": "Robl2rmDbl",
+        "sex": "f",
+        "individual": 730.0,
+        "group_2": 730.0,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Triple,Roble",
+        "res_name_raw": "RobleTrp",
+        "sex": "f",
+        "individual": 1647.0,
+        "group_2": 1647.0,
+        "group_3": 1587.0,
+        "year": 2019,
+        "group_4": 709.0
+    },
+    {
+        "res_name_edited": "1 Room Double,Robinson",
+        "res_name_raw": "Robn1rmDbl",
+        "sex": "f",
+        "individual": 2867.0,
+        "group_2": 2862.0,
+        "group_3": 2857.0,
+        "year": 2019,
+        "group_4": 2857.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Robinson",
+        "res_name_raw": "Robn1rmSgl",
+        "sex": "f",
+        "individual": 974.0,
+        "group_2": 827.0,
+        "group_3": 721.0,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "2 Room Double,Robinson",
+        "res_name_raw": "Robn2rmDbl",
+        "sex": "f",
+        "individual": 2716.0,
+        "group_2": 2690.0,
+        "group_3": 2687.0,
+        "year": 2019,
+        "group_4": 2683.0
+    },
+    {
+        "res_name_edited": "Premier,Roth",
+        "res_name_raw": "RothPrm",
+        "sex": "f",
+        "individual": 219.0,
+        "group_2": 189.0,
+        "group_3": 189.0,
+        "year": 2019,
+        "group_4": 180.0
+    },
+    {
+        "res_name_edited": "Standard,Roth",
+        "res_name_raw": "RothStd",
+        "sex": "f",
+        "individual": 1525.0,
+        "group_2": 1101.0,
+        "group_3": 1101.0,
+        "year": 2019,
+        "group_4": 1063.0
+    },
+    {
+        "res_name_edited": "Premier,Slavianskii Dom",
+        "res_name_raw": "SlavDomPrm",
+        "sex": "f",
+        "individual": 130.0,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Standard,Slavianskii Dom",
+        "res_name_raw": "SlavDomStd",
+        "sex": "f",
+        "individual": 873.0,
+        "group_2": 720.0,
+        "group_3": 720.0,
+        "year": 2019,
+        "group_4": 621.0
+    },
+    {
+        "res_name_edited": "Any,Storey",
+        "res_name_raw": "Storey",
+        "sex": "f",
+        "individual": 597.0,
+        "group_2": 597.0,
+        "group_3": 572.0,
+        "year": 2019,
+        "group_4": 508.0
+    },
+    {
+        "res_name_edited": "4-room,Suites",
+        "res_name_raw": "Suites4",
+        "sex": "f",
+        "individual": 877.0,
+        "group_2": 185.0,
+        "group_3": 1583.0,
+        "year": 2019,
+        "group_4": 310.0
+    },
+    {
+        "res_name_edited": "6-room,Suites 6",
+        "res_name_raw": "Suites6",
+        "sex": "f",
+        "individual": 944.0,
+        "group_2": 863.0,
+        "group_3": 863.0,
+        "year": 2019,
+        "group_4": 591.0
+    },
+    {
+        "res_name_edited": "Any,Synergy",
+        "res_name_raw": "Synergy",
+        "sex": "f",
+        "individual": 661.0,
+        "group_2": 661.0,
+        "group_3": 524.0,
+        "year": 2019,
+        "group_4": 500.0
+    },
+    {
+        "res_name_edited": "Any,Terra",
+        "res_name_raw": "Terra",
+        "sex": "f",
+        "individual": 2172.0,
+        "group_2": 1840.0,
+        "group_3": 1840.0,
+        "year": 2019,
+        "group_4": 1824.0
+    },
+    {
+        "res_name_edited": "1 Room Double,Toyon",
+        "res_name_raw": "Toy1rmDbl",
+        "sex": "f",
+        "individual": 1199.0,
+        "group_2": 1199.0,
+        "group_3": 1199.0,
+        "year": 2019,
+        "group_4": 1199.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Toyon",
+        "res_name_raw": "Toy1rmSgl",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "2 Room Double,Toyon",
+        "res_name_raw": "Toy2rmDbl",
+        "sex": "f",
+        "individual": 1196.0,
+        "group_2": 1196.0,
+        "group_3": 1177.0,
+        "year": 2019,
+        "group_4": 1177.0
+    },
+    {
+        "res_name_edited": "Quad,Toyon",
+        "res_name_raw": "ToyonQuad",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Triple,Toyon",
+        "res_name_raw": "ToyonTrp",
+        "sex": "f",
+        "individual": 1349.0,
+        "group_2": 1349.0,
+        "group_3": 1349.0,
+        "year": 2019,
+        "group_4": 1349.0
+    },
+    {
+        "res_name_edited": "1 Room Double,Trancos",
+        "res_name_raw": "Trancos1rmDbl",
+        "sex": "f",
+        "individual": 2867.0,
+        "group_2": 2862.0,
+        "group_3": 2857.0,
+        "year": 2019,
+        "group_4": 2857.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Trancos",
+        "res_name_raw": "Trancos1rmSgl",
+        "sex": "f",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Any,Ujamaa",
+        "res_name_raw": "Ujamaa",
+        "sex": "f",
+        "individual": 79.0,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Any,Ujamaa",
+        "res_name_raw": "Ujamaa (ethnic,B)",
+        "sex": "f",
+        "individual": 75.0,
+        "group_2": 17.0,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Any,Upper Row Self Op",
+        "res_name_raw": "UpRwSelfOp",
+        "sex": "f",
+        "individual": 1525.0,
+        "group_2": 1101.0,
+        "group_3": 1101.0,
+        "year": 2019,
+        "group_4": 1063.0
+    },
+    {
+        "res_name_edited": "Premier,Xanadu",
+        "res_name_raw": "XanaduPrm",
+        "sex": "f",
+        "individual": 36.0,
+        "group_2": 34.0,
+        "group_3": 34.0,
+        "year": 2019,
+        "group_4": 34.0
+    },
+    {
+        "res_name_edited": "Standard,Xanadu",
+        "res_name_raw": "XanaduStd",
+        "sex": "f",
+        "individual": 542.0,
+        "group_2": 542.0,
+        "group_3": 513.0,
+        "year": 2019,
+        "group_4": 513.0
+    },
+    {
+        "res_name_edited": "1 Room Double,Yost",
+        "res_name_raw": "Yost1rmDbl",
+        "sex": "f",
+        "individual": 1410.0,
+        "group_2": 1311.0,
+        "group_3": 1311.0,
+        "year": 2019,
+        "group_4": 1310.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Yost",
+        "res_name_raw": "Yost1rmSgl",
+        "sex": "f",
+        "individual": 789.0,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "2 Room Double,Yost",
+        "res_name_raw": "Yost2rmDbl",
+        "sex": "f",
+        "individual": 1173.0,
+        "group_2": 1024.0,
+        "group_3": 1024.0,
+        "year": 2019,
+        "group_4": 1024.0
+    },
+    {
+        "res_name_edited": "Any,ZAP",
+        "res_name_raw": "ZAP",
+        "sex": "f",
+        "individual": 1404.0,
+        "group_2": 1404.0,
+        "group_3": 1354.0,
+        "year": 2019,
+        "group_4": 1354.0
+    },
+    {
+        "res_name_edited": "Any,Zapata",
+        "res_name_raw": "Zapata",
+        "sex": "f",
+        "individual": 1993.0,
+        "group_2": 1926.0,
+        "group_3": 1926.0,
+        "year": 2019,
+        "group_4": 1917.0
+    },
+    {
+        "res_name_edited": "Any,Zapata",
+        "res_name_raw": "Zapata (ethnic,C)",
+        "sex": "f",
+        "individual": 1436.0,
+        "group_2": 1436.0,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Any,576 Alvarado",
+        "res_name_raw": "576Alvarado",
+        "sex": "m",
+        "individual": 327.0,
+        "group_2": 259.0,
+        "group_3": 259.0,
+        "year": 2019,
+        "group_4": 157.0
+    },
+    {
+        "res_name_edited": "Premier,680 Lomita",
+        "res_name_raw": "680LomPrm",
+        "sex": "m",
+        "individual": 514.0,
+        "group_2": 514.0,
+        "group_3": 419.0,
+        "year": 2019,
+        "group_4": 419.0
+    },
+    {
+        "res_name_edited": "Standard,680 Lomita",
+        "res_name_raw": "680LomStd",
+        "sex": "m",
+        "individual": 1068.0,
+        "group_2": 854.0,
+        "group_3": 659.0,
+        "year": 2019,
+        "group_4": 532.0
+    },
+    {
+        "res_name_edited": "1 Room Double,Adelfa",
+        "res_name_raw": "Adel1rmDbl",
+        "sex": "m",
+        "individual": 1932.0,
+        "group_2": 1932.0,
+        "group_3": 1865.0,
+        "year": 2019,
+        "group_4": 1865.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Adelfa",
+        "res_name_raw": "Adel1rmSgl",
+        "sex": "m",
+        "individual": 520.0,
+        "group_2": 510.0,
+        "group_3": 455.0,
+        "year": 2019,
+        "group_4": 430.0
+    },
+    {
+        "res_name_edited": "Any,Alondra",
+        "res_name_raw": "Alondra",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Any,680 Lomita",
+        "res_name_raw": "Any 680Lomita",
+        "sex": "m",
+        "individual": 1068.0,
+        "group_2": 854.0,
+        "group_3": 659.0,
+        "year": 2019,
+        "group_4": 532.0
+    },
+    {
+        "res_name_edited": "Any,Adelfa",
+        "res_name_raw": "Any Adelfa",
+        "sex": "m",
+        "individual": 1932.0,
+        "group_2": 1932.0,
+        "group_3": 1865.0,
+        "year": 2019,
+        "group_4": 1865.0
+    },
+    {
+        "res_name_edited": "Any,BOB",
+        "res_name_raw": "Any BOB",
+        "sex": "m",
+        "individual": 604.0,
+        "group_2": 386.0,
+        "group_3": 386.0,
+        "year": 2019,
+        "group_4": 386.0
+    },
+    {
+        "res_name_edited": "Any,Branner",
+        "res_name_raw": "Any Branner",
+        "sex": "m",
+        "individual": 1786.0,
+        "group_2": 1317.0,
+        "group_3": 1317.0,
+        "year": 2019,
+        "group_4": 1183.0
+    },
+    {
+        "res_name_edited": "Any,CCTH",
+        "res_name_raw": "Any CCTH",
+        "sex": "m",
+        "individual": 2953.0,
+        "group_2": 2953.0,
+        "group_3": 2950.0,
+        "year": 2019,
+        "group_4": 2939.0
+    },
+    {
+        "res_name_edited": "Any,Cardenal",
+        "res_name_raw": "Any Cardenal",
+        "sex": "m",
+        "individual": 2775.0,
+        "group_2": 2775.0,
+        "group_3": 2774.0,
+        "year": 2019,
+        "group_4": 2774.0
+    },
+    {
+        "res_name_edited": "Any,Castano",
+        "res_name_raw": "Any Castano",
+        "sex": "m",
+        "individual": 1829.0,
+        "group_2": 1798.0,
+        "group_3": 1798.0,
+        "year": 2019,
+        "group_4": 1798.0
+    },
+    {
+        "res_name_edited": "Any,Crothers",
+        "res_name_raw": "Any Cro",
+        "sex": "m",
+        "individual": 2767.0,
+        "group_2": 2767.0,
+        "group_3": 2751.0,
+        "year": 2019,
+        "group_4": 2751.0
+    },
+    {
+        "res_name_edited": "Any,Dorm",
+        "res_name_raw": "Any Dorm",
+        "sex": "m",
+        "individual": 2953.0,
+        "group_2": 2953.0,
+        "group_3": 2950.0,
+        "year": 2019,
+        "group_4": 2939.0
+    },
+    {
+        "res_name_edited": "Any,Durand",
+        "res_name_raw": "Any Durand",
+        "sex": "m",
+        "individual": 2012.0,
+        "group_2": 1890.0,
+        "group_3": 1890.0,
+        "year": 2019,
+        "group_4": 1847.0
+    },
+    {
+        "res_name_edited": "Any,EAST",
+        "res_name_raw": "Any EAST",
+        "sex": "m",
+        "individual": 2953.0,
+        "group_2": 2953.0,
+        "group_3": 2950.0,
+        "year": 2019,
+        "group_4": 2914.0
+    },
+    {
+        "res_name_edited": "Any,East Campus",
+        "res_name_raw": "Any East",
+        "sex": "m",
+        "individual": 2767.0,
+        "group_2": 2767.0,
+        "group_3": 2751.0,
+        "year": 2019,
+        "group_4": 2751.0
+    },
+    {
+        "res_name_edited": "Any,Eucalipto",
+        "res_name_raw": "Any Eucalipto",
+        "sex": "m",
+        "individual": 2147.0,
+        "group_2": 1697.0,
+        "group_3": 1697.0,
+        "year": 2019,
+        "group_4": 1697.0
+    },
+    {
+        "res_name_edited": "Any,East FloMo",
+        "res_name_raw": "Any E FloMo",
+        "sex": "m",
+        "individual": 2780.0,
+        "group_2": 2775.0,
+        "group_3": 2775.0,
+        "year": 2019,
+        "group_4": 2774.0
+    },
+    {
+        "res_name_edited": "Any,Faisan",
+        "res_name_raw": "Any Faisan",
+        "sex": "m",
+        "individual": 2780.0,
+        "group_2": 2754.0,
+        "group_3": 2754.0,
+        "year": 2019,
+        "group_4": 2735.0
+    },
+    {
+        "res_name_edited": "Any,FloMo",
+        "res_name_raw": "Any FloMo",
+        "sex": "m",
+        "individual": 2780.0,
+        "group_2": 2775.0,
+        "group_3": 2775.0,
+        "year": 2019,
+        "group_4": 2774.0
+    },
+    {
+        "res_name_edited": "Any,French House",
+        "res_name_raw": "Any French",
+        "sex": "m",
+        "individual": 541.0,
+        "group_2": 541.0,
+        "group_3": 468.0,
+        "year": 2019,
+        "group_4": 468.0
+    },
+    {
+        "res_name_edited": "Any,Gavilan",
+        "res_name_raw": "Any Gavilan",
+        "sex": "m",
+        "individual": 2667.0,
+        "group_2": 2640.0,
+        "group_3": 2521.0,
+        "year": 2019,
+        "group_4": 2521.0
+    },
+    {
+        "res_name_edited": "Any,Gerhard Casper Quad",
+        "res_name_raw": "Any Gerhard",
+        "sex": "m",
+        "individual": 1829.0,
+        "group_2": 1816.0,
+        "group_3": 1814.0,
+        "year": 2019,
+        "group_4": 1798.0
+    },
+    {
+        "res_name_edited": "Any,Gov Co",
+        "res_name_raw": "Any GovCo",
+        "sex": "m",
+        "individual": 2953.0,
+        "group_2": 2953.0,
+        "group_3": 2950.0,
+        "year": 2019,
+        "group_4": 2939.0
+    },
+    {
+        "res_name_edited": "Any,Granada",
+        "res_name_raw": "Any Granada",
+        "sex": "m",
+        "individual": 2147.0,
+        "group_2": 1971.0,
+        "group_3": 1971.0,
+        "year": 2019,
+        "group_4": 694.0
+    },
+    {
+        "res_name_edited": "Any,Grove",
+        "res_name_raw": "Any Grove",
+        "sex": "m",
+        "individual": 1511.0,
+        "group_2": 972.0,
+        "group_3": 970.0,
+        "year": 2019,
+        "group_4": 970.0
+    },
+    {
+        "res_name_edited": "Any,Haus Mitteleuropa",
+        "res_name_raw": "Any HausMit",
+        "sex": "m",
+        "individual": 545.0,
+        "group_2": 545.0,
+        "group_3": 464.0,
+        "year": 2019,
+        "group_4": 410.0
+    },
+    {
+        "res_name_edited": "Any,La Casa Italiana",
+        "res_name_raw": "Any Italian",
+        "sex": "m",
+        "individual": 662.0,
+        "group_2": 356.0,
+        "group_3": 356.0,
+        "year": 2019,
+        "group_4": 248.0
+    },
+    {
+        "res_name_edited": "Any,Kimball",
+        "res_name_raw": "Any Kimball",
+        "sex": "m",
+        "individual": 1829.0,
+        "group_2": 1816.0,
+        "group_3": 1697.0,
+        "year": 2019,
+        "group_4": 1677.0
+    },
+    {
+        "res_name_edited": "Any,Lagunita",
+        "res_name_raw": "Any Lag",
+        "sex": "m",
+        "individual": 2147.0,
+        "group_2": 1971.0,
+        "group_3": 1971.0,
+        "year": 2019,
+        "group_4": 1971.0
+    },
+    {
+        "res_name_edited": "Any,Lantana",
+        "res_name_raw": "Any Lantana",
+        "sex": "m",
+        "individual": 1702.0,
+        "group_2": 1639.0,
+        "group_3": 1639.0,
+        "year": 2019,
+        "group_4": 1639.0
+    },
+    {
+        "res_name_edited": "Any,Loro",
+        "res_name_raw": "Any Loro",
+        "sex": "m",
+        "individual": 2661.0,
+        "group_2": 2661.0,
+        "group_3": 2661.0,
+        "year": 2019,
+        "group_4": 2661.0
+    },
+    {
+        "res_name_edited": "Any,Mars",
+        "res_name_raw": "Any Mars",
+        "sex": "m",
+        "individual": 770.0,
+        "group_2": 745.0,
+        "group_3": 733.0,
+        "year": 2019,
+        "group_4": 718.0
+    },
+    {
+        "res_name_edited": "Any,Meier",
+        "res_name_raw": "Any Meier",
+        "sex": "m",
+        "individual": 779.0,
+        "group_2": 680.0,
+        "group_3": 680.0,
+        "year": 2019,
+        "group_4": 583.0
+    },
+    {
+        "res_name_edited": "Any,Mirlo",
+        "res_name_raw": "Any Mirlo",
+        "sex": "m",
+        "individual": 2562.0,
+        "group_2": 2562.0,
+        "group_3": 2562.0,
+        "year": 2019,
+        "group_4": 2502.0
+    },
+    {
+        "res_name_edited": "Any,Mirrielees",
+        "res_name_raw": "Any Mirr",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Any,Murray",
+        "res_name_raw": "Any Murray",
+        "sex": "m",
+        "individual": 2953.0,
+        "group_2": 2953.0,
+        "group_3": 2950.0,
+        "year": 2019,
+        "group_4": 2896.0
+    },
+    {
+        "res_name_edited": "Any,Naranja",
+        "res_name_raw": "Any Naranja",
+        "sex": "m",
+        "individual": 1880.0,
+        "group_2": 1579.0,
+        "group_3": 1579.0,
+        "year": 2019,
+        "group_4": 1256.0
+    },
+    {
+        "res_name_edited": "Any,Narnia",
+        "res_name_raw": "Any Narnia",
+        "sex": "m",
+        "individual": 999.0,
+        "group_2": 953.0,
+        "group_3": 953.0,
+        "year": 2019,
+        "group_4": 826.0
+    },
+    {
+        "res_name_edited": "Any,Norcliffe",
+        "res_name_raw": "Any Norcliffe",
+        "sex": "m",
+        "individual": 217.0,
+        "group_2": 217.0,
+        "group_3": 210.0,
+        "year": 2019,
+        "group_4": 210.0
+    },
+    {
+        "res_name_edited": "Any,Paloma",
+        "res_name_raw": "Any Paloma",
+        "sex": "m",
+        "individual": 2661.0,
+        "group_2": 2563.0,
+        "group_3": 2563.0,
+        "year": 2019,
+        "group_4": 2514.0
+    },
+    {
+        "res_name_edited": "Any,Phi Sigma",
+        "res_name_raw": "Any PhiSig",
+        "sex": "m",
+        "individual": 2012.0,
+        "group_2": 954.0,
+        "group_3": 954.0,
+        "year": 2019,
+        "group_4": 862.0
+    },
+    {
+        "res_name_edited": "Any,Pluto",
+        "res_name_raw": "Any Pluto",
+        "sex": "m",
+        "individual": 1739.0,
+        "group_2": 1739.0,
+        "group_3": 1739.0,
+        "year": 2019,
+        "group_4": 1739.0
+    },
+    {
+        "res_name_edited": "Any,Potter",
+        "res_name_raw": "Any Potter",
+        "sex": "m",
+        "individual": 2906.0,
+        "group_2": 2906.0,
+        "group_3": 2852.0,
+        "year": 2019,
+        "group_4": 2852.0
+    },
+    {
+        "res_name_edited": "Any,Residence",
+        "res_name_raw": "Any Res",
+        "sex": "m",
+        "individual": 2953.0,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Any,Robinson",
+        "res_name_raw": "Any Robinson",
+        "sex": "m",
+        "individual": 2953.0,
+        "group_2": 2953.0,
+        "group_3": 2950.0,
+        "year": 2019,
+        "group_4": 2837.0
+    },
+    {
+        "res_name_edited": "Any,Roble",
+        "res_name_raw": "Any Roble",
+        "sex": "m",
+        "individual": 2140.0,
+        "group_2": 2140.0,
+        "group_3": 1914.0,
+        "year": 2019,
+        "group_4": 1884.0
+    },
+    {
+        "res_name_edited": "Any,Roth",
+        "res_name_raw": "Any Roth",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Any,Self Op",
+        "res_name_raw": "Any SelfOp",
+        "sex": "m",
+        "individual": 2012.0,
+        "group_2": 1890.0,
+        "group_3": 1890.0,
+        "year": 2019,
+        "group_4": 1847.0
+    },
+    {
+        "res_name_edited": "Any,Self Op Lake",
+        "res_name_raw": "Any SelfOpLake",
+        "sex": "m",
+        "individual": 999.0,
+        "group_2": 953.0,
+        "group_3": 953.0,
+        "year": 2019,
+        "group_4": 826.0
+    },
+    {
+        "res_name_edited": "Any,Slavianskii Dom",
+        "res_name_raw": "Any SlavDom",
+        "sex": "m",
+        "individual": 681.0,
+        "group_2": 433.0,
+        "group_3": 433.0,
+        "year": 2019,
+        "group_4": 433.0
+    },
+    {
+        "res_name_edited": "Any,SterQuad",
+        "res_name_raw": "Any SterQuad",
+        "sex": "m",
+        "individual": 2953.0,
+        "group_2": 2953.0,
+        "group_3": 2950.0,
+        "year": 2019,
+        "group_4": 2906.0
+    },
+    {
+        "res_name_edited": "Any,Suites",
+        "res_name_raw": "Any Suites",
+        "sex": "m",
+        "individual": 357.0,
+        "group_2": 65.0,
+        "group_3": 2372.0,
+        "year": 2019,
+        "group_4": 2372.0
+    },
+    {
+        "res_name_edited": "Any,Toyon",
+        "res_name_raw": "Any Toyon",
+        "sex": "m",
+        "individual": 1541.0,
+        "group_2": 1430.0,
+        "group_3": 1430.0,
+        "year": 2019,
+        "group_4": 1430.0
+    },
+    {
+        "res_name_edited": "Any,Trancos",
+        "res_name_raw": "Any Trancos",
+        "sex": "m",
+        "individual": 2953.0,
+        "group_2": 2953.0,
+        "group_3": 2950.0,
+        "year": 2019,
+        "group_4": 2939.0
+    },
+    {
+        "res_name_edited": "Any,West Campus",
+        "res_name_raw": "Any W FloMo",
+        "sex": "m",
+        "individual": 2661.0,
+        "group_2": 2661.0,
+        "group_3": 2661.0,
+        "year": 2019,
+        "group_4": 2661.0
+    },
+    {
+        "res_name_edited": "Any,West FloMo",
+        "res_name_raw": "Any West",
+        "sex": "m",
+        "individual": 2953.0,
+        "group_2": 2953.0,
+        "group_3": 2950.0,
+        "year": 2019,
+        "group_4": 2939.0
+    },
+    {
+        "res_name_edited": "Any,Xanadu",
+        "res_name_raw": "Any Xanadu",
+        "sex": "m",
+        "individual": 958.0,
+        "group_2": 925.0,
+        "group_3": 822.0,
+        "year": 2019,
+        "group_4": 793.0
+    },
+    {
+        "res_name_edited": "Any,Yost",
+        "res_name_raw": "Any Yost",
+        "sex": "m",
+        "individual": 2953.0,
+        "group_2": 2953.0,
+        "group_3": 2950.0,
+        "year": 2019,
+        "group_4": 2939.0
+    },
+    {
+        "res_name_edited": "Premier,BOB",
+        "res_name_raw": "BOBPrm",
+        "sex": "m",
+        "individual": 184.0,
+        "group_2": 145.0,
+        "group_3": 120.0,
+        "year": 2019,
+        "group_4": 120.0
+    },
+    {
+        "res_name_edited": "Standard,BOB",
+        "res_name_raw": "BOBStd",
+        "sex": "m",
+        "individual": 604.0,
+        "group_2": 386.0,
+        "group_3": 386.0,
+        "year": 2019,
+        "group_4": 386.0
+    },
+    {
+        "res_name_edited": "1 Room Double,Branner",
+        "res_name_raw": "Bran1rmDbl",
+        "sex": "m",
+        "individual": 1183.0,
+        "group_2": 1183.0,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Single,Branner",
+        "res_name_raw": "Bran1rmSgl",
+        "sex": "m",
+        "individual": 241.0,
+        "group_2": 152.0,
+        "group_3": 125.0,
+        "year": 2019,
+        "group_4": 57.0
+    },
+    {
+        "res_name_edited": "2 Room Double,Branner",
+        "res_name_raw": "Bran2rmDbl",
+        "sex": "m",
+        "individual": 1057.0,
+        "group_2": 922.0,
+        "group_3": 922.0,
+        "year": 2019,
+        "group_4": 878.0
+    },
+    {
+        "res_name_edited": "Triple,Branner",
+        "res_name_raw": "BrannerTrp",
+        "sex": "m",
+        "individual": 1786.0,
+        "group_2": 1317.0,
+        "group_3": 1317.0,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Double,Cardenal",
+        "res_name_raw": "Card1rmDbl",
+        "sex": "m",
+        "individual": 2775.0,
+        "group_2": 2775.0,
+        "group_3": 2774.0,
+        "year": 2019,
+        "group_4": 2774.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Cardenal",
+        "res_name_raw": "Card1rmSgl",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Double,Castano",
+        "res_name_raw": "Cast1rmDbl",
+        "sex": "m",
+        "individual": 1798.0,
+        "group_2": 1798.0,
+        "group_3": 1798.0,
+        "year": 2019,
+        "group_4": 1786.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Castano",
+        "res_name_raw": "Cast1rmSgl",
+        "sex": "m",
+        "individual": 1333.0,
+        "group_2": 994.0,
+        "group_3": 919.0,
+        "year": 2019,
+        "group_4": 916.0
+    },
+    {
+        "res_name_edited": "2 Room Double,Castano",
+        "res_name_raw": "Cast2rmDbl",
+        "sex": "m",
+        "individual": 1478.0,
+        "group_2": 1478.0,
+        "group_3": 1477.0,
+        "year": 2019,
+        "group_4": 1477.0
+    },
+    {
+        "res_name_edited": "Triple,Castano",
+        "res_name_raw": "CastanoTrp",
+        "sex": "m",
+        "individual": 1829.0,
+        "group_2": 1765.0,
+        "group_3": 1765.0,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Any,Columbae",
+        "res_name_raw": "Columbae",
+        "sex": "m",
+        "individual": 2818.0,
+        "group_2": 2818.0,
+        "group_3": 2752.0,
+        "year": 2019,
+        "group_4": 2673.0
+    },
+    {
+        "res_name_edited": "1 Room Double,Crothers",
+        "res_name_raw": "Cro1rmDbl",
+        "sex": "m",
+        "individual": 2767.0,
+        "group_2": 2767.0,
+        "group_3": 2751.0,
+        "year": 2019,
+        "group_4": 2751.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Crothers",
+        "res_name_raw": "Cro1rmSgl",
+        "sex": "m",
+        "individual": 1373.0,
+        "group_2": 1316.0,
+        "group_3": 1286.0,
+        "year": 2019,
+        "group_4": 1154.0
+    },
+    {
+        "res_name_edited": "Premier,Durand",
+        "res_name_raw": "DurandPrm",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Standard,Durand",
+        "res_name_raw": "DurandStd",
+        "sex": "m",
+        "individual": 2012.0,
+        "group_2": 1890.0,
+        "group_3": 1890.0,
+        "year": 2019,
+        "group_4": 1847.0
+    },
+    {
+        "res_name_edited": "1 Room Double,EAST",
+        "res_name_raw": "EAST1rmDbl",
+        "sex": "m",
+        "individual": 2953.0,
+        "group_2": 2953.0,
+        "group_3": 2950.0,
+        "year": 2019,
+        "group_4": 2914.0
+    },
+    {
+        "res_name_edited": "1 Room Single,EAST",
+        "res_name_raw": "EAST1rmSgl",
+        "sex": "m",
+        "individual": 656.0,
+        "group_2": 579.0,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "2 Room Double,EAST",
+        "res_name_raw": "EAST2rmDbl",
+        "sex": "m",
+        "individual": 1669.0,
+        "group_2": 1638.0,
+        "group_3": 1638.0,
+        "year": 2019,
+        "group_4": 1598.0
+    },
+    {
+        "res_name_edited": "Triple,EAST",
+        "res_name_raw": "EASTTrp",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Any,EBF",
+        "res_name_raw": "EBF",
+        "sex": "m",
+        "individual": 1524.0,
+        "group_2": 1504.0,
+        "group_3": 1458.0,
+        "year": 2019,
+        "group_4": 1292.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Eucalipto",
+        "res_name_raw": "Euc1rmDbl",
+        "sex": "m",
+        "individual": 2147.0,
+        "group_2": 1374.0,
+        "group_3": 1374.0,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Double,Eucalipto",
+        "res_name_raw": "Euc1rmSgl",
+        "sex": "m",
+        "individual": 554.0,
+        "group_2": 554.0,
+        "group_3": 434.0,
+        "year": 2019,
+        "group_4": 244.0
+    },
+    {
+        "res_name_edited": "Triple,Eucalipto",
+        "res_name_raw": "EucTrpl",
+        "sex": "m",
+        "individual": 2147.0,
+        "group_2": 1697.0,
+        "group_3": 1697.0,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Double,Faisan",
+        "res_name_raw": "Fais1rmDbl",
+        "sex": "m",
+        "individual": 2780.0,
+        "group_2": 2754.0,
+        "group_3": 2754.0,
+        "year": 2019,
+        "group_4": 2735.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Faisan",
+        "res_name_raw": "Fais1rmSgl",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Premier,French House",
+        "res_name_raw": "FrenchPrm",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Standard,French House",
+        "res_name_raw": "FrenchStd",
+        "sex": "m",
+        "individual": 541.0,
+        "group_2": 541.0,
+        "group_3": 468.0,
+        "year": 2019,
+        "group_4": 468.0
+    },
+    {
+        "res_name_edited": "Any,FroSoCo",
+        "res_name_raw": "FroSoCo",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Double,Gavilan",
+        "res_name_raw": "Gav1rmDbl",
+        "sex": "m",
+        "individual": 2667.0,
+        "group_2": 2640.0,
+        "group_3": 2521.0,
+        "year": 2019,
+        "group_4": 2521.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Gavilan",
+        "res_name_raw": "Gav1rmSgl",
+        "sex": "m",
+        "individual": 232.0,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Double,Granada",
+        "res_name_raw": "Gran1rmDbl",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Single,Granada",
+        "res_name_raw": "Gran1rmSgl",
+        "sex": "m",
+        "individual": 694.0,
+        "group_2": 655.0,
+        "group_3": 645.0,
+        "year": 2019,
+        "group_4": 623.0
+    },
+    {
+        "res_name_edited": "Triple,Granada",
+        "res_name_raw": "GranTrpl",
+        "sex": "m",
+        "individual": 2147.0,
+        "group_2": 1971.0,
+        "group_3": 1971.0,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Premier,Grove",
+        "res_name_raw": "GrovPrm",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Standard,Grove",
+        "res_name_raw": "GrovStd",
+        "sex": "m",
+        "individual": 1511.0,
+        "group_2": 972.0,
+        "group_3": 970.0,
+        "year": 2019,
+        "group_4": 970.0
+    },
+    {
+        "res_name_edited": "Any,Hammarskjold",
+        "res_name_raw": "Hammarsk",
+        "sex": "m",
+        "individual": 2354.0,
+        "group_2": 2133.0,
+        "group_3": 1908.0,
+        "year": 2019,
+        "group_4": 1851.0
+    },
+    {
+        "res_name_edited": "Any,Hammarskjold",
+        "res_name_raw": "Hammarsk (ethnic,I)",
+        "sex": "m",
+        "individual": 2346.0,
+        "group_2": 2179.0,
+        "group_3": 2123.0,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Premier,Haus Mitteleuropa",
+        "res_name_raw": "HausMitPrm",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Standard,Haus Mitteleuropa",
+        "res_name_raw": "HausMitStd",
+        "sex": "m",
+        "individual": 545.0,
+        "group_2": 545.0,
+        "group_3": 464.0,
+        "year": 2019,
+        "group_4": 410.0
+    },
+    {
+        "res_name_edited": "Any,Humanities House",
+        "res_name_raw": "Humanities",
+        "sex": "m",
+        "individual": 1339.0,
+        "group_2": 1339.0,
+        "group_3": 1339.0,
+        "year": 2019,
+        "group_4": 1339.0
+    },
+    {
+        "res_name_edited": "Premier,La Casa Italiana",
+        "res_name_raw": "ItalianPrm",
+        "sex": "m",
+        "individual": 97.0,
+        "group_2": 63.0,
+        "group_3": 58.0,
+        "year": 2019,
+        "group_4": 58.0
+    },
+    {
+        "res_name_edited": "Standard,La Casa Italiana",
+        "res_name_raw": "ItalianStd",
+        "sex": "m",
+        "individual": 662.0,
+        "group_2": 356.0,
+        "group_3": 356.0,
+        "year": 2019,
+        "group_4": 248.0
+    },
+    {
+        "res_name_edited": "Premier,Jerry",
+        "res_name_raw": "JerryPrm",
+        "sex": "m",
+        "individual": 544.0,
+        "group_2": 544.0,
+        "group_3": 527.0,
+        "year": 2019,
+        "group_4": 518.0
+    },
+    {
+        "res_name_edited": "Any,Kairos",
+        "res_name_raw": "Kairos",
+        "sex": "m",
+        "individual": 2211.0,
+        "group_2": 2106.0,
+        "group_3": 1963.0,
+        "year": 2019,
+        "group_4": 1961.0
+    },
+    {
+        "res_name_edited": "1 Room Double,Kimball",
+        "res_name_raw": "Kim1rmDbl",
+        "sex": "m",
+        "individual": 1632.0,
+        "group_2": 1632.0,
+        "group_3": 1627.0,
+        "year": 2019,
+        "group_4": 1627.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Kimball",
+        "res_name_raw": "Kim1rmSgl",
+        "sex": "m",
+        "individual": 1091.0,
+        "group_2": 1084.0,
+        "group_3": 1075.0,
+        "year": 2019,
+        "group_4": 1032.0
+    },
+    {
+        "res_name_edited": "2 Room Double,Kimball",
+        "res_name_raw": "Kim2rmDbl",
+        "sex": "m",
+        "individual": 1420.0,
+        "group_2": 1403.0,
+        "group_3": 1403.0,
+        "year": 2019,
+        "group_4": 1403.0
+    },
+    {
+        "res_name_edited": "Quad,Kimball",
+        "res_name_raw": "KimQuad",
+        "sex": "m",
+        "individual": 1829.0,
+        "group_2": 1816.0,
+        "group_3": 1697.0,
+        "year": 2019,
+        "group_4": 1677.0
+    },
+    {
+        "res_name_edited": "Triple,Kimball",
+        "res_name_raw": "KimballTrp",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Double,Lantana",
+        "res_name_raw": "Lant1rmDbl",
+        "sex": "m",
+        "individual": 1702.0,
+        "group_2": 1639.0,
+        "group_3": 1639.0,
+        "year": 2019,
+        "group_4": 1639.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Lantana",
+        "res_name_raw": "Lant1rmSgl",
+        "sex": "m",
+        "individual": 477.0,
+        "group_2": 397.0,
+        "group_3": 321.0,
+        "year": 2019,
+        "group_4": 306.0
+    },
+    {
+        "res_name_edited": "2 Room Double,Lantana",
+        "res_name_raw": "Lant2rmDbl",
+        "sex": "m",
+        "individual": 1480.0,
+        "group_2": 1480.0,
+        "group_3": 1479.0,
+        "year": 2019,
+        "group_4": 1446.0
+    },
+    {
+        "res_name_edited": "Triple,LantanaTrpana",
+        "res_name_raw": "LantanaTrp",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Double,Loro",
+        "res_name_raw": "Loro1rmDbl",
+        "sex": "m",
+        "individual": 2661.0,
+        "group_2": 2661.0,
+        "group_3": 2661.0,
+        "year": 2019,
+        "group_4": 2661.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Loro",
+        "res_name_raw": "Loro1rmSgl",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Any,Lower Row Self Op",
+        "res_name_raw": "LwRwSelfOp",
+        "sex": "m",
+        "individual": 1068.0,
+        "group_2": 958.0,
+        "group_3": 925.0,
+        "year": 2019,
+        "group_4": 854.0
+    },
+    {
+        "res_name_edited": "Premier,Mars",
+        "res_name_raw": "MarsPrm",
+        "sex": "m",
+        "individual": 193.0,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Standard,Mars",
+        "res_name_raw": "MarsStd",
+        "sex": "m",
+        "individual": 770.0,
+        "group_2": 745.0,
+        "group_3": 733.0,
+        "year": 2019,
+        "group_4": 718.0
+    },
+    {
+        "res_name_edited": "1 Room Double,Meier",
+        "res_name_raw": "Meier1rmDbl",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Double,Meier",
+        "res_name_raw": "Meier1rmDbl (focus)",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Single,Meier",
+        "res_name_raw": "Meier1rmSgl",
+        "sex": "m",
+        "individual": 240.0,
+        "group_2": 103.0,
+        "group_3": 103.0,
+        "year": 2019,
+        "group_4": 103.0
+    },
+    {
+        "res_name_edited": "2 Room Double,Meier",
+        "res_name_raw": "Meier2rmDbl",
+        "sex": "m",
+        "individual": 779.0,
+        "group_2": 680.0,
+        "group_3": 680.0,
+        "year": 2019,
+        "group_4": 583.0
+    },
+    {
+        "res_name_edited": "2 Room Double,Meier",
+        "res_name_raw": "Meier2rmDbl (focus)",
+        "sex": "m",
+        "individual": 1041.0,
+        "group_2": 1041.0,
+        "group_3": 1041.0,
+        "year": 2019,
+        "group_4": 1041.0
+    },
+    {
+        "res_name_edited": "Substance Free Housing,Mirrielees",
+        "res_name_raw": "MirSubFree",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Double,Mirrielees",
+        "res_name_raw": "Mirr2brDbl",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Triple,Mirrielees",
+        "res_name_raw": "Mirr3brTrp",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Double,Mirlo",
+        "res_name_raw": "Mrlo1rmDbl",
+        "sex": "m",
+        "individual": 2562.0,
+        "group_2": 2562.0,
+        "group_3": 2562.0,
+        "year": 2019,
+        "group_4": 2502.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Mirlo",
+        "res_name_raw": "Mrlo1rmSgl",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Double,Murray",
+        "res_name_raw": "Murr1rmDbl",
+        "sex": "m",
+        "individual": 2953.0,
+        "group_2": 2953.0,
+        "group_3": 2950.0,
+        "year": 2019,
+        "group_4": 2896.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Murray",
+        "res_name_raw": "Murr1rmSgl",
+        "sex": "m",
+        "individual": 880.0,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "2 Room Double,Murray",
+        "res_name_raw": "Murr2rmDbl",
+        "sex": "m",
+        "individual": 1565.0,
+        "group_2": 1557.0,
+        "group_3": 1557.0,
+        "year": 2019,
+        "group_4": 1557.0
+    },
+    {
+        "res_name_edited": "Any,Muwekma",
+        "res_name_raw": "Muwekma",
+        "sex": "m",
+        "individual": 2376.0,
+        "group_2": 2217.0,
+        "group_3": 1823.0,
+        "year": 2019,
+        "group_4": 1497.0
+    },
+    {
+        "res_name_edited": "Any,Muwekma",
+        "res_name_raw": "Muwekma (ethnic,N)",
+        "sex": "m",
+        "individual": 3000.0,
+        "group_2": 3000.0,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Premier,Narnia",
+        "res_name_raw": "NarniaPrm",
+        "sex": "m",
+        "individual": 826.0,
+        "group_2": 782.0,
+        "group_3": 782.0,
+        "year": 2019,
+        "group_4": 776.0
+    },
+    {
+        "res_name_edited": "Standard,Narnia",
+        "res_name_raw": "NarniaStd",
+        "sex": "m",
+        "individual": 999.0,
+        "group_2": 953.0,
+        "group_3": 953.0,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Single,Norcliffe",
+        "res_name_raw": "Norcliffe1rmSgl",
+        "sex": "m",
+        "individual": 210.0,
+        "group_2": 210.0,
+        "group_3": 207.0,
+        "year": 2019,
+        "group_4": 186.0
+    },
+    {
+        "res_name_edited": "2 Room Double,Norcliffe",
+        "res_name_raw": "Norcliffe2rmDbl",
+        "sex": "m",
+        "individual": 217.0,
+        "group_2": 217.0,
+        "group_3": 32.0,
+        "year": 2019,
+        "group_4": 32.0
+    },
+    {
+        "res_name_edited": "2 Room Double,Norcliffe",
+        "res_name_raw": "Norcliffe2rmDbl (focus)",
+        "sex": "m",
+        "individual": 1105.0,
+        "group_2": 1105.0,
+        "group_3": 1074.0,
+        "year": 2019,
+        "group_4": 1074.0
+    },
+    {
+        "res_name_edited": "1 Room Double,Naranja",
+        "res_name_raw": "Nrja1rmDbl",
+        "sex": "m",
+        "individual": 1880.0,
+        "group_2": 1579.0,
+        "group_3": 1579.0,
+        "year": 2019,
+        "group_4": 1256.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Naranja",
+        "res_name_raw": "Nrja1rmSgl",
+        "sex": "m",
+        "individual": 738.0,
+        "group_2": 692.0,
+        "group_3": 690.0,
+        "year": 2019,
+        "group_4": 555.0
+    },
+    {
+        "res_name_edited": "Any,Okada",
+        "res_name_raw": "Okada",
+        "sex": "m",
+        "individual": 2953.0,
+        "group_2": 2953.0,
+        "group_3": 2950.0,
+        "year": 2019,
+        "group_4": 2939.0
+    },
+    {
+        "res_name_edited": "Any,Okada",
+        "res_name_raw": "Okada (ethnic,A)",
+        "sex": "m",
+        "individual": 3000.0,
+        "group_2": 3000.0,
+        "group_3": 3000.0,
+        "year": 2019,
+        "group_4": 3000.0
+    },
+    {
+        "res_name_edited": ",Outdoor House",
+        "res_name_raw": "Outdoor",
+        "sex": "m",
+        "individual": 442.0,
+        "group_2": 291.0,
+        "group_3": 291.0,
+        "year": 2019,
+        "group_4": 275.0
+    },
+    {
+        "res_name_edited": "1 Room Double,Paloma",
+        "res_name_raw": "Palo1rmDbl",
+        "sex": "m",
+        "individual": 2661.0,
+        "group_2": 2563.0,
+        "group_3": 2563.0,
+        "year": 2019,
+        "group_4": 2514.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Paloma",
+        "res_name_raw": "Palo1rmSgl",
+        "sex": "m",
+        "individual": 402.0,
+        "group_2": 396.0,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Premier,Phi Sigma",
+        "res_name_raw": "PhiSgPrm",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Standard,Phi Sigma",
+        "res_name_raw": "PhiSgStd",
+        "sex": "m",
+        "individual": 2012.0,
+        "group_2": 954.0,
+        "group_3": 954.0,
+        "year": 2019,
+        "group_4": 862.0
+    },
+    {
+        "res_name_edited": "Premier,Pluto",
+        "res_name_raw": "PlutoPrm",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Standard,Pluto",
+        "res_name_raw": "PlutoStd",
+        "sex": "m",
+        "individual": 1739.0,
+        "group_2": 1739.0,
+        "group_3": 1739.0,
+        "year": 2019,
+        "group_4": 1739.0
+    },
+    {
+        "res_name_edited": "1 Room Double,Potter",
+        "res_name_raw": "Pott1rmDbl",
+        "sex": "m",
+        "individual": 2906.0,
+        "group_2": 2906.0,
+        "group_3": 2852.0,
+        "year": 2019,
+        "group_4": 2852.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Potter",
+        "res_name_raw": "Pott1rmSgl",
+        "sex": "m",
+        "individual": 887.0,
+        "group_2": 339.0,
+        "group_3": 9.0,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "2 Room Double,Potter",
+        "res_name_raw": "Pott2rmDbl",
+        "sex": "m",
+        "individual": 1972.0,
+        "group_2": 1972.0,
+        "group_3": 1971.0,
+        "year": 2019,
+        "group_4": 1946.0
+    },
+    {
+        "res_name_edited": "Triple,Potter",
+        "res_name_raw": "PotterTrp",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "1 Room Double,Roble",
+        "res_name_raw": "Robl1rmDbl",
+        "sex": "m",
+        "individual": 1914.0,
+        "group_2": 1884.0,
+        "group_3": 1883.0,
+        "year": 2019,
+        "group_4": 1883.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Roble",
+        "res_name_raw": "Robl1rmSgl",
+        "sex": "m",
+        "individual": 1518.0,
+        "group_2": 1485.0,
+        "group_3": 1484.0,
+        "year": 2019,
+        "group_4": 1454.0
+    },
+    {
+        "res_name_edited": "2 Room Double,Roble",
+        "res_name_raw": "Robl2rmDbl",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Triple,Roble",
+        "res_name_raw": "RobleTrp",
+        "sex": "m",
+        "individual": 2140.0,
+        "group_2": 2140.0,
+        "group_3": 1587.0,
+        "year": 2019,
+        "group_4": 1587.0
+    },
+    {
+        "res_name_edited": "1 Room Double,Robinson",
+        "res_name_raw": "Robn1rmDbl",
+        "sex": "m",
+        "individual": 2953.0,
+        "group_2": 2953.0,
+        "group_3": 2950.0,
+        "year": 2019,
+        "group_4": 2837.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Robinson",
+        "res_name_raw": "Robn1rmSgl",
+        "sex": "m",
+        "individual": 974.0,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "2 Room Double,Robinson",
+        "res_name_raw": "Robn2rmDbl",
+        "sex": "m",
+        "individual": 1987.0,
+        "group_2": 1987.0,
+        "group_3": 1975.0,
+        "year": 2019,
+        "group_4": 1975.0
+    },
+    {
+        "res_name_edited": "Premier,Roth",
+        "res_name_raw": "RothPrm",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Standard,Roth",
+        "res_name_raw": "RothStd",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Premier,Slavianskii Dom",
+        "res_name_raw": "SlavDomPrm",
+        "sex": "m",
+        "individual": 167.0,
+        "group_2": 35.0,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Standard,Slavianskii Dom",
+        "res_name_raw": "SlavDomStd",
+        "sex": "m",
+        "individual": 681.0,
+        "group_2": 433.0,
+        "group_3": 433.0,
+        "year": 2019,
+        "group_4": 433.0
+    },
+    {
+        "res_name_edited": "Any,Storey",
+        "res_name_raw": "Storey",
+        "sex": "m",
+        "individual": 811.0,
+        "group_2": 811.0,
+        "group_3": 757.0,
+        "year": 2019,
+        "group_4": 757.0
+    },
+    {
+        "res_name_edited": "4-room,Suites",
+        "res_name_raw": "Suites4",
+        "sex": "m",
+        "individual": 1583.0,
+        "group_2": 1583.0,
+        "group_3": 1583.0,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "6-room,Suites 6",
+        "res_name_raw": "Suites6",
+        "sex": "m",
+        "individual": 357.0,
+        "group_2": 65.0,
+        "group_3": 2372.0,
+        "year": 2019,
+        "group_4": 2372.0
+    },
+    {
+        "res_name_edited": "Any,Synergy",
+        "res_name_raw": "Synergy",
+        "sex": "m",
+        "individual": 2996.0,
+        "group_2": 2889.0,
+        "group_3": 2802.0,
+        "year": 2019,
+        "group_4": 2622.0
+    },
+    {
+        "res_name_edited": "Any,Terra",
+        "res_name_raw": "Terra",
+        "sex": "m",
+        "individual": 2965.0,
+        "group_2": 2965.0,
+        "group_3": 2517.0,
+        "year": 2019,
+        "group_4": 622.0
+    },
+    {
+        "res_name_edited": "1 Room Double,Toyon",
+        "res_name_raw": "Toy1rmDbl",
+        "sex": "m",
+        "individual": 1364.0,
+        "group_2": 1279.0,
+        "group_3": 1279.0,
+        "year": 2019,
+        "group_4": 1244.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Toyon",
+        "res_name_raw": "Toy1rmSgl",
+        "sex": "m",
+        "individual": 1030.0,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "2 Room Double,Toyon",
+        "res_name_raw": "Toy2rmDbl",
+        "sex": "m",
+        "individual": 1230.0,
+        "group_2": 1230.0,
+        "group_3": 1204.0,
+        "year": 2019,
+        "group_4": 1204.0
+    },
+    {
+        "res_name_edited": "Quad,Toyon",
+        "res_name_raw": "ToyonQuad",
+        "sex": "m",
+        "individual": 1430.0,
+        "group_2": 1430.0,
+        "group_3": 1430.0,
+        "year": 2019,
+        "group_4": 1430.0
+    },
+    {
+        "res_name_edited": "Triple,Toyon",
+        "res_name_raw": "ToyonTrp",
+        "sex": "m",
+        "individual": 1541.0,
+        "group_2": 1348.0,
+        "group_3": 1348.0,
+        "year": 2019,
+        "group_4": 1348.0
+    },
+    {
+        "res_name_edited": "1 Room Double,Trancos",
+        "res_name_raw": "Trancos1rmDbl",
+        "sex": "m",
+        "individual": 2953.0,
+        "group_2": 2953.0,
+        "group_3": 2950.0,
+        "year": 2019,
+        "group_4": 2939.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Trancos",
+        "res_name_raw": "Trancos1rmSgl",
+        "sex": "m",
+        "individual": null,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "Any,Ujamaa",
+        "res_name_raw": "Ujamaa",
+        "sex": "m",
+        "individual": 342.0,
+        "group_2": 342.0,
+        "group_3": 274.0,
+        "year": 2019,
+        "group_4": 43.0
+    },
+    {
+        "res_name_edited": "Any,Ujamaa",
+        "res_name_raw": "Ujamaa (ethnic,B)",
+        "sex": "m",
+        "individual": 806.0,
+        "group_2": 632.0,
+        "group_3": 610.0,
+        "year": 2019,
+        "group_4": 480.0
+    },
+    {
+        "res_name_edited": "Any,Upper Row Self Op",
+        "res_name_raw": "UpRwSelfOp",
+        "sex": "m",
+        "individual": 2012.0,
+        "group_2": 1890.0,
+        "group_3": 1890.0,
+        "year": 2019,
+        "group_4": 1847.0
+    },
+    {
+        "res_name_edited": "Premier,Xanadu",
+        "res_name_raw": "XanaduPrm",
+        "sex": "m",
+        "individual": 191.0,
+        "group_2": 191.0,
+        "group_3": 121.0,
+        "year": 2019,
+        "group_4": 121.0
+    },
+    {
+        "res_name_edited": "Standard,Xanadu",
+        "res_name_raw": "XanaduStd",
+        "sex": "m",
+        "individual": 958.0,
+        "group_2": 925.0,
+        "group_3": 822.0,
+        "year": 2019,
+        "group_4": 793.0
+    },
+    {
+        "res_name_edited": "1 Room Double,Yost",
+        "res_name_raw": "Yost1rmDbl",
+        "sex": "m",
+        "individual": 2953.0,
+        "group_2": 2953.0,
+        "group_3": 2950.0,
+        "year": 2019,
+        "group_4": 2939.0
+    },
+    {
+        "res_name_edited": "1 Room Single,Yost",
+        "res_name_raw": "Yost1rmSgl",
+        "sex": "m",
+        "individual": 499.0,
+        "group_2": null,
+        "group_3": null,
+        "year": 2019,
+        "group_4": null
+    },
+    {
+        "res_name_edited": "2 Room Double,Yost",
+        "res_name_raw": "Yost2rmDbl",
+        "sex": "m",
+        "individual": 1665.0,
+        "group_2": 1665.0,
+        "group_3": 1499.0,
+        "year": 2019,
+        "group_4": 1428.0
+    },
+    {
+        "res_name_edited": "Any,ZAP",
+        "res_name_raw": "ZAP",
+        "sex": "m",
+        "individual": 1813.0,
+        "group_2": 1813.0,
+        "group_3": 1813.0,
+        "year": 2019,
+        "group_4": 1813.0
+    },
+    {
+        "res_name_edited": "Any,Zapata",
+        "res_name_raw": "Zapata",
+        "sex": "m",
+        "individual": 2953.0,
+        "group_2": 2799.0,
+        "group_3": 2799.0,
+        "year": 2019,
+        "group_4": 2799.0
+    },
+    {
+        "res_name_edited": "Any,Zapata",
+        "res_name_raw": "Zapata (ethnic,C)",
+        "sex": "m",
+        "individual": 3000.0,
+        "group_2": 2880.0,
+        "group_3": 2688.0,
+        "year": 2019,
+        "group_4": 1535.0
+    }
+]

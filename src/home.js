@@ -11,10 +11,7 @@ const divStyle = {
 };
 
 const headerStyle = {
-    top: '10%',
-    color: '#8c1515',
-    fontFamily: 'Open Sans Condensed, sans-serif',
-    //fontFamily: 'Futura Std Condensed Light, sans-serif',
+    top: '10%'
 };
 
 const buttonStyle = {
