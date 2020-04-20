@@ -128,7 +128,7 @@ class FAQ extends React.Component {
                 <Question4 />
                 <br />
                 <p style={answerStyle}>
-                    Contact lilyzhou@stanford.edu and dgrosz@stanford.edu for further inquiries.
+                    Contact mradovan@stanford.edu, chuang20@stanford.edu, and awang23@stanford.edu for further inquiries.
                 </p>
             </div>
  
