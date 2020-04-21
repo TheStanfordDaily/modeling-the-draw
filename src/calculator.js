@@ -48,8 +48,8 @@ const schema = {
     },
     applytype: {
       title: "Group Size: ",
-      enum: [ "individual", "group_2", "group_3", "group_4" ],
-      enumNames: [ "Individual", "Group of 2", "Group of 3", "Group of 4" ]
+      enum: [ "individual", "group_2", "group_3", "group_4", 'group_5', 'group_6' ],
+      enumNames: [ "Individual", "Group of 2", "Group of 3", "Group of 4", 'Group of 5', 'Group of 6' ]
     }
   },
   required: ["sex", "roomtype", "residence", "tiernumber", "applytype"],
@@ -119,7 +119,6 @@ function processTrends(gender, typeCol, resID, des_year) {
       let item = currData[j];
       if (item.year == prevYears[i] && (gender == "n" || item.sex == gender) && item.res_name_edited == resID) {
         foundCutoff = true;
-
         switch (typeCol) {
           case "individual":
             cutoffs.push(item.individual);
@@ -136,6 +135,15 @@ function processTrends(gender, typeCol, resID, des_year) {
           case "group_4":
             cutoffs.push(item.group_4);
             cutoffsStr.push(item.group_4);
+            break;
+          case "group_5":
+            cutoffs.push(item.group_5);
+            cutoffsStr.push(item.group_5);
+            break;
+          case "group_6":
+            cutoffs.push(item.group_6);
+            cutoffsStr.push(item.group_6);
+            break;
         }
         if (cutoffs[cutoffs.length - 1] == "" || cutoffs[cutoffs.length - 1] == null) {
           cutoffs.pop();
@@ -354,8 +362,8 @@ class Calculator extends React.Component {
           },
           applytype: {
             title: "Group Size: ",
-            enum: [ "individual", "group_2", "group_3", "group_4" ],
-            enumNames: [ "Individual", "Group of 2", "Group of 3", "Group of 4" ]
+            enum: [ "individual", "group_2", "group_3", "group_4", 'group_5', 'group_6' ],
+            enumNames: [ "Individual", "Group of 2", "Group of 3", "Group of 4", 'Group of 5', 'Group of 6' ]
           }
         },
         required: ["sex", "roomtype", "residence", "tiernumber", "applytype"],
